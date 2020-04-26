@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2020 at 03:54 PM
+-- Generation Time: Apr 26, 2020 at 07:45 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -103,7 +103,8 @@ CREATE TABLE `lenda` (
   `emer` varchar(70) NOT NULL,
   `kredite` int(11) NOT NULL,
   `id_dega` int(11) NOT NULL,
-  `ore_totale` int(11) NOT NULL
+  `ore_totale` int(11) NOT NULL,
+  `viti_i_lendes` enum('1','2','3') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
