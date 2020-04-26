@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2020 at 05:21 PM
+-- Generation Time: Apr 26, 2020 at 03:54 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -20,6 +20,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `profili-i-studentit`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dega`
+--
+
+CREATE TABLE `dega` (
+  `id_dega` int(11) NOT NULL,
+  `emri` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -43,7 +54,7 @@ CREATE TABLE `dokument` (
 CREATE TABLE `grupi` (
   `id_grupi` int(11) NOT NULL,
   `viti` enum('1','2','3') NOT NULL,
-  `dega` varchar(50) NOT NULL,
+  `id_dega` int(11) NOT NULL,
   `emer_grupi` char(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -91,7 +102,7 @@ CREATE TABLE `lenda` (
   `id_lenda` int(11) NOT NULL,
   `emer` varchar(70) NOT NULL,
   `kredite` int(11) NOT NULL,
-  `dega` varchar(100) NOT NULL,
+  `id_dega` int(11) NOT NULL,
   `ore_totale` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -148,11 +159,18 @@ CREATE TABLE `perdorues` (
   `emer` varchar(30) NOT NULL,
   `mbiemer` varchar(30) NOT NULL,
   `email` varchar(320) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL DEFAULT 'student12345',
   `gjini` enum('m','f') NOT NULL,
   `datelindje` date NOT NULL,
   `rol_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `perdorues`
+--
+
+INSERT INTO `perdorues` (`id`, `emer`, `mbiemer`, `email`, `password`, `gjini`, `datelindje`, `rol_id`) VALUES
+(4, 'vangjel', 'gramozi', 'vangjel@something.com', 'something', 'm', '2020-04-05', 0);
 
 -- --------------------------------------------------------
 
@@ -166,8 +184,24 @@ CREATE TABLE `roli` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `roli`
+--
+
+INSERT INTO `roli` (`rol_id`, `emer`) VALUES
+(0, 'administrator'),
+(1, 'student'),
+(2, 'pedagog'),
+(3, 'sekretare');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `dega`
+--
+ALTER TABLE `dega`
+  ADD PRIMARY KEY (`id_dega`);
 
 --
 -- Indexes for table `dokument`
@@ -180,7 +214,8 @@ ALTER TABLE `dokument`
 -- Indexes for table `grupi`
 --
 ALTER TABLE `grupi`
-  ADD PRIMARY KEY (`id_grupi`);
+  ADD PRIMARY KEY (`id_grupi`),
+  ADD KEY `dega` (`id_dega`);
 
 --
 -- Indexes for table `grupi_student`
@@ -208,7 +243,8 @@ ALTER TABLE `jep_mesim_lene`
 -- Indexes for table `lenda`
 --
 ALTER TABLE `lenda`
-  ADD PRIMARY KEY (`id_lenda`);
+  ADD PRIMARY KEY (`id_lenda`),
+  ADD KEY `id_dega` (`id_dega`);
 
 --
 -- Indexes for table `mungesa`
@@ -250,6 +286,12 @@ ALTER TABLE `roli`
 --
 
 --
+-- AUTO_INCREMENT for table `dega`
+--
+ALTER TABLE `dega`
+  MODIFY `id_dega` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `dokument`
 --
 ALTER TABLE `dokument`
@@ -277,13 +319,7 @@ ALTER TABLE `orari`
 -- AUTO_INCREMENT for table `perdorues`
 --
 ALTER TABLE `perdorues`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `roli`
---
-ALTER TABLE `roli`
-  MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -294,6 +330,12 @@ ALTER TABLE `roli`
 --
 ALTER TABLE `dokument`
   ADD CONSTRAINT `dokument_ibfk_1` FOREIGN KEY (`id_student`) REFERENCES `perdorues` (`id`);
+
+--
+-- Constraints for table `grupi`
+--
+ALTER TABLE `grupi`
+  ADD CONSTRAINT `grupi_ibfk_1` FOREIGN KEY (`id_dega`) REFERENCES `dega` (`id_dega`);
 
 --
 -- Constraints for table `grupi_student`
@@ -317,6 +359,12 @@ ALTER TABLE `jep_mesim_lene`
   ADD CONSTRAINT `jep_mesim_lene_ibfk_2` FOREIGN KEY (`id_lende`) REFERENCES `lenda` (`id_lenda`);
 
 --
+-- Constraints for table `lenda`
+--
+ALTER TABLE `lenda`
+  ADD CONSTRAINT `lenda_ibfk_1` FOREIGN KEY (`id_dega`) REFERENCES `dega` (`id_dega`);
+
+--
 -- Constraints for table `mungesa`
 --
 ALTER TABLE `mungesa`
@@ -327,7 +375,8 @@ ALTER TABLE `mungesa`
 -- Constraints for table `nota`
 --
 ALTER TABLE `nota`
-  ADD CONSTRAINT `nota_ibfk_1` FOREIGN KEY (`id_lenda`) REFERENCES `lenda` (`id_lenda`);
+  ADD CONSTRAINT `nota_ibfk_1` FOREIGN KEY (`id_lenda`) REFERENCES `lenda` (`id_lenda`),
+  ADD CONSTRAINT `nota_ibfk_2` FOREIGN KEY (`id_student`) REFERENCES `perdorues` (`id`);
 
 --
 -- Constraints for table `orari`
@@ -339,8 +388,7 @@ ALTER TABLE `orari`
 -- Constraints for table `perdorues`
 --
 ALTER TABLE `perdorues`
-  ADD CONSTRAINT `perdorues_ibfk_1` FOREIGN KEY (`rol_id`) REFERENCES `roli` (`rol_id`),
-  ADD CONSTRAINT `perdorues_ibfk_2` FOREIGN KEY (`id`) REFERENCES `nota` (`id_student`);
+  ADD CONSTRAINT `perdorues_ibfk_1` FOREIGN KEY (`rol_id`) REFERENCES `roli` (`rol_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
