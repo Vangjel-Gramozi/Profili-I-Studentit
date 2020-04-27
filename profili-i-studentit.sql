@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2020 at 03:54 PM
+-- Generation Time: Apr 27, 2020 at 08:34 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -103,7 +103,8 @@ CREATE TABLE `lenda` (
   `emer` varchar(70) NOT NULL,
   `kredite` int(11) NOT NULL,
   `id_dega` int(11) NOT NULL,
-  `ore_totale` int(11) NOT NULL
+  `ore_totale` int(11) NOT NULL,
+  `viti_i_lendes` enum('1','2','3') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -158,19 +159,14 @@ CREATE TABLE `perdorues` (
   `id` int(11) NOT NULL,
   `emer` varchar(30) NOT NULL,
   `mbiemer` varchar(30) NOT NULL,
-  `email` varchar(320) NOT NULL,
+  `email` varchar(320) NOT NULL DEFAULT 'emer.mbiemer@fshn.com',
   `password` varchar(100) NOT NULL DEFAULT 'student12345',
   `gjini` enum('m','f') NOT NULL,
   `datelindje` date NOT NULL,
-  `rol_id` int(11) NOT NULL
+  `rol_id` int(11) NOT NULL,
+  `atesia` varchar(32) NOT NULL,
+  `statusi` enum('i_rregullt','perserites') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `perdorues`
---
-
-INSERT INTO `perdorues` (`id`, `emer`, `mbiemer`, `email`, `password`, `gjini`, `datelindje`, `rol_id`) VALUES
-(4, 'vangjel', 'gramozi', 'vangjel@something.com', 'something', 'm', '2020-04-05', 0);
 
 -- --------------------------------------------------------
 
@@ -319,7 +315,7 @@ ALTER TABLE `orari`
 -- AUTO_INCREMENT for table `perdorues`
 --
 ALTER TABLE `perdorues`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
