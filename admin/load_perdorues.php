@@ -1,6 +1,6 @@
 <?php 
 include '../includes/connect_db.php';
-
+global $connection;
 	$newcount = $_POST['newcount'];
 	$query = "SELECT * FROM perdorues LIMIT $newcount";
 
