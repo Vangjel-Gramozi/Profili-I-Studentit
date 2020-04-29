@@ -1,17 +1,17 @@
-<?php
-include "../includes/connect_db.php";
+<?php 
+require '../includes/connect_db.php';
 
 function gjenero_email($emer,$mbiemer,$roli){
 	global $connection;
 	$email = $emer . '.' . $mbiemer . '@fshn';
 	if ($roli == 0) {
-		$email = $email . 'admin.com';
+		$email = $email . 'admin.info';
 	} else if ($roli == 1) {
-		$email = $email . 'student.com';
+		$email = $email . 'student.info';
 	} else if ($roli == 2) {
-		$email = $email . 'pedagog.com';
+		$email = $email . 'pedagog.info';
 	} else {
-		$email = $email . 'sekretare.com';
+		$email = $email . 'sekretare.info';
 	}
 return $email;
 }
@@ -56,8 +56,7 @@ function krijo_perdorues(){
 		} else {
 			echo "Record Created";
 		}
-		header("Location: http://localhost/profili-i-studentit/admin/");
-		exit();
+
 	}
 	
 }

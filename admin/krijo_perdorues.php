@@ -1,3 +1,5 @@
+<?php include "functions.php" ?>
+<?php include "../includes/connect_db.php" ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,34 +11,34 @@
 	<div class="continer">	
 		<div class="col-sm-6">
 			<h1 class="text-center">Krijo Perdorues</h1>
-			<form action="includes/proceso_shtim_perdoruesi.php" method="post">
+			<form action="krijo_perdorues.php" method="post">
 				<div class="form-group">
 					<label for="emri">Emer</label>
-					<input type="text" name="emri" class="form-control" id="emri">
+					<input type="text" name="emri" class="form-control" id="emri"  required>
 				</div>
 				<div class="form-group">
 					<label for="mbiemri">Mbiemer</label>
-					<input type="text" name="mbiemri" class="form-control" id="mbiemri">
+					<input type="text" name="mbiemri" class="form-control" id="mbiemri" required>
 				</div>
 				<div class="form-group">
 					<label for="atesia">Atesia</label>
-					<input type="text" name="atesia" class="form-control" id="atesia">
+					<input type="text" name="atesia" class="form-control" id="atesia" required>
 				</div>
 				<div class="form-group">
 					<span>Gjinia:</span>
-					<input type="radio" name="gjinia" value="m">
+					<input type="radio" name="gjinia" value="m" required>
 					<label for="mashkull">Mashkull</label>
 					<input type="radio" name="gjinia" value="f">
 					<label for="femer">Femer</label>
 				</div>
 				<div class="form-group">
 					<label for="datelindja">Datelindje</label>
-					<input type="date" name="datelindja" class="form-control" id="datelindja">
+					<input type="date" name="datelindja" class="form-control" id="datelindja" required>
 				</div>
 				<div class="form-group">
 					<label for="roli">Lloji i perdoruesit</label>
 					<select name="roli">
-					<option disabled selected value="">Zgjidh nje rol</option> 
+					<option disabled selected value="" required>Zgjidh nje rol</option> 
 				        <?php
 				           trego_rolet();
 				        ?>
@@ -48,3 +50,4 @@
 		</div>
 	</body>
 	</html>
+	<?php krijo_perdorues(); ?>
