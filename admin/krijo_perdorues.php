@@ -1,7 +1,3 @@
-<?php include "../includes/connect_db.php" ?>
-<?php include "functions/functions.php" ?>
-<?php krijo_perdorues(); ?>
-<script type="text/javascript" src="functions/krijo_perdorues.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,40 +9,38 @@
 	<div class="continer">	
 		<div class="col-sm-6">
 			<h1 class="text-center">Krijo Perdorues</h1>
-			<form action="krijo_perdorues.php" method="post">
+			<form action="includes/proceso_shtim_perdoruesi.php" method="post">
 				<div class="form-group">
 					<label for="emri">Emer</label>
-					<input type="text" name="emri" class="form-control">
+					<input type="text" name="emri" class="form-control" id="emri">
 				</div>
 				<div class="form-group">
 					<label for="mbiemri">Mbiemer</label>
-					<input type="text" name="mbiemri" class="form-control">
+					<input type="text" name="mbiemri" class="form-control" id="mbiemri">
 				</div>
 				<div class="form-group">
 					<label for="atesia">Atesia</label>
-					<input type="text" name="atesia" class="form-control">
+					<input type="text" name="atesia" class="form-control" id="atesia">
 				</div>
 				<div class="form-group">
-					<label for="mashkull">Mashkull</label>
+					<span>Gjinia:</span>
 					<input type="radio" name="gjinia" value="m">
-					<label for="femer">Femer</label>
+					<label for="mashkull">Mashkull</label>
 					<input type="radio" name="gjinia" value="f">
+					<label for="femer">Femer</label>
 				</div>
 				<div class="form-group">
 					<label for="datelindja">Datelindje</label>
-					<input type="date" name="datelindja" class="form-control">
+					<input type="date" name="datelindja" class="form-control" id="datelindja">
 				</div>
 				<div class="form-group">
 					<label for="roli">Lloji i perdoruesit</label>
-					<select name="roli"> 
+					<select name="roli">
+					<option disabled selected value="">Zgjidh nje rol</option> 
 				        <?php
 				           trego_rolet();
 				        ?>
 				    </select>
-				</div>
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" name="email" class="form-control">
 				</div>
 
 				<input type="submit" name="submit" class="btn btn-primary" value="Krijo Perdorues">
