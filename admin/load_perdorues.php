@@ -1,6 +1,6 @@
 <?php 
 include '../includes/connect_db.php';
-global $connection;
+// global $connection;
 	$newcount = $_POST['newcount'];
 	$query = "SELECT * FROM perdorues LIMIT $newcount";
 
@@ -17,4 +17,7 @@ global $connection;
 	} else {
 		echo "Nuk ka perdorues";
 	}
- ?>
+
+
+
+?>

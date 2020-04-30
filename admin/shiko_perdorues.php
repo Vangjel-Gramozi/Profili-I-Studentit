@@ -37,7 +37,7 @@
 		 ?>
 	</div>
 
-	<button id="button">Trego me shume perdorues</button>
+	<button id="button">Trego me shume perdorues </button>
 
 </body>
 </html>

@@ -13,6 +13,7 @@
 			</ul>
 		</nav>
 	</header>
+	<?php include 'shiko_perdorues.php'; ?>
 	<button id="krijo_perdorues"> <a href="krijo_perdorues.php">Krijo Perdorues</a></button>
 </body>
 </html>

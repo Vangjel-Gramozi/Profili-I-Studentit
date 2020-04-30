@@ -21,9 +21,9 @@
 					var rolet = $("#rolet").val();
 					var submit = $("#submit").val();
 					$("#message").load("valido_perdorues.php", {
-						emri: emri,
-						mbiemri: mbiemri,
-						atesia: atesia,
+						emri: emri.trim(),
+						mbiemri: mbiemri.trim(),
+						atesia: atesia.trim(),
 						gjinia: gjinia,
 						datelindja: datelindja,
 						rolet: rolet,
@@ -39,7 +39,7 @@
 	<div class="continer">	
 		<div class="col-sm-6">
 			<h1 class="text-center">Krijo Perdorues</h1>
-			<form action="valido_perdorues.php" method="post">
+			<form action="valido_perdorues.php" method="post" id="krijo_perdorues">
 				<div class="form-group">
 					<label for="emri">Emer</label>
 					<input type="text" name="emri" class="form-control" id="emri"  >
@@ -54,7 +54,7 @@
 				</div>
 				<div class="form-group">
 					<span>Gjinia:</span>
-					<input type="radio" name="gjinia" value="m">
+					<input type="radio" name="gjinia" value="m" checked>
 					<label for="mashkull">Mashkull</label>
 					<input type="radio" name="gjinia" value="f">
 					<label for="femer">Femer</label>
@@ -71,6 +71,7 @@
 				</div>
 
 				<input type="submit" name="submit" class="btn btn-primary" value="Krijo Perdorues" id="submit">
+				<!-- <button onclick="this.form.reset()">Pastro Formen</button> -->
 			</form>
 			<p id="message"></p>
 		</div>
