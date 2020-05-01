@@ -1,22 +1,21 @@
 <?php 
 include '../includes/connect_db.php';
-// global $connection;
-	$newcount = $_POST['newcount'];
-	$query = "SELECT * FROM perdorues LIMIT $newcount";
+$newcount = $_POST['newcount'];
+$query = "SELECT * FROM perdorues LIMIT $newcount";
 
-	$result = mysqli_query($connection,$query);
-	if (mysqli_num_rows($result) > 0) {
-		while ($row = mysqli_fetch_assoc($result)) {
-			foreach ($row as $key => $value) {
-				if ($key !== 'id' && $key !== 'password') {
-					echo $value . "	";
-				} 
-			}
-			echo "<br>";
+$result = mysqli_query($connection,$query);
+if (mysqli_num_rows($result) > 0) {
+	while ($row = mysqli_fetch_assoc($result)) {
+		foreach ($row as $key => $value) {
+			if ($key !== 'id' && $key !== 'password') {
+				echo $value . "	";
+			} 
 		}
-	} else {
-		echo "Nuk ka perdorues";
+		echo "<br>";
 	}
+} else {
+	echo "Nuk ka perdorues";
+}
 
 
 

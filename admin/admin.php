@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Admin Homepage</title>
+<?php include 'includes/header.php'; ?>
 </head>
 <body>
-	<header>
-		<nav>
-			<ul>
-				<li>Home</li>
-				<li>About</li>
-				<li>Contact</li>
-			</ul>
-		</nav>
-	</header>
+
+<?php include 'includes/navbar.php'; ?>
+	
 	<?php include 'shiko_perdorues.php'; ?>
-	<button id="krijo_perdorues"> <a href="krijo_perdorues.php">Krijo Perdorues</a></button>
-</body>
-</html>
+	<a href="krijo_perdorues.php" class="btn btn-primary" id="krijo_perdorues">Shto Perdorues</a>
+<?php include 'includes/footer.php'; ?>

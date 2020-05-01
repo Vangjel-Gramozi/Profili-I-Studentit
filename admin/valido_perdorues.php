@@ -15,12 +15,11 @@ if (isset($_POST['submit'])) {
 		$errorEmpty = true;
 	} else {
 		if (!preg_match("/^[a-zA-Z]+$/", $emri) || !preg_match("/^[a-zA-Z]+$/", $mbiemri) || !preg_match("/^[a-zA-Z]+$/", $atesia)) {
-				$errorChar = true;
-				echo "Vendosni vetem karaktere pa hapesire";
+			$errorChar = true;
+			echo "Vendosni vetem karaktere pa hapesire";
 		} else {
 
 			
-			$email = gjenero_email($emri,$mbiemri,$rolet);
 			$errorEmpty = false;
 			$errorChar = false;
 			echo "<span>SUCCESS</span>";
@@ -31,6 +30,20 @@ if (isset($_POST['submit'])) {
 			$datelindja = mysqli_real_escape_string($connection, $datelindja);
 			$rolet = mysqli_real_escape_string($connection, $rolet);
 			$atesia = mysqli_real_escape_string($connection, strtolower($atesia));
+
+			$query_nr_perdoruesish = "SELECT * FROM perdorues WHERE 
+			emer = '$emri' AND 
+			mbiemer = '$mbiemri' AND 
+			rol_id = '$rolet'";
+			$result_nr_perdoruesish = mysqli_query($connection,$query_nr_perdoruesish);
+			if(!$result_nr_perdoruesish) {
+				die("Query nr perdoruesish failed") . mysqli_error($connection);
+			}
+			$nr_perdoruesish = mysqli_num_rows($result_nr_perdoruesish);
+
+
+
+			$email = gjenero_email($emri,$mbiemri,$rolet,$nr_perdoruesish);
 			$email = mysqli_real_escape_string($connection, strtolower($email));
 
 			if ($rolet == 1) {	
@@ -55,9 +68,13 @@ if (isset($_POST['submit'])) {
 	exit();
 }
 
-function gjenero_email($emer,$mbiemer,$rolet){
-	global $connection;
-	$email = $emer . '.' . $mbiemer . '@fshn';
+function gjenero_email($emer,$mbiemer,$rolet, $nr_perdoruesish){
+	if ($nr_perdoruesish == 0) {
+		$email = $emer . '.' . $mbiemer . '@fshn';
+	} else {
+		$email = $emer . '.' . $mbiemer . $nr_perdoruesish . '@fshn';
+	}
+	
 	if ($rolet == 4) {
 		$email = $email . 'admin.info';
 	} else if ($rolet == 1) {
