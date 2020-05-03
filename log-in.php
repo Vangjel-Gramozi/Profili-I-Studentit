@@ -8,14 +8,14 @@
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
 <body>
-	<img class="wave" src="img/wave.png">
+	<!-- <img class="wave" src="img/wave.png"> -->
 	<div class="container">
 		<div class="img">
-			<img src="Img/school.svg">
+			<img src="Img/fshnlogo.png">
 		</div>
 		<div class="login-content">
 			<form action="includes/login_process.php" method="post">
-				<img src="Img/profile.svg">
+				<img src="Img/profil2.jpg">
 				<h2 class="title">Welcome</h2>
        <div class="input-div one">
         <div class="i">
