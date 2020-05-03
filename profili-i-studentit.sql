@@ -3,7 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2020 at 08:34 PM
+
+-- Generation Time: Apr 29, 2020 at 09:03 PM
+
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -160,7 +162,8 @@ CREATE TABLE `perdorues` (
   `emer` varchar(30) NOT NULL,
   `mbiemer` varchar(30) NOT NULL,
   `email` varchar(320) NOT NULL DEFAULT 'emer.mbiemer@fshn.com',
-  `password` varchar(100) NOT NULL DEFAULT 'student12345',
+  `password` longtext NOT NULL DEFAULT 'student12345',
+
   `gjini` enum('m','f') NOT NULL,
   `datelindje` date NOT NULL,
   `rol_id` int(11) NOT NULL,
@@ -184,10 +187,10 @@ CREATE TABLE `roli` (
 --
 
 INSERT INTO `roli` (`rol_id`, `emer`) VALUES
-(0, 'administrator'),
 (1, 'student'),
 (2, 'pedagog'),
-(3, 'sekretare');
+(3, 'sekretare'),
+(4, 'administrator');
 
 --
 -- Indexes for dumped tables
