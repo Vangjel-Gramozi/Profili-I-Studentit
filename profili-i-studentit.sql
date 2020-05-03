@@ -3,9 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-
--- Generation Time: Apr 29, 2020 at 09:03 PM
-
+-- Generation Time: May 03, 2020 at 10:39 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -86,10 +84,10 @@ CREATE TABLE `jep_mesim_grup` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jep_mesim_lene`
+-- Table structure for table `jep_mesim_lende`
 --
 
-CREATE TABLE `jep_mesim_lene` (
+CREATE TABLE `jep_mesim_lende` (
   `id_pedagog` int(11) NOT NULL,
   `id_lende` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -106,7 +104,8 @@ CREATE TABLE `lenda` (
   `kredite` int(11) NOT NULL,
   `id_dega` int(11) NOT NULL,
   `ore_totale` int(11) NOT NULL,
-  `viti_i_lendes` enum('1','2','3') NOT NULL
+  `viti_i_lendes` enum('1','2','3') NOT NULL,
+  `me_zgjedhje` enum('0','1') NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -163,13 +162,21 @@ CREATE TABLE `perdorues` (
   `mbiemer` varchar(30) NOT NULL,
   `email` varchar(320) NOT NULL DEFAULT 'emer.mbiemer@fshn.com',
   `password` longtext NOT NULL DEFAULT 'student12345',
-
   `gjini` enum('m','f') NOT NULL,
   `datelindje` date NOT NULL,
   `rol_id` int(11) NOT NULL,
   `atesia` varchar(32) NOT NULL,
   `statusi` enum('i_rregullt','perserites') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `perdorues`
+--
+
+INSERT INTO `perdorues` (`id`, `emer`, `mbiemer`, `email`, `password`, `gjini`, `datelindje`, `rol_id`, `atesia`, `statusi`) VALUES
+(1, 'vangjel', 'gramozi', 'vangjel.gramozi@fshnadmin.info', 'student12345', 'm', '1999-03-22', 4, 'kostandin', NULL),
+(2, 'stiven', 'kerthi', 'stiven.kerthi@fshnstudent.info', 'student12345', 'm', '1999-04-26', 1, 'ardian', 'i_rregullt'),
+(3, 'xholjan', 'malia', 'xholjan.malia@fshnsekretare.info', 'student12345', 'm', '1998-03-26', 3, 'behar', NULL);
 
 -- --------------------------------------------------------
 
@@ -232,9 +239,9 @@ ALTER TABLE `jep_mesim_grup`
   ADD KEY `id_grup` (`id_grup`);
 
 --
--- Indexes for table `jep_mesim_lene`
+-- Indexes for table `jep_mesim_lende`
 --
-ALTER TABLE `jep_mesim_lene`
+ALTER TABLE `jep_mesim_lende`
   ADD PRIMARY KEY (`id_pedagog`,`id_lende`),
   ADD KEY `id_lende` (`id_lende`);
 
@@ -318,7 +325,7 @@ ALTER TABLE `orari`
 -- AUTO_INCREMENT for table `perdorues`
 --
 ALTER TABLE `perdorues`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -351,11 +358,11 @@ ALTER TABLE `jep_mesim_grup`
   ADD CONSTRAINT `jep_mesim_grup_ibfk_2` FOREIGN KEY (`id_grup`) REFERENCES `grupi` (`id_grupi`);
 
 --
--- Constraints for table `jep_mesim_lene`
+-- Constraints for table `jep_mesim_lende`
 --
-ALTER TABLE `jep_mesim_lene`
-  ADD CONSTRAINT `jep_mesim_lene_ibfk_1` FOREIGN KEY (`id_pedagog`) REFERENCES `perdorues` (`id`),
-  ADD CONSTRAINT `jep_mesim_lene_ibfk_2` FOREIGN KEY (`id_lende`) REFERENCES `lenda` (`id_lenda`);
+ALTER TABLE `jep_mesim_lende`
+  ADD CONSTRAINT `jep_mesim_lende_ibfk_1` FOREIGN KEY (`id_pedagog`) REFERENCES `perdorues` (`id`),
+  ADD CONSTRAINT `jep_mesim_lende_ibfk_2` FOREIGN KEY (`id_lende`) REFERENCES `lenda` (`id_lenda`);
 
 --
 -- Constraints for table `lenda`

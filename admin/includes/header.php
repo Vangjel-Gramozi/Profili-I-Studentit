@@ -1,4 +1,10 @@
 <?php include "../includes/connect_db.php"; ?>
+<?php 
+session_start();
+if ($_SESSION['rol_id'] !== '4') {
+	header("Location: ../log-in.php");
+}
+?>
 
 <!DOCTYPE html>
 <html>
