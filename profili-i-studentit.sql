@@ -3,7 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+
 -- Generation Time: Apr 29, 2020 at 09:03 PM
+
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -161,6 +163,7 @@ CREATE TABLE `perdorues` (
   `mbiemer` varchar(30) NOT NULL,
   `email` varchar(320) NOT NULL DEFAULT 'emer.mbiemer@fshn.com',
   `password` longtext NOT NULL DEFAULT 'student12345',
+
   `gjini` enum('m','f') NOT NULL,
   `datelindje` date NOT NULL,
   `rol_id` int(11) NOT NULL,
