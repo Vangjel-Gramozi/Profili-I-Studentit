@@ -19,7 +19,7 @@
         <a class="nav-link disabled" href="#">Menaxho Grup</a>
       </li>
       <li class="nav-item">
-        <a href="../../includes/logout.php">Log out</a>
+        <a class="nav-link" href="../includes/logout.php">Log out</a>
       </li>
     </ul>
 <!--     <form class="form-inline my-2 my-lg-0">
