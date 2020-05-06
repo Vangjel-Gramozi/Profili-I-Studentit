@@ -4,7 +4,7 @@ if (isset($_POST['startCount']) && isset($_POST['userCount'])) {
 	$startCount = $_POST['startCount'];
 	$userCount = $_POST['userCount'];
 	// merr kolonen me te cilen do te besh sort
-	// seleckto vetem ato te dhena qe te duhen	
+	// selekto vetem ato te dhena qe te duhen	
 	$query = "SELECT * FROM perdorues ORDER BY id LIMIT $startCount,$userCount";
 	$result = mysqli_query($connection,$query);
 
