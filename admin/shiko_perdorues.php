@@ -54,7 +54,7 @@
 		padding: 0 10px;
 		width: 450px;
 		caret-color:gray;
-		transition: width 0.4s linear;
+		transition: width 0.1s linear;
 		}
 
 		.searchbar:hover > .search_icon{
