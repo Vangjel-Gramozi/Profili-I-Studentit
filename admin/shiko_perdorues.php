@@ -1,11 +1,13 @@
-<script type="text/javascript">
+	<script type="text/javascript">
 	$(document).ready(function() {
 		<?php 
-		$startCount = 0; 
-		$userCount = 1;
+		// $startCount = 0; 
+		// $userCount = 1;
 		?>
-		var startCount = <?php echo $startCount; ?>;
-		var userCount = <?php echo $userCount; ?>;
+		// var startCount = <?php //echo $startCount; ?>;
+		// var userCount = <?php //echo $userCount; ?>;
+		var startCount = 0;
+		var userCount = 2;
 		$("#trego_perdorues").click(function(){
 				// link to file, data,callback
 				// count = count + 2;
@@ -20,11 +22,25 @@
 					dataType: "JSON",
 					success: function(data){
 						// shto stilizime ketu
-						console.log(data.emer);
-						$("#perdoruesit").text(data.emer);
+						console.log(data);
+						data.forEach(function(d){
+							$("#perdoruesit").append(
+							                         "<div>" + d.emer + 
+							                         		// "<input  type='text' value = '" + d.emer + "'>" +
+							                         "</div>"
+							                         );	
+						});
+						// $.each(data,function (d){
+						// 	console.log(d);
+						// });
+
+						// });
+						// $("#perdoruesit").append(data.emer);
+						if (!data.error) {
+							startCount = startCount + userCount; //1 //2 
+						}
 					}
 				});
-				startCount = startCount + userCount; //1 //2 
 				// $("#perdoruesit").load("load_perdorues.php", {
 				// 	newcount : count
 				// });
@@ -49,6 +65,6 @@
 		// 	echo "<span>Nuk ka perdorues</span>";
 		// }
 		?>
-	</div>
+	</div>	
 	<button id="trego_perdorues" class="btn btn-primary">Trego me shume perdorues </button>
 </div>

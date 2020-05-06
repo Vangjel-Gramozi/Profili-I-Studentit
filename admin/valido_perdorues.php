@@ -32,9 +32,9 @@ if (isset($_POST['submit'])) {
 			$atesia = mysqli_real_escape_string($connection, strtolower($atesia));
 
 			$query_nr_perdoruesish = "SELECT * FROM perdorues WHERE 
-			emer = '$emri' AND 
-			mbiemer = '$mbiemri' AND 
-			rol_id = '$rolet'";
+										emer = '$emri' AND 
+										mbiemer = '$mbiemri' AND 
+										rol_id = '$rolet'";
 			$result_nr_perdoruesish = mysqli_query($connection,$query_nr_perdoruesish);
 			if(!$result_nr_perdoruesish) {
 				die("Query nr perdoruesish failed") . mysqli_error($connection);
@@ -45,12 +45,15 @@ if (isset($_POST['submit'])) {
 
 			$email = gjenero_email($emri,$mbiemri,$rolet,$nr_perdoruesish);
 			$email = mysqli_real_escape_string($connection, strtolower($email));
+			
+			$default_password = "student12345";
+			$hashed_password = password_hash($default_password,PASSWORD_DEFAULT);
 
 			if ($rolet == 1) {	
 				$statusi = "i_rregullt";
-				$query = "INSERT INTO perdorues (emer, mbiemer, gjini, datelindje, rol_id, atesia, email, statusi) VALUES ('$emri', '$mbiemri', '$gjinia', '$datelindja', '$rolet', '$atesia', '$email', '$statusi')";
+				$query = "INSERT INTO perdorues (emer, mbiemer, gjini, datelindje, rol_id, atesia, email, statusi, password) VALUES ('$emri', '$mbiemri', '$gjinia', '$datelindja', '$rolet', '$atesia', '$email', '$statusi', '$hashed_password')";
 			}  else {
-				$query = "INSERT INTO perdorues (emer, mbiemer, gjini, datelindje, rol_id, atesia, email) VALUES ('$emri', '$mbiemri', '$gjinia', '$datelindja', '$rolet', '$atesia', '$email')";
+				$query = "INSERT INTO perdorues (emer, mbiemer, gjini, datelindje, rol_id, atesia, email, password) VALUES ('$emri', '$mbiemri', '$gjinia', '$datelindja', '$rolet', '$atesia', '$email', '$hashed_password')";
 			}
 
 			$result = mysqli_query($connection,$query);
