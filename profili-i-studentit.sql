@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2020 at 10:39 PM
+-- Generation Time: May 07, 2020 at 07:44 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -29,7 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `dega` (
   `id_dega` int(11) NOT NULL,
-  `emri` varchar(50) NOT NULL
+  `emri` varchar(50) NOT NULL,
+  `kuotat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -174,9 +175,9 @@ CREATE TABLE `perdorues` (
 --
 
 INSERT INTO `perdorues` (`id`, `emer`, `mbiemer`, `email`, `password`, `gjini`, `datelindje`, `rol_id`, `atesia`, `statusi`) VALUES
-(1, 'vangjel', 'gramozi', 'vangjel.gramozi@fshnadmin.info', 'student12345', 'm', '1999-03-22', 4, 'kostandin', NULL),
-(2, 'stiven', 'kerthi', 'stiven.kerthi@fshnstudent.info', 'student12345', 'm', '1999-04-26', 1, 'ardian', 'i_rregullt'),
-(3, 'xholjan', 'malia', 'xholjan.malia@fshnsekretare.info', 'student12345', 'm', '1998-03-26', 3, 'behar', NULL);
+(1, 'vangjel', 'gramozi', 'vangjel.gramozi@fshnadmin.info', '$2y$10$0spq1Ay89qb6HBH6P.XCC.EtO5y6NgfZc2A5i463xrbnMBbL.k1Na', 'm', '1999-03-22', 4, 'kostandin', NULL),
+(2, 'stiven', 'kerthi', 'stiven.kerthi@fshnadmin.info', '$2y$10$jb.m/IdefmZDUcl7SlpRfuMUvhVlYmBnXhw9oX8MnGDcZ/8Uw9q/S', 'm', '1999-04-26', 4, 'ardian', NULL),
+(3, 'xholjan', 'malia', 'xholjan.malia@fshnstudent.info', '$2y$10$YCsW2EBYqkLqCCn6YbNhlOnFhLyIIkOLSsG9.m1.sI3NIy0abNhNy', 'm', '1998-03-26', 1, 'behar', 'i_rregullt');
 
 -- --------------------------------------------------------
 
