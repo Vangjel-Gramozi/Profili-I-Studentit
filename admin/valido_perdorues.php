@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
 	} else {
 		if (!preg_match("/^[a-zA-Z]+$/", $emri) || !preg_match("/^[a-zA-Z]+$/", $mbiemri) || !preg_match("/^[a-zA-Z]+$/", $atesia)) {
 			$errorChar = true;
-			echo "Vendosni vetem karaktere pa hapesire";
+			echo "Nuk lejohet perdorimi i numrave dhe shkronjave me hapesire";
 		} else {
 
 			

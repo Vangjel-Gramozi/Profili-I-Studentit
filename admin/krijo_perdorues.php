@@ -23,8 +23,7 @@
 						rolet: rolet,
 						submit: submit
 					});
-				})
-				;
+				});
 			});
 		</script>
 	</head>
