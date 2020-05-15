@@ -19,7 +19,10 @@
 					dataType: "JSON",
 					success: function(data){
 						// shto stilizime ketu
-						// console.log(data[0].emer);
+						if (data.error) {
+							return;
+						}
+						console.log(data);
 						data.forEach(function(d){
 							console.log(d.emer);
 							$("#perdoruesit").append(
@@ -108,6 +111,10 @@
 					// // });
 		   // });
 });
+
+		   setTimeout(function() {
+		       $('span').fadeOut('fast');
+		   }, 1000); 
 		   // var submits = $('.edit_perdorues');
 		   // // $(submits).parent();
 		   // $(submits).click(function(event){ 

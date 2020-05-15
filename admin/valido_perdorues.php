@@ -11,12 +11,12 @@ if (isset($_POST['submit'])) {
 	$rolet = $_POST['rolet'];
 
 	if (empty($emri) || empty($mbiemri) || empty($atesia) || empty($gjinia) || empty($datelindja) || empty($rolet)) {
-		echo "<span>Plotesoni te gjitha fushat</span>";
+		echo "<span class='error'>Plotesoni te gjitha fushat</span>";
 		$errorEmpty = true;
 	} else {
 		if (!preg_match("/^[a-zA-Z]+$/", $emri) || !preg_match("/^[a-zA-Z]+$/", $mbiemri) || !preg_match("/^[a-zA-Z]+$/", $atesia)) {
 			$errorChar = true;
-			echo "Nuk lejohet perdorimi i numrave dhe shkronjave me hapesire";
+			echo "<span>Nuk lejohet perdorimi i numrave dhe shkronjave me hapesire</span>";
 		} else {
 
 			
@@ -101,6 +101,9 @@ function gjenero_email($emer,$mbiemer,$rolet, $nr_perdoruesish){
  	if (errorEmpty == 1) {
  		// Shto klase per stilizim kur te dhenat te jene gabim
  		// $("#emri", "#mbiemri", "atesia", "gjinia", "datelindja", "#rolet").addClass("");
+ 		setTimeout(function() {
+ 		    $('span').fadeOut('fast');
+ 		}, 1000); 
  	}
  	if (errorEmpty == 0 || errorChar == 0) {
  		// $("#emri", "#mbiemri", "#atesia", "input[name='gjinia']", "#datelindja", "#rolet").val(" ");
