@@ -65,10 +65,31 @@
 								var submit = $(form + ' input[name="submit"]').val();
 								// console.log(submit);
 
-								$(this).next('.message').load("edit_perdorues.php", {
-									emri: emri,
-									mbiemri: mbiemri,
-									submit: submit
+								// $(this).next('.message').load("edit_perdorues.php", {
+								// 	emri: emri,
+								// 	mbiemri: mbiemri,
+								// 	submit: submit
+								// });
+								$.ajax({
+									url:"edit_perdorues.php",
+									method:"POST",
+									data: {
+											emri: emri,
+											mbiemri: mbiemri,
+											submit: submit
+									},
+									dataType: "JSON",
+									success: function(data){
+										console.log(data.error);
+										if (data.error) {
+											 $(form).next('.message').text(data.error);
+										setTimeout(function() {
+										    $(form).next('.message').text('');
+										}, 2500); 
+										} else {
+											// data qe te kthen pasi perfundon me sukses query update
+										}
+									}
 								});
 							});
 
@@ -112,9 +133,6 @@
 		   // });
 });
 
-		   setTimeout(function() {
-		       $('span').fadeOut('fast');
-		   }, 1000); 
 		   // var submits = $('.edit_perdorues');
 		   // // $(submits).parent();
 		   // $(submits).click(function(event){ 

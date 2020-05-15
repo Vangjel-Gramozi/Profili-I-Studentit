@@ -6,12 +6,20 @@ if (isset($_POST['submit'])){
 	$emri = $_POST['emri'];
 	$mbiemri = $_POST['mbiemri'];
 	if (empty($emri) || empty($mbiemri)) {
-		echo "<span>Plotesoni te gjitha fushat</span>";
+		$error = '
+		{
+			"error" : "Nuk duhet inpute bosh"
+		}';
+		echo $error;
 		$errorEmpty = true;
 	} else {
 		if (!preg_match("/^[a-zA-Z]+$/", $emri) || !preg_match("/^[a-zA-Z]+$/", $mbiemri)) {
 			$errorChar = true;
-			echo "<span>Nuk lejohet perdorimi i numrave dhe shkronjave me hapesire</span>";
+			$error = '
+			{
+				"error" : "Nuk lejohet perdorimi i numrave dhe shkronjave me hapesire"
+			}';
+			echo $error;
 		} else {
 			$errorEmpty = false;
 			$errorChar = false;
