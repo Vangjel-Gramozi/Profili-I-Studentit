@@ -1,10 +1,15 @@
 <?php 
 require '../includes/connect_db.php';
-// $submit = preg_match("/^input_id[0-9]+$/", $_POST[name]);	
-// if (isset($_POST['input_id1'])) {
+
 if (isset($_POST['submit'])){
+	$id = $_POST['id'];
 	$emri = $_POST['emri'];
 	$mbiemri = $_POST['mbiemri'];
+	$atesia = $_POST['atesia'];
+	$email = $_POST['email'];
+	$gjinia = $_POST['gjinia'];
+	$datelindja = $_POST['datelindja'];
+
 	if (empty($emri) || empty($mbiemri)) {
 		$error = '
 		{
@@ -26,13 +31,41 @@ if (isset($_POST['submit'])){
 
 			$emri = mysqli_real_escape_string($connection, strtolower($emri));
 			$mbiemri = mysqli_real_escape_string($connection, strtolower($mbiemri));
+			$email = mysqli_real_escape_string($connection, strtolower($email));
+			$id = mysqli_real_escape_string($connection, $id);
 
-			// $query = "INSERT INTO perdorues (emer, mbiemer, gjini, datelindje, rol_id, atesia, email, statusi, password) VALUES ('$emri', '$mbiemri', '$gjinia', '$datelindja', '$rolet', '$atesia', '$email', '$statusi', '$hashed_password')";
+			$query = "SELECT email FROM perdorues WHERE email = '$email'";
+			$result = mysqli_query($connection,$query);
+			$query2 = "SELECT id, email FROM perdorues WHERE id = '$id' AND email = '$email'";
+			$result2 = mysqli_query($connection,$query2);
+			if ((mysqli_num_rows($result) == 1 || mysqli_num_rows($result) == 0) && mysqli_num_rows($result2) == 1) {
+				$error = '
+				{
+					"error" : "Email-i eshte ok"
+				}';
+				echo $error;
+				// $data = array();
+				// while ($row = mysqli_fetch_assoc($result)) {       
+				// 	$data[] = $row;
+				// }
+				//  echo json_encode($data);
+			} else {
+				$error = '
+				{
+					"error" : "Email-i eshte ekzistent"
+				}';
+				echo $error;
+			}
 
 
 
 
-			echo print_r($_POST);	
+			// $query = "UPDATE perdorues SET emer = '$emri', mbiemer = '$mbiemeri' WHERE id = '$id'";
+
+
+
+
+			// echo json_encode($_POST);	
 
 		}
 	}
