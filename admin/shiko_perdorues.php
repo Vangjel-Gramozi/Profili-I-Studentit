@@ -1,4 +1,7 @@
 	<style type="text/css">
+		.hidden {
+			display: none;
+		}
 		.rrjesht {
 			border-top: 1px solid black;
 			border-bottom: 1px solid black;

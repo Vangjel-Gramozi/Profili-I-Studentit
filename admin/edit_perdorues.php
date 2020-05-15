@@ -103,7 +103,7 @@ if (isset($_POST['submit'])){
 				}
 				
 			} else {
-				echo "Te dhena jo te sakta";
+				echo " Te dhena jo te sakta";
 			}
 			
 			

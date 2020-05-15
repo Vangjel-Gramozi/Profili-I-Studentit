@@ -35,7 +35,7 @@
 	         		        }
 							console.log(d);
 							$("#perdoruesit").append(
-		                 "<div class = 'row rrjesht' >" +
+		                 "<div class = 'row rrjesht' id='perdoruesi"+d.id+"'>" +
 		                      "<div class = 'col kolone'>" + d.id + "</div>" + 
 		                      "<div class = 'col kolone'>" + d.emer + "</div>" + 
 		                      "<div class = 'col kolone'>" + d.atesia + "</div>" + 
@@ -44,30 +44,35 @@
 		                      "<div class = 'col kolone'>" + d.datelindje + "</div>" + 
 		                      "<div class = 'col kolone'>" + d.rol_id + "</div>" + 	
 		                      "<div class = 'col kolone'>" + d.statusi + "</div>" + 
-		                      "<div class = 'col kolone email'>" + d.email + "<span> <a href='#'>edit</a></span> <span><a href='#'>delete</a></span>" + "</div>" + 
+		                      "<div class = 'col kolone email'>" + d.email + "<span class='hidden' id='edit"+d.id+"'>edit</span> <span class='hidden'><a href='#'>delete</a></span>" + "</div>" + 
 		                     		// "<input  type='text' value = '" + d.emer + "'>" +
 		                 "</div>" + 
 		                 //inputet per tu ber edit
 		                 // hidden ne fillim
-		                 "<div class = 'row rrjesht' >" +
+		                 "<div class = 'row rrjesht hidden' >" +
 			                "<form id='form_id"+ d.id +"' method = 'POST' action = 'edit_perdorues.php'>" +
 			                   "<div class='row'>" +
 			                     "<div class='col'>" +
+									"<label for='emri'>Emer</label>" +
 			                       "<input type='text' class='form-control' name = 'emri' value= " + d.emer + ">" +
 			                     "</div>" + 
 			                     "<div class='col'>" +
+									"<label for='atesia'>Atesia</label>" +
 			                       "<input type='text' class='form-control' name = 'atesia' value= " + d.atesia + ">" +
 			                     "</div>" + 
 			                     "<div class='col'>" +
+									"<label for='mbiemri'>Mbiemer</label>" +
 			                       "<input type='text' class='form-control' name = 'mbiemri' value=" + d.mbiemer + ">" +
 			                     "</div>" + 
 			                     // "<div class='col'>" + 	
 			                     //   		gjinia +
 			                     // "</div>" + 
 			                     "<div class='col'>" +
+									"<label for='datelindja'>Datelindja</label>" +
 			                     	"<input type='date' name='datelindja' class='form-control' value=" +d.datelindje +">" +
 			                     "</div>" + 
 			                     "<div class='col'>" +
+									"<label for='email'>Email</label>" +
 			                       "<input type='text' class='form-control' name = 'email' value=" + d.email + ">" +
 			                     "</div>" + 
 			                   "<input type='submit' name='submit' id='input_id"+ d.id +"' class='edit_perdorues btn btn-primary' value='Ruaj'>" +
@@ -76,11 +81,27 @@
 			                 "<div class = 'message'>here</div>" +
 		                 "</div>"
 	                     );	//end append
-
 							var form = '#form_id'+ d.id;	// selector per formen
+							var edit = '#edit'+ d.id;		// selector per edit
+							var perdoruesi = '#perdoruesi' +d.id;
+						
+							    $(perdoruesi).on('mouseenter', function () {
+							        $(this).find("span").removeClass('hidden');;
+							    }).on('mouseleave', function () {
+							        $(this).find("span").addClass('hidden');
+							    });
+						
+							$(edit).click(function(){
+							  $(form).parent().toggleClass("hidden");
+							});
+
 							$(form).submit(function(event){
 								event.preventDefault();
-								// console.log($(form + ' input[name="emri"]').val());
+								if(!confirm('Are you sure?')){
+
+								    return false;
+								} else {
+
 								var id = d.id;
 								var emri = $(form + ' input[name="emri"]').val();
 								var mbiemri = $(form + ' input[name="mbiemri"]').val();
@@ -138,6 +159,7 @@
 								// 		}
 								// 	}
 								// });
+								}
 							});
 
 
