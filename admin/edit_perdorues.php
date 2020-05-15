@@ -1,5 +1,6 @@
 <?php 
 require '../includes/connect_db.php';
+// echo print_r($_POST);
 
 if (isset($_POST['submit'])){
 	$id = $_POST['id'];
@@ -80,7 +81,7 @@ if (isset($_POST['submit'])){
 				// eshte emaili i perdoruesit qe po editojme te dhenat
 			} else if (mysqli_num_rows($result2) == 1 ) {
 				if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-					echo "Ska ndryshime ne email";
+					echo "Ska ndryshime ne email<br>";
 					$flag = true;
 
 				} else {

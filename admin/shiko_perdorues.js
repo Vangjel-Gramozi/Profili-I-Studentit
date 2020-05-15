@@ -44,7 +44,13 @@
 		                      "<div class = 'col kolone'>" + d.datelindje + "</div>" + 
 		                      "<div class = 'col kolone'>" + d.rol_id + "</div>" + 	
 		                      "<div class = 'col kolone'>" + d.statusi + "</div>" + 
-		                      "<div class = 'col kolone email'>" + d.email + "<span class='hidden' id='edit"+d.id+"'>edit</span> <span class='hidden'><a href='#'>delete</a></span>" + "</div>" + 
+		                      "<div class = 'col kolone email'>" + d.email + 
+		                      "<span class='hidden' id='edit"+d.id+"'>edit</span>" + 
+		                      "<span class='hidden' id='delete"+d.id+"'>"+
+			                 "<form id='form_id_delete"+ d.id +"' method = 'POST' action = 'delete_perdorues.php'>" +
+			                	"<input type='submit' name='submit' value='delete'>" +
+		                     "</form>"+
+		                      "</span>" + "</div>" + 
 		                     		// "<input  type='text' value = '" + d.emer + "'>" +
 		                 "</div>" + 
 		                 //inputet per tu ber edit
@@ -75,15 +81,20 @@
 									"<label for='email'>Email</label>" +
 			                       "<input type='text' class='form-control' name = 'email' value=" + d.email + ">" +
 			                     "</div>" + 
-			                   "<input type='submit' name='submit' id='input_id"+ d.id +"' class='edit_perdorues btn btn-primary' value='Ruaj'>" +
+			                   // "<input type='button' name='delete' id='delete_id"+ d.id +"' value='delete' class='hidden'>" +
+			                   "<input type='submit' name='submit' id='input_id"+ d.id +"' class='edit_perdorues btn btn-primary' value='ruaj'>" +
 			                   "</div>" +
 			                 "</form>" +
-			                 "<div class = 'message'>here</div>" +
+			                 "<div class = 'message'></div>" +
 		                 "</div>"
 	                     );	//end append
 							var form = '#form_id'+ d.id;	// selector per formen
 							var edit = '#edit'+ d.id;		// selector per edit
+							var delete_span = '#delete'+ d.id;		// selector per delete
 							var perdoruesi = '#perdoruesi' +d.id;
+							// var delete_id = '#delete_id'+ d.id;
+							var form_delete = '#form_id_delete'+ d.id;	// selector per formen_delete
+
 						
 							    $(perdoruesi).on('mouseenter', function () {
 							        $(this).find("span").removeClass('hidden');;
@@ -95,9 +106,39 @@
 							  $(form).parent().toggleClass("hidden");
 							});
 
+							// $(delete_span).click(function(){
+							// 	// $(delete_id).trigger( "click" );
+							// 	// $(form).next('.message').load("delete_perdorues.php", {
+							// 	// 	id: d.id
+							// 	// });
+
+							// });
+
+							$(form_delete).submit(function(event){
+								event.preventDefault();
+								if(!confirm('Perdoruesit do fshihet.I sigurt qe doni te vazhdoni ?')){
+								    return false;
+								} else {
+
+									var id = d.id;
+									var submit = $(form_delete + ' input[name="submit"]').val();
+									console.log(submit);
+
+									// $(form).next('.message').load("delete_perdorues.php", {
+									$(perdoruesi).load("delete_perdorues.php", {
+										id: id,
+										submit: submit
+									});
+									setTimeout(function() {
+									    $(perdoruesi).remove();
+									}, 2000); 
+								}
+							});
+
+
 							$(form).submit(function(event){
 								event.preventDefault();
-								if(!confirm('Are you sure?')){
+								if(!confirm('Perdoruesit do t\'i ndryshojne te dhenat sipas formes.I sigurt qe doni te vazhdoni ?')){
 
 								    return false;
 								} else {
@@ -110,7 +151,7 @@
 								var gjinia = $(form + 'input[name="gjinia"]:checked').val();
 								var datelindja = $(form + ' input[name="datelindja"]').val();
 								var submit = $(form + ' input[name="submit"]').val();
-								// console.log(emri);
+								// console.log(submit);
 
 								$(this).next('.message').load("edit_perdorues.php", {
 									id: id,
@@ -123,6 +164,8 @@
 									// roli: d.rol_id,
 									submit: submit
 								});
+
+
 								setTimeout(function() {
 								    $(form).next('.message').text('');
 								}, 5000); 
