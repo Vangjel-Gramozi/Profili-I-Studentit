@@ -71,24 +71,24 @@ if (isset($_POST['submit'])) {
 	exit();
 }
 
-function gjenero_email($emer,$mbiemer,$rolet, $nr_perdoruesish){
-	if ($nr_perdoruesish == 0) {
-		$email = $emer . '.' . $mbiemer . '@fshn';
-	} else {
-		$email = $emer . '.' . $mbiemer . $nr_perdoruesish . '@fshn';
+	function gjenero_email($emer,$mbiemer,$rolet, $nr_perdoruesish){
+		if ($nr_perdoruesish == 0) {
+			$email = $emer . '.' . $mbiemer . '@fshn';
+		} else {
+			$email = $emer . '.' . $mbiemer . $nr_perdoruesish . '@fshn';
+		}
+		
+		if ($rolet == 4) {
+			$email = $email . 'admin.info';
+		} else if ($rolet == 1) {
+			$email = $email . 'student.info';
+		} else if ($rolet == 2) {
+			$email = $email . 'pedagog.info';
+		} else {
+			$email = $email . 'sekretare.info';
+		}
+		return $email;
 	}
-	
-	if ($rolet == 4) {
-		$email = $email . 'admin.info';
-	} else if ($rolet == 1) {
-		$email = $email . 'student.info';
-	} else if ($rolet == 2) {
-		$email = $email . 'pedagog.info';
-	} else {
-		$email = $email . 'sekretare.info';
-	}
-	return $email;
-}
 ?>
 
 
