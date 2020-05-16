@@ -100,6 +100,7 @@
 		</div>
 		<div id="perdoruesit">
 			<div class = 'row rrjesht' >
+				<div class = 'col kolone'>    </div>  
 				<div class = 'col kolone'>  ID  </div>  
 				<div class = 'col kolone'>  Emer  </div>  
 				<div class = 'col kolone'>  Atesia  </div>  
