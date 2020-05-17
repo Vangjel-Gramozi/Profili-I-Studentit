@@ -75,37 +75,44 @@ exit();
 }
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </head>
+<style>
+	.form-group{
+		margin-top:300px;
+		margin-right: 600px;
+		margin-left: 600px; 
+		padding: 50px;
+		border: 1px solid gray;
+		border-radius: 25px;
+	}
+
+	.btn{
+		margin-left: 38%;
+		background-color: #82A6E0; 
+	}
+
+	.njoftim{
+		margin-top: 10px;
+		text-align: center;
+	}
+</style>
 <body>
-	<form  method="POST">
-		<input type="text" name="email" placeholder="email" autocomplete="off">
+	<form method="POST">
+		<div class="form-group">
+		<label for="exampleInputEmail">Adresa Email</label>
+		<input class="form-control" type="text" name="email" placeholder="Email" autocomplete="off">
 		<br>
-		<input type="submit" name="submit" value="Reset email">
-	</form>
-	<?php
-	/* 
-		$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-		if (strpos($fullUrl, "signup=empty") == true) {
-			echo "<p>Ju lutem plotesoni fushen e kerkuar!</p>";
-			exit();
-		}
-		elseif (strpos($fullUrl, "signup=email") == true) {
-			echo "<p>Ju lutem vendosni nje email te vlefshem!</p>";
-			exit();
-		}
-		elseif (strpos($fullUrl, "signup=nonexistent") == true) {
-			echo "<p>Emaili i vendosur nuk eshte i rregjistruar tek Profili i Studentit!</p>";
-			exit();
-		}
-		*/
-
-		if (!isset($_GET['signup'])) {
+		<input class="btn" type="submit" name="submit" value="Reset email">
+		<br>
+		<div class="njoftim">
+			<?php 
+			if (!isset($_GET['signup'])) {
 			exit();
 		}
 		else{
@@ -124,6 +131,28 @@ exit();
 			}
 		}
 
+		 ?>
+		</div>
+		
+		</div>
+	</form>
+	<?php
+	/* 
+		$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+		if (strpos($fullUrl, "signup=empty") == true) {
+			echo "<p>Ju lutem plotesoni fushen e kerkuar!</p>";
+			exit();
+		}
+		elseif (strpos($fullUrl, "signup=email") == true) {
+			echo "<p>Ju lutem vendosni nje email te vlefshem!</p>";
+			exit();
+		}
+		elseif (strpos($fullUrl, "signup=nonexistent") == true) {
+			echo "<p>Emaili i vendosur nuk eshte i rregjistruar tek Profili i Studentit!</p>";
+			exit();
+		}
+		*/
 	 ?>
 </body>
 </html>
