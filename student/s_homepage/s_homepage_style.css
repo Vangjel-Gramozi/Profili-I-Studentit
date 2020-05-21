@@ -1,0 +1,64 @@
+.big_diva {
+	margin-top: 200px;
+	border-left: 4px solid;
+	color: black;
+	border-right: 4px solid;
+	color: black;
+}
+
+.small_diva {
+	margin-right: 35px;
+	margin-left: 35px;
+}
+
+.butona {
+	width: 80%;
+	height: 150px;
+	margin-top: 50px;
+	margin-right: 50px;
+	margin-left: 35px;
+	margin-bottom: 50px;
+	background: none;
+	border: 4px solid;
+	color: black;
+	font-weight: 600;
+	text-transform: uppercase;
+	cursor: pointer;
+	font-size: 30px;
+	position: relative;
+	display: inline-block;
+}
+
+.butona::before,.butona::after {
+	content: "";
+	position: absolute;
+	width: 14px;
+	height: 4px;
+	background: white;
+	transform: skewX(50deg);
+	transition: .4s linear;
+}
+
+.butona::before {
+	top: -4px;
+	left: 10%;
+}
+
+.butona::after {
+	bottom: -4px;
+	right: 10%;
+}
+
+.butona:hover:before {
+	left: 80%;
+}
+
+.butona:hover::after {
+	right: 80%;
+}
+
+/** {
+	margin: 0;
+	padding: 0;
+	font-family: "monntserrat",sans-serif;
+}*/
