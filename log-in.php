@@ -35,7 +35,7 @@
           <input type="password" class="input" id="password" name="password" required>
         </div>
       </div>
-      <a href="#">Forgot Password?</a>
+      <a href="request_reset.php">Forgot Password?</a>
       <input type="submit" class="btn" value="Login" name="login">
     </form>
   </div>

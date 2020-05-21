@@ -11,7 +11,6 @@ if (isset($_POST['login'])){
 	$email = mysqli_real_escape_string($connection, $email);	
 	$password = mysqli_real_escape_string($connection, $password);
 
-
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		echo("Email jo i sakte");
 	} else {
