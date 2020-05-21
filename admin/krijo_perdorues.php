@@ -23,8 +23,10 @@
 						rolet: rolet,
 						submit: submit
 					});
-				})
-				;
+					setTimeout(function() {
+					    $("#message").text('');
+					}, 2500); 
+				});
 			});
 		</script>
 	</head>

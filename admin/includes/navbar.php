@@ -6,19 +6,25 @@
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+<!--       <li class="nav-item active">
+        <a class="nav-link" href="admin.php">Home<span class="sr-only">(current)</span></a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="admin.php">Menaxho Perdorues</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link disabled" href="#">Menaxho Lende</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link disabled" href="#">Menaxho Grup</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../includes/logout.php">Log out</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+<!--     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form> -->
   </div>
 </nav>

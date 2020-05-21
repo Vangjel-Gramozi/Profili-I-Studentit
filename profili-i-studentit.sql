@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2020 at 10:39 PM
+-- Generation Time: May 21, 2020 at 08:10 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -29,7 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `dega` (
   `id_dega` int(11) NOT NULL,
-  `emri` varchar(50) NOT NULL
+  `emri` varchar(50) NOT NULL,
+  `kuotat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -89,7 +90,12 @@ CREATE TABLE `jep_mesim_grup` (
 
 CREATE TABLE `jep_mesim_lende` (
   `id_pedagog` int(11) NOT NULL,
-  `id_lende` int(11) NOT NULL
+  `id_lende` int(11) NOT NULL,
+  `pike_projekt` int(11) DEFAULT NULL,
+  `pike_laborator` int(11) DEFAULT NULL,
+  `pike_kologium` int(11) DEFAULT NULL,
+  `pike_seminar` int(11) DEFAULT NULL,
+  `pike_provim` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -123,6 +129,18 @@ CREATE TABLE `mungesa` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ndrysho_password`
+--
+
+CREATE TABLE `ndrysho_password` (
+  `id` int(11) NOT NULL,
+  `kod_per_kerkesen` varchar(125) NOT NULL,
+  `email` varchar(125) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `nota`
 --
 
@@ -147,7 +165,8 @@ CREATE TABLE `orari` (
   `salla` char(4) NOT NULL,
   `ora` time NOT NULL,
   `dita_e_javes` enum('e hene','e marete','e merkure','e enjte','e premte') NOT NULL,
-  `id_lenda` int(11) NOT NULL
+  `id_lenda` int(11) NOT NULL,
+  `lloji` enum('leksion','seminar','','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -174,9 +193,10 @@ CREATE TABLE `perdorues` (
 --
 
 INSERT INTO `perdorues` (`id`, `emer`, `mbiemer`, `email`, `password`, `gjini`, `datelindje`, `rol_id`, `atesia`, `statusi`) VALUES
-(1, 'vangjel', 'gramozi', 'vangjel.gramozi@fshnadmin.info', 'student12345', 'm', '1999-03-22', 4, 'kostandin', NULL),
-(2, 'stiven', 'kerthi', 'stiven.kerthi@fshnstudent.info', 'student12345', 'm', '1999-04-26', 1, 'ardian', 'i_rregullt'),
-(3, 'xholjan', 'malia', 'xholjan.malia@fshnsekretare.info', 'student12345', 'm', '1998-03-26', 3, 'behar', NULL);
+(1, 'vangjel', 'gramozi', 'vangjel.gramozi@fshnadmin.info', '$2y$10$0spq1Ay89qb6HBH6P.XCC.EtO5y6NgfZc2A5i463xrbnMBbL.k1Na', 'm', '1999-03-22', 4, 'kostandin', NULL),
+(2, 'stiven', 'kerthi', 'stiven.kerthi@fshnadmin.info', '$2y$10$jb.m/IdefmZDUcl7SlpRfuMUvhVlYmBnXhw9oX8MnGDcZ/8Uw9q/S', 'm', '1999-04-26', 4, 'ardian', NULL),
+(3, 'xholjan', 'malia', 'xholjan.malia@fshnstudent.info', '$2y$10$YCsW2EBYqkLqCCn6YbNhlOnFhLyIIkOLSsG9.m1.sI3NIy0abNhNy', 'm', '1998-03-26', 1, 'behar', 'i_rregullt'),
+(6, 'arlinda', 'profi', 'arlinda.profi@fshnpedagog.info', '$2y$10$hRSmGcvkeMQgH0aPfP1bS.nmOLELKf4Kggjx8a7jbh7ndH.83t1Xu', 'f', '2018-10-29', 2, 'arlinda', NULL);
 
 -- --------------------------------------------------------
 
@@ -261,6 +281,12 @@ ALTER TABLE `mungesa`
   ADD KEY `id_student` (`id_student`);
 
 --
+-- Indexes for table `ndrysho_password`
+--
+ALTER TABLE `ndrysho_password`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `nota`
 --
 ALTER TABLE `nota`
@@ -316,6 +342,12 @@ ALTER TABLE `lenda`
   MODIFY `id_lenda` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `ndrysho_password`
+--
+ALTER TABLE `ndrysho_password`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `orari`
 --
 ALTER TABLE `orari`
@@ -325,7 +357,7 @@ ALTER TABLE `orari`
 -- AUTO_INCREMENT for table `perdorues`
 --
 ALTER TABLE `perdorues`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables

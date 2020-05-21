@@ -19,5 +19,6 @@
 	<?php foreach ($_SESSION as $key => $value) {
 		echo $key ."=>". $value ."<br>";
 	} ?>
+	<a href="includes/logout.php">Log out</a>
 </body>
 </html>
