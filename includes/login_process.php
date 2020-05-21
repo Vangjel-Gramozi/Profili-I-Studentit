@@ -37,7 +37,6 @@ if (isset($_POST['login'])){
 	if ($email !== $row['email'] || !password_verify($password,$row['password'])) { 
 		echo "Ju nuk jeni rregjistruar sakte.";
 	} 
-	
 	elseif ($email == $row['email'] && password_verify($password,$row['password'])) {
 		$_SESSION['id'] = $row['id'];
 		$_SESSION['emer'] = $row['emer'];
