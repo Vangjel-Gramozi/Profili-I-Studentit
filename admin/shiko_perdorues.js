@@ -38,9 +38,9 @@
 							                         "<div class = 'row rrjesht' id='perdoruesi"+d.id+"'>" +
 							                        "<div class = 'col kolone'>" + "<span class='hidden' id='edit"+d.id+"'>edit</span>" + 
 							                         "<span class='hidden' id='delete"+d.id+"'>"+
-							                         "<form id='form_id_delete"+ d.id +"' method = 'POST' action = 'delete_perdorues.php'>" +
-							                        	 "<input type='submit' name='submit' value='delete'>" +
-							                         "</form>"+
+								                         "<form id='form_id_delete"+ d.id +"' method = 'POST' action = 'delete_perdorues.php'>" +
+								                        	 "<input type='submit' name='submit' value='delete'>" +
+								                         "</form>"+
 							                         "</span>" + "</div>" + 
 							                         "<div class = 'col kolone'id='perdoruesi_id"+d.id+"'>" + d.id + "</div>" + 
 							                         "<div class = 'col kolone'id='perdoruesi_emer"+d.id+"'>" + d.emer + "</div>" + 
