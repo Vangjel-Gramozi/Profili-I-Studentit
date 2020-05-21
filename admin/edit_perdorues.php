@@ -102,10 +102,7 @@ if (isset($_POST['submit'])){
 				} else {
 					die("Query failed") . mysqli_error($connection);
 				}
-				
-			} else {
-				echo " Te dhena jo te sakta";
-			}
+			}	
 			
 			
 

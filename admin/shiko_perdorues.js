@@ -169,11 +169,16 @@
 									submit: submit
 								}, function(data,status){
 									if (status) {
-										$(perdoruesi).children(perdoruesi_emer).text(emri);
-										$(perdoruesi).children(perdoruesi_mbiemer).text(mbiemri);
-										$(perdoruesi).children(perdoruesi_atesia).text(atesia);
-										$(perdoruesi).children(perdoruesi_datelindje).text(datelindja);
-										$(perdoruesi).children(perdoruesi_email).text(email);
+										if (data.indexOf("Te dhenat u perditesuan") >=0) {
+											$(perdoruesi).children(perdoruesi_emer).text(emri);
+											$(perdoruesi).children(perdoruesi_mbiemer).text(mbiemri);
+											$(perdoruesi).children(perdoruesi_atesia).text(atesia);
+											$(perdoruesi).children(perdoruesi_datelindje).text(datelindja);
+											$(perdoruesi).children(perdoruesi_email).text(email);
+											setTimeout(function() {
+												$(form).parent().toggleClass("hidden");
+											}, 3000); 
+										}
 									}
 								});
 
