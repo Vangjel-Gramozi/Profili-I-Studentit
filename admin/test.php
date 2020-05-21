@@ -11,12 +11,12 @@ if (isset($_POST['submit'])) {
 	$rolet = $_POST['rolet'];
 
 	if (empty($emri) || empty($mbiemri) || empty($atesia) || empty($gjinia) || empty($datelindja) || empty($rolet)) {
-		echo "<span class='error'>Plotesoni te gjitha fushat</span>";
+		echo "<span>Plotesoni te gjitha fushat</span>";
 		$errorEmpty = true;
 	} else {
 		if (!preg_match("/^[a-zA-Z]+$/", $emri) || !preg_match("/^[a-zA-Z]+$/", $mbiemri) || !preg_match("/^[a-zA-Z]+$/", $atesia)) {
 			$errorChar = true;
-			echo "<span>Nuk lejohet perdorimi i numrave dhe shkronjave me hapesire</span>";
+			echo "Vendosni vetem karaktere pa hapesire";
 		} else {
 
 			
@@ -32,9 +32,9 @@ if (isset($_POST['submit'])) {
 			$atesia = mysqli_real_escape_string($connection, strtolower($atesia));
 
 			$query_nr_perdoruesish = "SELECT * FROM perdorues WHERE 
-										emer = '$emri' AND 
-										mbiemer = '$mbiemri' AND 
-										rol_id = '$rolet'";
+			emer = '$emri' AND 
+			mbiemer = '$mbiemri' AND 
+			rol_id = '$rolet'";
 			$result_nr_perdoruesish = mysqli_query($connection,$query_nr_perdoruesish);
 			if(!$result_nr_perdoruesish) {
 				die("Query nr perdoruesish failed") . mysqli_error($connection);
@@ -45,15 +45,12 @@ if (isset($_POST['submit'])) {
 
 			$email = gjenero_email($emri,$mbiemri,$rolet,$nr_perdoruesish);
 			$email = mysqli_real_escape_string($connection, strtolower($email));
-			
-			$default_password = "student12345";
-			$hashed_password = password_hash($default_password,PASSWORD_DEFAULT);
 
 			if ($rolet == 1) {	
 				$statusi = "i_rregullt";
-				$query = "INSERT INTO perdorues (emer, mbiemer, gjini, datelindje, rol_id, atesia, email, statusi, password) VALUES ('$emri', '$mbiemri', '$gjinia', '$datelindja', '$rolet', '$atesia', '$email', '$statusi', '$hashed_password')";
+				$query = "INSERT INTO perdorues (emer, mbiemer, gjini, datelindje, rol_id, atesia, email, statusi) VALUES ('$emri', '$mbiemri', '$gjinia', '$datelindja', '$rolet', '$atesia', '$email', '$statusi')";
 			}  else {
-				$query = "INSERT INTO perdorues (emer, mbiemer, gjini, datelindje, rol_id, atesia, email, password) VALUES ('$emri', '$mbiemri', '$gjinia', '$datelindja', '$rolet', '$atesia', '$email', '$hashed_password')";
+				$query = "INSERT INTO perdorues (emer, mbiemer, gjini, datelindje, rol_id, atesia, email) VALUES ('$emri', '$mbiemri', '$gjinia', '$datelindja', '$rolet', '$atesia', '$email')";
 			}
 
 			$result = mysqli_query($connection,$query);
@@ -71,24 +68,24 @@ if (isset($_POST['submit'])) {
 	exit();
 }
 
-	function gjenero_email($emer,$mbiemer,$rolet, $nr_perdoruesish){
-		if ($nr_perdoruesish == 0) {
-			$email = $emer . '.' . $mbiemer . '@fshn';
-		} else {
-			$email = $emer . '.' . $mbiemer . $nr_perdoruesish . '@fshn';
-		}
-		
-		if ($rolet == 4) {
-			$email = $email . 'admin.info';
-		} else if ($rolet == 1) {
-			$email = $email . 'student.info';
-		} else if ($rolet == 2) {
-			$email = $email . 'pedagog.info';
-		} else {
-			$email = $email . 'sekretare.info';
-		}
-		return $email;
+function gjenero_email($emer,$mbiemer,$rolet, $nr_perdoruesish){
+	if ($nr_perdoruesish == 0) {
+		$email = $emer . '.' . $mbiemer . '@fshn';
+	} else {
+		$email = $emer . '.' . $mbiemer . $nr_perdoruesish . '@fshn';
 	}
+	
+	if ($rolet == 4) {
+		$email = $email . 'admin.info';
+	} else if ($rolet == 1) {
+		$email = $email . 'student.info';
+	} else if ($rolet == 2) {
+		$email = $email . 'pedagog.info';
+	} else {
+		$email = $email . 'sekretare.info';
+	}
+	return $email;
+}
 ?>
 
 
@@ -101,9 +98,6 @@ if (isset($_POST['submit'])) {
  	if (errorEmpty == 1) {
  		// Shto klase per stilizim kur te dhenat te jene gabim
  		// $("#emri", "#mbiemri", "atesia", "gjinia", "datelindja", "#rolet").addClass("");
- 		setTimeout(function() {
- 		    $('span').fadeOut('fast');
- 		}, 1000); 
  	}
  	if (errorEmpty == 0 || errorChar == 0) {
  		// $("#emri", "#mbiemri", "#atesia", "input[name='gjinia']", "#datelindja", "#rolet").val(" ");
