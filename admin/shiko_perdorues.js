@@ -219,6 +219,7 @@ $("#search").submit(function(event){
 		var search_field = $("#search_field").val();
 		var search_submit = $("#search_submit").val();
 		var search_results = $("#search_results").text();
+		var search_column = $("#search_column").val();
 		// console.log(search_field);
 		// console.log(search_submit);
 		// console.log(search_results);
@@ -238,7 +239,8 @@ $("#search").submit(function(event){
 			method:"POST",
 			data: {
 					search_field : search_field,
-					search_submit : search_submit 
+					search_submit : search_submit,
+					search_column : search_column 
 					},
 			dataType: "json",
 			success : function (data,status){
@@ -247,9 +249,21 @@ $("#search").submit(function(event){
 				} else {
 
 				console.log(data);
-		 		console.log(status);
-									$("#perdoruesit").children().remove();
+		 		// console.log(status);
+					$("#search_results").text(((data.length > 0) ? data.length + " rezultate kerkimi" : data.error + " " + search_field ));
+						if (data.error) return;
 
+
+									$("#perdoruesit").children().remove();
+									$("#trego_perdorues").remove();
+
+									// $("#search").click(function(){
+										$("#kthehu_mbrapa").removeClass('hidden');
+									// });
+
+									$('#kthehu_mbrapa').click(function() {
+									    location.reload();
+									});
 		 							data.forEach(function(d){
 		 								if (d.gjini == 'f') {
 		 									var gjinia =  
@@ -430,8 +444,8 @@ $("#search").submit(function(event){
 
 		 								// end for each d
 		 							});
-		 		
-		 		
+
+
 				}
 			}
 

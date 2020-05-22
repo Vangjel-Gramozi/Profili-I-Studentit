@@ -4,7 +4,7 @@ require '../includes/connect_db.php';
 if (isset($_POST['search_submit'])){
 	// echo json_encode(print_r($_POST));
 		$search = mysqli_real_escape_string($connection, strtolower($_POST['search_field']));
-		// $search_column = mysqli_real_escape_string($connection, strtolower($_POST['search_column']));
+		$search_column = mysqli_real_escape_string($connection, strtolower($_POST['search_column']));
 
 		if (empty($search)) {
 			$empty = '
@@ -15,7 +15,7 @@ if (isset($_POST['search_submit'])){
 			// echo "{'error' : 'Vlere bosh per kerkimin'}";
 			return;
 		} 		
-		$query = "SELECT * FROM perdorues WHERE emer LIKE '%$search%'";
+		$query = "SELECT * FROM perdorues WHERE $search_column LIKE '%$search%'";
 		$result = mysqli_query($connection,$query);
 		$nr = mysqli_num_rows($result);
 		if ($nr > 0) {
@@ -27,7 +27,7 @@ if (isset($_POST['search_submit'])){
 		} else {
 			$empty = '
 			{
-				"error" : "Nuk ka perdorues"
+				"error" : "Nuk ka rezultate per kerkimin"
 			}';
 			echo $empty;
 		}

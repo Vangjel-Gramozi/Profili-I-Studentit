@@ -97,14 +97,14 @@
 					<!-- <div class="d-flex justify-content-center h-100"> -->
 						<!-- <div class="searchbar"> -->
 							<input type="text" name="search_field" placeholder="Search..." id="search_field">
-<!-- 							<select name="search_column" id="search_column">
+							<select name="search_column" id="search_column">
 								<option value="emer">Emer</option>
 								<option value="mbiemer">Mbiemer</option>
 								<option value="atesia">Atesia</option>
 								<option value="gjini">Gjinia</option>
 								<option value="datelindje">Datelindja</option>
 								<option value="email">Email</option>
-							</select> -->
+							</select>
 							<input type="submit" name="search_submit" value="search" id="search_submit">
 							<!-- <a class="search_icon"><i class="fas fa-search"></i></a> -->
 						<!-- </div> -->
@@ -112,7 +112,7 @@
 				</div>
 			</form>
 		</div>
-			<div id="search_results">here</div>
+			<div id="search_results"></div>
 		<div id="perdoruesit">
 			<div class = 'row rrjesht' >
 				<div class = 'col kolone'>    </div>  
@@ -144,5 +144,6 @@
 			?>
 		</div>	
 		<button id="trego_perdorues" class="btn btn-primary">Trego me shume perdorues </button>
+		<button id="kthehu_mbrapa" class="btn btn-primary hidden">Kthehu ne faqen kryesore </button>
 	</div>
 
