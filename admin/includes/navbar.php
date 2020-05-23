@@ -13,7 +13,7 @@
         <a class="nav-link" href="admin.php">Menaxho Perdorues</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Menaxho Lende</a>
+        <a class="nav-link" href="menaxho_lende.php">Menaxho Lende</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Menaxho Grup</a>

@@ -1,7 +1,6 @@
 <?php include 'includes/header.php'; ?>
 </head>
 <body>
-
 	<style type="text/css">
 		.hidden {
 			display: none;
@@ -86,15 +85,15 @@
 		}
 		/*----------------------------------*/
 	</style>
-	
+
 <?php include 'includes/navbar.php'; ?>	
 
-	<script type="text/javascript" src="shiko_perdorues.js"></script>
+	<script type="text/javascript" src="menaxho_lende.js"></script>
 <!-- 	<script type="text/javascript" src="search_perdorues.js"></script> -->
 
 	<div class="container">
 		<div class="row">
-			<a href="krijo_perdorues.php" class="btn btn-primary col" id="krijo_perdorues">Shto Perdorues</a>
+			<a href="krijo_lende.php" class="btn btn-primary col" id="krijo_lende">Shto Lende</a>
 			<form action = "search.php" method="POST" id="search">
 				<div class="container col">
 					<!-- <div class="d-flex justify-content-center h-100"> -->
@@ -102,11 +101,11 @@
 							<input type="text" name="search_field" placeholder="Search..." id="search_field">
 							<select name="search_column" id="search_column">
 								<option value="emer">Emer</option>
-								<option value="mbiemer">Mbiemer</option>
-								<option value="atesia">Atesia</option>
-								<option value="gjini">Gjinia</option>
-								<option value="datelindje">Datelindja</option>
-								<option value="email">Email</option>
+								<option value="kredite">Kredite</option>
+								<option value="id_dega">Dega</option>
+								<option value="ore_totale">Ore Totale</option>
+								<option value="viti_i_lendes">Viti i Lendes</option>
+								<option value="me_zgjedhje">Kapaciteti per lendet me zgjedhje</option>
 							</select>
 							<input type="submit" name="search_submit" value="search" id="search_submit">
 							<!-- <a class="search_icon"><i class="fas fa-search"></i></a> -->
@@ -116,23 +115,20 @@
 			</form>
 		</div>
 			<div id="search_results"></div>
-		<div id="perdoruesit">
+		<div id="lendet">
 			<div class = 'row rrjesht' >
 				<div class = 'col kolone'>    </div>  
 				<div class = 'col kolone'>  ID  </div>  
 				<div class = 'col kolone'>  Emer  </div>  
-				<div class = 'col kolone'>  Atesia  </div>  
-				<div class = 'col kolone'>  Mbiemer  </div>  
-				<div class = 'col kolone'>  Gjini  </div>  
-				<div class = 'col kolone'>  Datelindje  </div>  
-				<div class = 'col kolone'>  Roli  </div>  
-				<div class = 'col kolone'>  Statusi  </div>  
-				<div class = 'col kolone email'>  Email  </div>  
+				<div class = 'col kolone'>  Kredite  </div>  
+				<div class = 'col kolone'>  Dega  </div>  
+				<div class = 'col kolone'>  Ore Totale  </div>  
+				<div class = 'col kolone'>  Viti i Lendes  </div>  
+				<div class = 'col kolone'>  Kapaciteti per lendet me zgjedhje  </div>  
 			</div>
 		</div>	
-		<button id="trego_perdorues" class="btn btn-primary">Trego me shume perdorues </button>
+		<button id="trego_lende" class="btn btn-primary">Trego me shume lende </button>
 		<button id="kthehu_mbrapa" class="btn btn-primary hidden">Kthehu ne faqen kryesore </button>
 	</div>
-
 
 <?php include 'includes/footer.php'; ?>
