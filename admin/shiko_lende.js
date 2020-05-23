@@ -36,62 +36,61 @@ $(document).ready(function() {
 
 
 // pjesa e search
-// $("#search").submit(function(event){
-// 	event.preventDefault();
-// 	var search_field = $("#search_field").val();
-// 	var search_submit = $("#search_submit").val();
-// 	var search_results = $("#search_results").text();
-// 	var search_column = $("#search_column").val();
-// 		// console.log(search_field);
-// 		// console.log(search_submit);
-// 		// console.log(search_results);
+$("#search").submit(function(event){
+	event.preventDefault();
+	var search_field = $("#search_field").val();
+	var search_submit = $("#search_submit").val();
+	var search_results = $("#search_results").text();
+	var search_column = $("#search_column").val();
+		// console.log(search_field);
+		// console.log(search_submit);
+		// console.log(search_results);
 
-// 		// $("#search_results").load("search.php", 
-// 		//                        {
-// 		//                        		search_field : search_field,
-// 		//                        		search_submit : search_submit,
-// 		//                        },
-// 		//                        function(data,status){
-// 		//                        		console.log(data);
-// 		//                        		console.log(status);
-// 		//                        });
+		// $("#search_results").load("search.php", 
+		//                        {
+		//                        		search_field : search_field,
+		//                        		search_submit : search_submit,
+		//                        },
+		//                        function(data,status){
+		//                        		console.log(data);
+		//                        		console.log(status);
+		//                        });
 
-// 		$.ajax({
-// 			url : "search.php",
-// 			method:"POST",
-// 			data: {
-// 				search_field : search_field,
-// 				search_submit : search_submit,
-// 				search_column : search_column 
-// 			},
-// 			dataType: "json",
-// 			success : function (data,status){
-// 				if (status != 'success') {
-// 					alert("Error ne kerkeim");
-// 				} else {
+		$.ajax({
+			url : "search.php",
+			method:"POST",
+			data: {
+				search_table : "lenda",
+				search_field : search_field,
+				search_submit : search_submit,
+				search_column : search_column 
+			},
+			dataType: "json",
+			success : function (data,status){
+				if (status != 'success') {
+					alert("Error ne kerkeim");
+				} else {
 
-// 					console.log(data);
-// 		 		// console.log(status);
-// 		 		$("#search_results").text(((data.length > 0) ? data.length + " rezultate kerkimi" : data.error + " " + search_field ));
-// 		 		if (data.error) return;
+					console.log(data);
+		 		// console.log(status);
+		 		$("#search_results").text(((data.length > 0) ? data.length + " rezultate kerkimi" : data.error + " " + search_field ));
+		 		if (data.error) return;
 
 
-// 		 		$("#lendet").children().remove();
-// 		 		$("#trego_perdorues").remove();
+		 		$("#lendet").children().remove();
+		 		$("#trego_lende").remove();
+				$("#kthehu_mbrapa").removeClass('hidden');
+									
 
-// 									// $("#search").click(function(){
-// 										$("#kthehu_mbrapa").removeClass('hidden');
-// 									// });
-
-// 									$('#kthehu_mbrapa').click(function() {
-// 										location.reload();
-// 									});
-// 									krijoForme(data);
-// 								}
-// 							}
-// 						});
-// 		// alert(search_field);
-// 	});
+									$('#kthehu_mbrapa').click(function() {
+										location.reload();
+									});
+									krijoForme(data);
+								}
+							}
+						});
+		// alert(search_field);
+	});
 });
 
 

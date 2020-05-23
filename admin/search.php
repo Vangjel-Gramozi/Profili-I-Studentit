@@ -5,6 +5,7 @@ if (isset($_POST['search_submit'])){
 
 		$search = mysqli_real_escape_string($connection, strtolower($_POST['search_field']));
 		$search_column = mysqli_real_escape_string($connection, strtolower($_POST['search_column']));
+		$table = mysqli_real_escape_string($connection, $_POST['search_table']);
 
 		if (empty($search)) {
 			$empty = '
@@ -14,7 +15,7 @@ if (isset($_POST['search_submit'])){
 			echo $empty;
 			return;
 		} 		
-		$query = "SELECT * FROM perdorues WHERE $search_column LIKE '%$search%'";
+		$query = "SELECT * FROM $table WHERE $search_column LIKE '%$search%'";
 		$result = mysqli_query($connection,$query);
 		$nr = mysqli_num_rows($result);
 		if ($nr > 0) {

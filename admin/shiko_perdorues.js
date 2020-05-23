@@ -59,9 +59,10 @@ $("#search").submit(function(event){
 			url : "search.php",
 			method:"POST",
 			data: {
+				search_table : "perdorues",
 				search_field : search_field,
+				search_column : search_column,
 				search_submit : search_submit,
-				search_column : search_column 
 			},
 			dataType: "json",
 			success : function (data,status){

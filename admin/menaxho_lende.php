@@ -94,7 +94,7 @@
 	<div class="container">
 		<div class="row">
 			<a href="krijo_lende.php" class="btn btn-primary col" id="krijo_lende">Shto Lende</a>
-			<!-- <form action = "search.php" method="POST" id="search"> -->
+			<form action = "search.php" method="POST" id="search">
 				<div class="container col">
 					<!-- <div class="d-flex justify-content-center h-100"> -->
 						<!-- <div class="searchbar"> -->
