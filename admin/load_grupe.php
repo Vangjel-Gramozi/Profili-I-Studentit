@@ -5,7 +5,7 @@ if (isset($_POST['startCount']) && isset($_POST['count'])) {
 	$count = $_POST['count'];
 	// merr kolonen me te cilen do te besh sort
 	// selekto vetem ato te dhena qe te duhen	
-	$query = "SELECT * FROM lenda ORDER BY id_lenda LIMIT $startCount,$count";
+	$query = "SELECT * FROM grupi ORDER BY id_grupi LIMIT $startCount,$count";
 	$result = mysqli_query($connection,$query);
 
 	if (mysqli_num_rows($result) > 0) {
@@ -17,7 +17,7 @@ if (isset($_POST['startCount']) && isset($_POST['count'])) {
 	} else {
 		$empty = '
 		{
-			"error" : "Nuk ka lende"
+			"error" : "Nuk ka grupe"
 		}';
 		echo $empty;
 	}

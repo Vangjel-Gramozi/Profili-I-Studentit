@@ -16,7 +16,7 @@
         <a class="nav-link" href="menaxho_lende.php">Menaxho Lende</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Menaxho Grup</a>
+        <a class="nav-link" href="menaxho_grupe.php">Menaxho Grup</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../includes/logout.php">Log out</a>

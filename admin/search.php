@@ -15,6 +15,26 @@ if (isset($_POST['search_submit'])){
 			echo $empty;
 			return;
 		} 		
+
+		// if (strcmp($search_column, "id_dega") == 0) {
+		// 		// $query2 = "SELECT id_dega FROM dega WHERE emri LIKE '%$search%'";
+		// 		// $result2 = mysqli_query($connection,$query);
+
+		// 		// if(!$result2) {
+		// 		// 	die("Query failed") . mysqli_error();
+		// 		// }
+		// 		// while ($row = mysqli_fetch_assoc($result2)) {
+		// 		// 	$data[] = $row;
+		// 		// }
+		// 		// echo json_encode($data);
+		// 		// $search = $row['id_dega'];
+		// 	$empty = '
+		// 	{
+		// 		"error" : "Nuk ka rezultate per kerkimin"
+		// 	}';
+		// 	echo $empty;
+		// }
+		
 		$query = "SELECT * FROM $table WHERE $search_column LIKE '%$search%'";
 		$result = mysqli_query($connection,$query);
 		$nr = mysqli_num_rows($result);
