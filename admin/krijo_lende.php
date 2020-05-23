@@ -44,11 +44,11 @@
 				<h1 class="text-center">Krijo Lende</h1>
 				<form action="valido_lende.php" method="POST" class="col-lg-6 offset-lg-3" id="krijo_lende">
 					<div class="form-group">
-						<label for="emer">Emeri i Lendes</label>
+						<label for="emer">Emri i Lendes</label>
 						<input type="text" name="emer" class="form-control" id="emer"  >
 					</div>
 					<div class="form-group">
-						<label for="number">Kreditet</label>
+						<label for="kredite">Kreditet</label>
 						<input type="number" name="kredite" class="form-control" id="kredite" min="1">
 					</div>
 					<div class="form-group">
@@ -71,7 +71,7 @@
 						<input type="number" name="kuotat" class="form-control" id="kuotat" min="1" step="1" >
 					</div>
 					<div class="form-group">
-						<label for="roli">Dega</label>
+						<label for="dega">Dega</label>
 						<select name="dega" id="dega">
 						</select>
 					</div>

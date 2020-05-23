@@ -88,13 +88,13 @@
 
 <?php include 'includes/navbar.php'; ?>	
 
-	<script type="text/javascript" src="menaxho_lende.js"></script>
+	<script type="text/javascript" src="shiko_lende.js"></script>
 <!-- 	<script type="text/javascript" src="search_perdorues.js"></script> -->
 
 	<div class="container">
 		<div class="row">
 			<a href="krijo_lende.php" class="btn btn-primary col" id="krijo_lende">Shto Lende</a>
-			<form action = "search.php" method="POST" id="search">
+			<!-- <form action = "search.php" method="POST" id="search"> -->
 				<div class="container col">
 					<!-- <div class="d-flex justify-content-center h-100"> -->
 						<!-- <div class="searchbar"> -->

@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
 
 				$errorEmpty = false;
 				$errorChar = false;
-				echo "<span>SUCCESS</span>";
+				// echo "<span>SUCCESS</span>";
 				// global $connection;
 				$emer = mysqli_real_escape_string($connection, strtolower($emer));
 				$kredite = mysqli_real_escape_string($connection, strtolower($kredite));
@@ -38,13 +38,14 @@ if (isset($_POST['submit'])) {
 
 				$query_nr_lendesh = "SELECT * FROM lenda WHERE 
 											emer = '$emer' AND 
-											id_dega = '$dega'";
+											id_dega = '$dega' AND 
+											viti_i_lendes = '$viti_i_lendes'";
 
 				$result_nr_lendesh = mysqli_query($connection,$query_nr_lendesh);
 				// echo print_r($_POST);
 				
-				if (mysqli_num_rows($result_nr_lendesh) > 1) {
-					echo "<span>Kjo lende eshte ekzistente ne kete dege</span>";
+				if (mysqli_num_rows($result_nr_lendesh) >= 1) {
+					echo "<span>Kjo lende eshte ekzistente ne kete dege per kete vit</span>";
 					die();
 					return;
 				} 

@@ -6,11 +6,11 @@ $(document).ready(function() {
 			url:"load_perdorues.php",
 			method:"POST",
 			data: {
-						startCount : startCount,
-						userCount : userCount
-					},
-					dataType: "JSON",
-					success: function(data){
+				startCount : startCount,
+				userCount : userCount
+			},
+			dataType: "JSON",
+			success: function(data){
 						// shto stilizime ketu
 						if (data.error) return;
 						
@@ -30,17 +30,17 @@ $(document).ready(function() {
 				});
 	});
 
-$( "#trego_perdorues" ).trigger( "click" );
+	$( "#trego_perdorues" ).trigger( "click" );
 
 
 
 // pjesa e search
 $("#search").submit(function(event){
-		event.preventDefault();
-		var search_field = $("#search_field").val();
-		var search_submit = $("#search_submit").val();
-		var search_results = $("#search_results").text();
-		var search_column = $("#search_column").val();
+	event.preventDefault();
+	var search_field = $("#search_field").val();
+	var search_submit = $("#search_submit").val();
+	var search_results = $("#search_results").text();
+	var search_column = $("#search_column").val();
 		// console.log(search_field);
 		// console.log(search_submit);
 		// console.log(search_results);
@@ -59,67 +59,58 @@ $("#search").submit(function(event){
 			url : "search.php",
 			method:"POST",
 			data: {
-					search_field : search_field,
-					search_submit : search_submit,
-					search_column : search_column 
-					},
+				search_field : search_field,
+				search_submit : search_submit,
+				search_column : search_column 
+			},
 			dataType: "json",
 			success : function (data,status){
 				if (status != 'success') {
 					alert("Error ne kerkeim");
 				} else {
 
-				console.log(data);
+					console.log(data);
 		 		// console.log(status);
-					$("#search_results").text(((data.length > 0) ? data.length + " rezultate kerkimi" : data.error + " " + search_field ));
-						if (data.error) return;
+		 		$("#search_results").text(((data.length > 0) ? data.length + " rezultate kerkimi" : data.error + " " + search_field ));
+		 		if (data.error) return;
 
 
-									$("#perdoruesit").children().remove();
-									$("#trego_perdorues").remove();
+		 		$("#perdoruesit").children().remove();
+		 		$("#trego_perdorues").remove();
 
 									// $("#search").click(function(){
 										$("#kthehu_mbrapa").removeClass('hidden');
 									// });
 
 									$('#kthehu_mbrapa').click(function() {
-									    location.reload();
+										location.reload();
 									});
-		 							krijoForme(data);
-				}
-			}
-
-
-		});
-
+									krijoForme(data);
+								}
+							}
+						});
 		// alert(search_field);
-
 	});
-
-
-
-
-
 });
 
 
 function krijoForme (data){
-						data.forEach(function(d){
-							if (d.gjini == 'f') {
-								var gjinia =  
-								"<span>Gjinia:</span>" +
-								"<input type='radio' name='gjinia' value='m'>" +
-								"<label for='m'>Mashkull</label>" +
-								"<input type='radio' name='gjinia' value='f' checked>" +
-								"<label for='f'>Femer</label>" ;
-							} else {
-								var gjinia =  
-								"<span>Gjinia:</span>" +
-								"<input type='radio' name='gjinia' value='m' checked>" +
-								"<label for='m'>Mashkull</label>" +
-								"<input type='radio' name='gjinia' value='f'>" +
-								"<label for='f'>Femer</label>" ;	
-							}
+	data.forEach(function(d){
+		if (d.gjini == 'f') {
+			var gjinia =  
+			"<span>Gjinia:</span>" +
+			"<input type='radio' name='gjinia' value='m'>" +
+			"<label for='m'>Mashkull</label>" +
+			"<input type='radio' name='gjinia' value='f' checked>" +
+			"<label for='f'>Femer</label>" ;
+		} else {
+			var gjinia =  
+			"<span>Gjinia:</span>" +
+			"<input type='radio' name='gjinia' value='m' checked>" +
+			"<label for='m'>Mashkull</label>" +
+			"<input type='radio' name='gjinia' value='f'>" +
+			"<label for='f'>Femer</label>" ;	
+		}
 							// console.log(d);
 
 							$("#perdoruesit").append(
@@ -185,10 +176,7 @@ function krijoForme (data){
 							var perdoruesi_atesia = '#perdoruesi_atesia' +d.id;
 							var perdoruesi_datelindje = '#perdoruesi_datelindje' +d.id;
 							var perdoruesi_email = '#perdoruesi_email' +d.id;
-
-							// var delete_id = '#delete_id'+ d.id;
 							var form_delete = '#form_id_delete'+ d.id;	// selector per formen_delete
-
 
 							$(perdoruesi).on('mouseenter', function () {
 								$(this).find("span").removeClass('hidden');;
@@ -200,14 +188,6 @@ function krijoForme (data){
 								$(form).parent().toggleClass("hidden");
 							});
 
-							// $(delete_span).click(function(){
-							// 	// $(delete_id).trigger( "click" );
-							// 	// $(form).next('.message').load("delete_perdorues.php", {
-							// 	// 	id: d.id
-							// 	// });
-
-							// });
-
 							$(form_delete).submit(function(event){
 								event.preventDefault();
 								if(!confirm('Perdoruesit do fshihet.I sigurt qe doni te vazhdoni ?')){
@@ -216,7 +196,6 @@ function krijoForme (data){
 									var id = d.id;
 									var submit = $(form_delete + ' input[name="submit"]').val();
 									console.log(submit);
-
 									// $(form).next('.message').load("delete_perdorues.php", {
 										$(perdoruesi).load("delete_perdorues.php", {
 											id: id,
@@ -227,14 +206,11 @@ function krijoForme (data){
 										}, 2000); 
 									}
 								});
-
-
 							$(form).submit(function(event){
 								event.preventDefault();
 								if(!confirm('Perdoruesit do t\'i ndryshojne te dhenat sipas formes.I sigurt qe doni te vazhdoni ?')){
 									return false;
 								} else {
-
 									var id = d.id;
 									var emri = $(form + ' input[name="emri"]').val();
 									var mbiemri = $(form + ' input[name="mbiemri"]').val();
@@ -244,7 +220,6 @@ function krijoForme (data){
 									var datelindja = $(form + ' input[name="datelindja"]').val();
 									var submit = $(form + ' input[name="submit"]').val();
 								// console.log(submit);
-
 								$(this).next('.message').load("edit_perdorues.php", {
 									id: id,
 									emri: emri,
@@ -269,19 +244,13 @@ function krijoForme (data){
 										}
 									}
 								});
-
 								// nese merr msg ok ndrysho te dhenat 
 								// alert($(form).next(".message").html());
-
-
 								setTimeout(function() {
 									$(form).next('.message').text('');
 								}, 5000); 
-
 							}
 						});
-
-
 							// end for each d
 						});
 }
