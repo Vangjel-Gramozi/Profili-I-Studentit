@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +24,7 @@
         </div>
         <div class="div">
           <h5>Email</h5>
-          <input type="text" class="input" id="user" name="email" required>
+          <input type="text" class="input" id="user" name="email" >
         </div>
       </div>
       <div class="input-div pass">
@@ -32,7 +33,7 @@
         </div>
         <div class="div">
           <h5>Password</h5>
-          <input type="password" class="input" id="password" name="password" required>
+          <input type="password" class="input" id="password" name="password" >
         </div>
       </div>
       <a href="request_reset.php">Forgot Password?</a>

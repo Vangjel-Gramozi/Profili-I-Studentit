@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
 		header("Location: request_reset.php?signup=empty");
 		exit();
 	}else{
-//shohim nqs perdoreusi ka vendoisur nje email te sakte
+//shohim nqs perdoreusi ka vendosur nje email te sakte
 		if (!filter_var($emailTo, FILTER_VALIDATE_EMAIL)) {
 			header("Location: request_reset.php?signup=email");
 			exit();
