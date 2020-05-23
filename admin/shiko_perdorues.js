@@ -96,6 +96,12 @@ $("#search").submit(function(event){
 
 function krijoForme (data){
 	data.forEach(function(d){
+
+		if (typeof d.statusi === 'object') {
+			var st = " ";
+		} else {
+			var st = d.statusi;
+		}
 		if (d.gjini == 'f') {
 			var gjinia =  
 			"<span>Gjinia:</span>" +
@@ -128,7 +134,7 @@ function krijoForme (data){
 							                         "<div class = 'col kolone'id='perdoruesi_gjini"+d.id+"'>" + d.gjini + "</div>" + 
 							                         "<div class = 'col kolone'id='perdoruesi_datelindje"+d.id+"'>" + d.datelindje + "</div>" + 
 							                         "<div class = 'col kolone'id='perdoruesi_rol_id"+d.id+"'>" + d.rol_id + "</div>" + 	
-							                         "<div class = 'col kolone'id='perdoruesi_statusi"+d.id+"'>" + d.statusi + "</div>" + 
+							                         "<div class = 'col kolone'id='perdoruesi_statusi"+d.id+"'>" + st + "</div>" + 
 							                         "<div class = 'col kolone email' id='perdoruesi_email"+d.id+"'>" + d.email + "</div>" +
 		                     		// "<input  type='text' value = '" + d.emer + "'>" +
 		                     		"</div>" + 
@@ -175,9 +181,14 @@ function krijoForme (data){
 							var perdoruesi_mbiemer = '#perdoruesi_mbiemer' +d.id;
 							var perdoruesi_atesia = '#perdoruesi_atesia' +d.id;
 							var perdoruesi_datelindje = '#perdoruesi_datelindje' +d.id;
+							var perdoruesi_rol_id = '#perdoruesi_rol_id' +d.id;
 							var perdoruesi_email = '#perdoruesi_email' +d.id;
 							var form_delete = '#form_id_delete'+ d.id;	// selector per formen_delete
 
+
+							$(perdoruesi_rol_id).load("trego_rol.php", {
+								rol_id : d.rol_id
+							});							
 							$(perdoruesi).on('mouseenter', function () {
 								$(this).find("span").removeClass('hidden');;
 							}).on('mouseleave', function () {
@@ -200,10 +211,15 @@ function krijoForme (data){
 										$(perdoruesi).load("delete_perdorues.php", {
 											id: id,
 											submit: submit
+										}, function(data,status){
+											// console.log(data);
+											// console.log(status);
+											if (status == 'success' && data == 'Perdoruesi u fshi') {
+													setTimeout(function() {
+														$(perdoruesi).remove();
+													}, 2000); 
+											}
 										});
-										setTimeout(function() {
-											$(perdoruesi).remove();
-										}, 2000); 
 									}
 								});
 							$(form).submit(function(event){

@@ -101,11 +101,11 @@ function krijoForme (data){
 							// console.log(parseInt(d.me_zgjedhje));
 							// console.log(d.me_zgjedhje);
 							// console.log(Number.isNaN(d.me_zgjedhje));
-							var zgj = " ";
+							// var zgj = " ";
 							if (typeof d.me_zgjedhje === 'object') {
-								zgj = " ";
+								var zgj = " ";
 							} else {
-								zgj = d.me_zgjedhje;
+								var zgj = d.me_zgjedhje;
 							}
 
 
@@ -173,7 +173,7 @@ function krijoForme (data){
 							$(lende_dega).load("trego_dege.php", {
 								dega : d.id_dega
 							});
-							$(form + '  select').load("load_deget.php");
+							// $(form + '  select').load("load_deget.php");
 
 							$(lende).on('mouseenter', function () {
 								$(this).find("span").removeClass('hidden');;
@@ -203,13 +203,16 @@ function krijoForme (data){
 									console.log(submit);
 
 									// $(form).next('.message').load("delete_perdorues.php", {
-										$(lende).load("delete_perdorues.php", {
+										$(lende).load("delete_lende.php", {
 											id: id,
 											submit: submit
+										}, function(data, status){
+											if (status == 'success' && data == 'Lenda u fshi') {
+												setTimeout(function() {
+													$(lende).remove();
+												}, 2000); 
+											}
 										});
-										setTimeout(function() {
-											$(lende).remove();
-										}, 2000); 
 									}
 								});
 
