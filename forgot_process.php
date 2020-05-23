@@ -33,7 +33,8 @@
 
 			if ($query) {
 				$query = mysqli_query($connection, "DELETE from ndrysho_password WHERE code = '$code'");
-				exit("Password u ndryshua");
+				echo "Password u ndryshua";
+				header("location: log-in.php?changes=passwordChanged");
 				
 			}else{
 				exit("Dicka shkoi gabim !");

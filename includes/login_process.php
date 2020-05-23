@@ -11,8 +11,14 @@ if (isset($_POST['login'])){
 	$email = mysqli_real_escape_string($connection, $email);	
 	$password = mysqli_real_escape_string($connection, $password);
 
-	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		echo("Email jo i sakte");
+	if (empty($email) || empty($password)) {
+		echo "Plotesoni vendet bosh !";
+		exit();
+	}
+
+	elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		echo "Vendosni nje email te sakte";
+		exit();
 	} else {
 
 		$query = "SELECT * FROM perdorues WHERE email = '$email'";
@@ -63,7 +69,6 @@ if (isset($_POST['login'])){
 			header("Location: ../log-in.php");
 		}
 	}
-
 }
 }else{
 	header("Location: ../log-in.php");
