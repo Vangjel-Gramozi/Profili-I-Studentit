@@ -48,7 +48,7 @@ if (isset($_POST['login'])){
 		$_SESSION['atesia'] = $row['atesia'];
 		$_SESSION['statusi'] = $row['statusi'];
 		if ($_SESSION['rol_id'] == 1) {
-			header("Location: ../student.php");
+			header("Location: ../student/s_homepage/s_homepage_skeleti.php");
 		}
 		elseif ($_SESSION['rol_id'] == 2) {
 			header("Location: ../pedagog.php");
