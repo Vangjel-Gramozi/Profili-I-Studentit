@@ -1,6 +1,12 @@
 <?php 
 include "../includes/connect_db.php" ;
-include "./includes/pedagog_lende.inc.php"
+include "./includes/pedagog_lende.inc.php";
+
+$query2="SELECT me_zgjedhje FROM lenda WHERE id_lenda ='".$_GET['id_lenda']."'";
+$result2=mysqli_query($connection,$query2);
+$resultcheck2=mysqli_num_rows($result2);
+
+	
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +30,7 @@ include "./includes/pedagog_lende.inc.php"
 	if($resultcheck>0){
 		while ($rows=mysqli_fetch_assoc($result)) {
 			?>
-				<li ><a href="pedagog_specifik_lende.php" ><i class="fas fa-book"></i><?php echo $rows['emer'].'<br>';?> </a></li>	 
+				<li ><a href="pedagog_specifik_lende.php?id_lenda=<?php echo $rows['id_lenda']?>" ><i class="fas fa-book"></i><?php echo $rows['emer'].'<br>';?> </a></li>	 
 		<?php }
 	}
 	?>			
@@ -34,16 +40,25 @@ include "./includes/pedagog_lende.inc.php"
 		<div class="button1">
 		<button>Log Out</button>
 	</div>
-
-
+<?php
+if($resultcheck2>0){
+		while ($rows1=mysqli_fetch_assoc($result2)) {
+			if($rows1['me_zgjedhje']=='1'){
+				?>
+				<div class="lende">
+					<a class="lende_me_zgjedhje" href="#">Kapacitet per lende me zgjedhje</a><br>
+				</div>
+				<?php
+			}
+		}
+	}
+	?>
+	
 	<div class="lende">
-		<a class="lende_me_zgjedhje" href="#">Kapacitet per lende me zgjedhje</a><br>
+		<a href="vleresimi.php?id_lenda=<?php echo $_GET['id_lenda']?>">menyra e vleresimit per lenden</a><br>
 	</div>
 	<div class="lende">
-		<a href="#">menyra e vleresimit per lenden</a><br>
-	</div>
-	<div class="lende">
-		<a href="#">grupet mesimore</a><br>
+		<a href="grupet.php?id_lenda=<?php echo $_GET['id_lenda']?>">grupet mesimore</a><br>
 	</div>
 	
 		

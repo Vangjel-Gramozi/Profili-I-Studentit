@@ -1,8 +1,8 @@
 <?php 
 session_start();
 include "../includes/connect_db.php" ;
-$query1="SELECT emer FROM jep_mesim_lende 
-INNER JOIN lenda 
+$query1="SELECT id_lenda , emer FROM lenda 
+INNER JOIN jep_mesim_lende 
 ON jep_mesim_lende.id_lende=lenda.id_lenda 
 where id_pedagog= '".$_SESSION['id']."'";
 $result=mysqli_query($connection,$query1);

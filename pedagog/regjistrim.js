@@ -3,7 +3,7 @@
 		var userCount = 2;
 		$("#trego_perdorues").click(function(){
 			$.ajax({
-				url:"load_perdorues.php",
+				url:"includes/regjister.inc.php",
 				method:"POST",
 				data: {
 						// mund te kaloj dhe kolonen me te cilen do te bej sort
@@ -18,49 +18,26 @@
 						// console.log(data);
 						// merr cdo perdorues si opbjekt
 						data.forEach(function(d){
-							if (d.gjini == 'f') {
-								var gjinia =  
-								"<span>Gjinia:</span>" +
-								"<input type='radio' name='gjinia' value='m'>" +
-								"<label for='m'>Mashkull</label>" +
-								"<input type='radio' name='gjinia' value='f' checked>" +
-								"<label for='f'>Femer</label>" ;
-							} else {
-								var gjinia =  
-								"<span>Gjinia:</span>" +
-								"<input type='radio' name='gjinia' value='m' checked>" +
-								"<label for='m'>Mashkull</label>" +
-								"<input type='radio' name='gjinia' value='f'>" +
-								"<label for='f'>Femer</label>" ;	
-							}
+							
 							console.log(d);
 							$("#perdoruesit").append(
 							                         "<div class = 'row rrjesht' id='perdoruesi"+d.id+"'>" +
 							                        "<div class = 'col kolone'>" + "<span class='hidden' id='edit"+d.id+"'>edit</span>" + 
-							                         "<span class='hidden' id='delete"+d.id+"'>"+
-							                         "<form id='form_id_delete"+ d.id +"' method = 'POST' action = 'delete_perdorues.php'>" +
-							                        	 "<input type='submit' name='submit' value='delete'>" +
-							                         "</form>"+
-							                         "</span>" + "</div>" + 
+							                          + "</div>" + 
 							                         "<div class = 'col kolone'id='perdoruesi_id"+d.id+"'>" + d.id + "</div>" + 
 							                         "<div class = 'col kolone'id='perdoruesi_emer"+d.id+"'>" + d.emer + "</div>" + 
-							                         "<div class = 'col kolone'id='perdoruesi_atesia"+d.id+"'>" + d.atesia + "</div>" + 
-							                         "<div class = 'col kolone'id='perdoruesi_mbiemer"+d.id+"'>" + d.mbiemer + "</div>" + 
-							                         "<div class = 'col kolone'id='perdoruesi_gjini"+d.id+"'>" + d.gjini + "</div>" + 
-							                         "<div class = 'col kolone'id='perdoruesi_datelindje"+d.id+"'>" + d.datelindje + "</div>" + 
-							                         "<div class = 'col kolone'id='perdoruesi_rol_id"+d.id+"'>" + d.rol_id + "</div>" + 	
-							                         "<div class = 'col kolone'id='perdoruesi_statusi"+d.id+"'>" + d.statusi + "</div>" + 
-							                         "<div class = 'col kolone email' id='perdoruesi_email"+d.id+"'>" + d.email + "</div>" +
+							                         "<div class = 'col kolone'id='perdoruesi_atesia"+d.id+"'>" + d.mbiemer + "</div>" + 
+							                         
 		                     		// "<input  type='text' value = '" + d.emer + "'>" +
 		                     						"</div>" + 
 		                 //inputet per tu ber edit
 		                 // hidden ne fillim
 		                 "<div class = 'row rrjesht hidden' >" +
-		                 "<form id='form_id"+ d.id +"' method = 'POST' action = 'edit_perdorues.php'>" +
+		                 "<form id='form_id"+ d.id +"' method = 'POST' action = 'edit_nota.php'>" +
 		                 "<div class='row'>" +
 		                 "<div class='col'>" +
-		                 "<label for='emri'>Emer</label>" +
-		                 "<input type='text' class='form-control' name = 'emri' value= " + d.emer + ">" +
+		                 "<label for='emri'>Pike Projekti</label>" +
+		                 "<input type='text' class='form-control' name = 'pike_projekt' value= " + d.emer + ">" +
 		                 "</div>" + 
 		                 "<div class='col'>" +
 		                 "<label for='atesia'>Atesia</label>" +

@@ -14,14 +14,10 @@
 	<?php
 	if($resultcheck>0){
 		while ($rows=mysqli_fetch_assoc($result)) {
+			$emer_lende=$rows['emer'];
+			$_SESSION[$emer_lende]=$rows['id_lenda'];
 			?>
-			<form action="includes/lende_me_zgjedhje.inc.php" method="post">
-			<button class="lende" name="specifika" >
-				<a href="pedagog_specifik_lende.php"><?php echo $rows['emer'].'<br>';?> </a> 
-			</button>
-			<br>
-			</form>
-				 
+				<a href="pedagog_specifik_lende.php?id_lenda=<?php echo $_SESSION[$emer_lende]?>"><?php echo $emer_lende.'<br>';?> </a> 
 		<?php }
 	}
 	?>
