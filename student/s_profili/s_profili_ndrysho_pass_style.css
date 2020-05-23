@@ -1,0 +1,16 @@
+.container{
+	background: #1a1a1a;
+	opacity: 0.9;
+	margin-top: 100px;
+	padding: 105px;
+}
+
+
+.btn {
+	padding: 10px;
+	border: none;
+	background: #f12020;
+	opacity: 0.9;
+	font-size: 20px;
+	color: white;
+}

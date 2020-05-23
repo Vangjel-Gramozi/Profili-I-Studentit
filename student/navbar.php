@@ -267,7 +267,7 @@ a{
               <ul>
                 <li class="asd"><a href="../s_profili/s_profili_skeleti.php">Profili</a></li>
                 <li class="asd"><a href="../s_lendet/s_lendet_skeleti_1.php">Lendet</a></li>
-                <li class="asd"><a href="#">Dokument</a></li>
+                <li class="asd"><a href="../s_dokument/s_dokument_skeleti.php">Dokument</a></li>
                 <li class="asd"><a href="#">Orari</a></li>
               </ul>
             </div>

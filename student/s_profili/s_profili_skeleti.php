@@ -37,7 +37,7 @@
 				<div class="foto_diva"><img src="vetlla.jpg"></div>
 				<div class="btn_diva">
 					<a href="#">Nrdrysho Foton</a> <br>
-					<a href="../../request_reset.php">Nrdrysho Passwordin</a>
+					<a href="s_profili_ndrysho_pass.php">Nrdrysho Passwordin</a>
 				</div>
 			</div>
 			<div class="col medium_diva dy">

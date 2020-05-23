@@ -1,0 +1,50 @@
+.container{
+	background: #1a1a1a;
+	opacity: 0.9;
+	margin-top: 100px;
+}
+
+.row {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	padding-right: 10px;
+	padding-left: 10px;
+	text-align: center;
+}
+
+h4 {
+	width: 100%;
+	text-align: center;
+}
+
+.qwe{
+	background: #1a1a1a;
+}
+
+.ewq, button {
+	padding: 10px;
+	border: none;
+	background: #f12020;
+	opacity: 0.9;
+	font-size: 20px;
+}
+
+select {
+	border-style: solid white;
+	background: #1a1a1a;
+	font-size: 20px;
+	padding: 10px;
+}
+
+label {
+	font-size: 20px;
+	padding: 10px;
+}
+
+.loc {
+	margin-right: 20px;
+}
+
+hr .new {
+  border-top: 5px solid white;
+}

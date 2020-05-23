@@ -25,7 +25,7 @@
 			</div>
 			<div class="row medium_diva">
 				<div class="col small_diva">
-					<button class="butona">Dokument</button>
+					<button class="butona" onclick="window.location.href='../s_dokument/s_dokument_skeleti.php'">Dokument</button>
 				</div>
 				<div class="col small_diva">
 					<button class="butona">Orari</button>

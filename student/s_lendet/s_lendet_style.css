@@ -84,11 +84,11 @@ body {
 
 @media (min-width: 1200px){
   .container{
-    max-width: 1500px;
+    max-width: 1404px;
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 50px) {
 .sidenav {
   margin-top: 146px;
 }
