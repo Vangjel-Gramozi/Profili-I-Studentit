@@ -1,0 +1,39 @@
+
+.big_diva{
+	padding-top: 80px;
+	background: #1a1a1a;
+	opacity: 0.9;
+	margin-top: 100px;
+}
+
+.foto_diva img {
+	border-radius: 500px;
+	height: 400px;
+	margin-left: 70px;
+}
+
+.btn_diva  {
+	margin-top: 2rem;
+	width: 100%;
+	text-align: center; 
+
+}
+
+.small_diva {
+	margin-left: 100px;
+	margin-bottom: 150px;
+}
+
+a {
+	color: #f12020;
+ 	opacity: 0.9;
+}
+
+a:hover {
+	color: #f12020;
+ 	opacity: 0.9;
+}
+
+.dy {
+	padding-top: 40px;
+}

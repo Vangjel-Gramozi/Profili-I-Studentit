@@ -32,6 +32,7 @@
     bottom: 0px;
     width: 100%;
     background: #111;
+    opacity: 0.9;
   }
   .main-content{
     display: flex;
