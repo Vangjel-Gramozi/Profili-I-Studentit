@@ -12,10 +12,10 @@ $resultcheck=mysqli_num_rows($result);
  if(isset($_SESSION['rol_id'])){
  	if ($_SESSION['rol_id']!=='2') {
 
- 		header("Location: log_in.php");
+ 		header("Location: ../log-in.php");
  	}
  }else{
  	
- 	header("Location: log_in.php");
+ 	header("Location: ../log-in.php");
  }
 ?>

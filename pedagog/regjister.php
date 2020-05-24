@@ -3,12 +3,15 @@ session_start();
 $id_grupi=$_GET['id_grupi'];
 $id_lenda=$_GET['id_lenda'];
 include "../includes/connect_db.php" ;
-echo $_GET['id_grupi'];
-echo $_GET['id_lenda'];
-echo $id_grupi;
-echo $id_lenda;
+if(isset($_SESSION['rol_id'])){
+ 	if ($_SESSION['rol_id']!=='2') {
 
-
+ 		header("Location: ../log-in.php");
+ 	}
+ }else{
+ 	
+ 	header("Location: ../log-in.php");
+ }
 $query7="SELECT p.id, p.emer , p.mbiemer,n.pike_projekt,n.pike_laborator, n.pike_kologium, n.pike_seminar, n.pike_provim FROM perdorues p INNER JOIN grupi_student gs ON p.id= gs.id_student INNER JOIN nota n ON n.id_student=p.id WHERE gs.id_grup='$id_grupi'";
 $result7=mysqli_query($connection,$query7);
 $resultcheck7=mysqli_num_rows($result7);
@@ -32,7 +35,7 @@ $resultcheck7=mysqli_num_rows($result7);
 					<div id="cell">Pike seminar</div>
 					<div id="cell">Pike provim</div>
 					<div id="cell">Pike totale</div>
-					<div id="cell">Mungesa</div>
+
 				</div>
 						<?php
 		while ($rows7=mysqli_fetch_assoc($result7)) {
@@ -52,7 +55,10 @@ $resultcheck7=mysqli_num_rows($result7);
 				
 
 			
-		<?php }?>
+		<?php }
+
+
+		?>
 		</div>
 		<button class="button" id="a" type="button" name="studenti">Edito student</button>
 		 <div class="popup">
@@ -70,6 +76,7 @@ $resultcheck7=mysqli_num_rows($result7);
         		Pike kologium:<input type="text" name="pike_kologium" ><br>
         		Pike seminar:<input type="text" name="pike_seminar" ><br>
         		Pike provimi:<input type="text" name="pike_provim" ><br>
+        		Mungesa:<input type="checkbox" name="checkbox"><br>
         		<button type="submit" name="submit">Submit</button><br>
         	</form>
         </div>	

@@ -6,6 +6,7 @@ $query2="SELECT me_zgjedhje FROM lenda WHERE id_lenda ='".$_GET['id_lenda']."'";
 $result2=mysqli_query($connection,$query2);
 $resultcheck2=mysqli_num_rows($result2);
 
+
 	
 ?>
 
@@ -43,10 +44,15 @@ $resultcheck2=mysqli_num_rows($result2);
 <?php
 if($resultcheck2>0){
 		while ($rows1=mysqli_fetch_assoc($result2)) {
-			if($rows1['me_zgjedhje']=='1'){
+			if($rows1['me_zgjedhje']>='1'){
 				?>
 				<div class="lende">
-					<a class="lende_me_zgjedhje" href="#">Kapacitet per lende me zgjedhje</a><br>
+					<form action="includes/kapacitet.php?id_lenda=<?php echo $_GET['id_lenda']?>" method="post">
+						Kapacitet per lende me zgjedhje:<input type="text" name="kapacitet"> 
+						<button type="submit" name="vendos_kapacitet">Submit</button>
+					</form>
+					<?php echo $rows1['me_zgjedhje']?>
+					
 				</div>
 				<?php
 			}

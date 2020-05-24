@@ -6,3 +6,12 @@ $query6="SELECT pike_projekt, pike_laborator, pike_kologium ,pike_seminar,pike_p
 
 $result6=mysqli_query($connection,$query6);
 $resultcheck6=mysqli_num_rows($result6);
+if(isset($_SESSION['rol_id'])){
+ 	if ($_SESSION['rol_id']!=='2') {
+
+ 		header("Location: ../../log-in.php");
+ 	}
+ }else{
+ 	
+ 	header("Location: ../../log-in.php");
+ }

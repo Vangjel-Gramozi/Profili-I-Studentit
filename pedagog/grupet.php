@@ -15,6 +15,15 @@
 				<a href="regjister.php?id_lenda=<?php echo $_GET['id_lenda']?>&id_grupi=<?php echo $id_grupii ?>"> <?php echo $rows4['emri'].'  '.$rows4['viti'].'   '.$rows4['emer_grupi'].'   ';?> </a> <br><br>
 		<?php }
 	}
+	if(isset($_SESSION['rol_id'])){
+ 	if ($_SESSION['rol_id']!=='2') {
+
+ 		header("Location: ../log-in.php");
+ 	}
+ }else{
+ 	
+ 	header("Location: ../log-in.php");
+ }
 	?>
 
 </body>

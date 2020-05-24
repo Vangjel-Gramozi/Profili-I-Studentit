@@ -2,6 +2,15 @@
 include '../includes/connect_db.php';
 ?>
 <?php 
+	if(isset($_SESSION['rol_id'])){
+ 	if ($_SESSION['rol_id']!=='2') {
+
+ 		header("Location: ../log-in.php");
+ 	}
+ }else{
+ 	
+ 	header("Location: ../log-in.php");
+ }
 if (isset($_POST['submit'])) {
 	$id_lenda=$_POST['id_lenda'];
 	$id_grupi=$_POST['id_grupi'];
@@ -11,6 +20,21 @@ if (isset($_POST['submit'])) {
 	$pike_kologium = $_POST['pike_kologium'];
 	$pike_seminar = $_POST['pike_seminar'];
 	$pike_provim = $_POST['pike_provim'];
+	$id_pedagog=$_SESSION['id'];
+
+	$date=date('Y-m-d H:i:s');
+$pikemax="SELECT pike_projekt, pike_laborator, pike_kologium, pike_seminar, pike_provim FROM jep_mesim_lende WHERE id_pedagog='$id_pedagog' AND id_lende='$id_lende'";
+$pikemaxped=mysqli_query($connection,$pikemax);
+	$rowpike=mysqli_fetch_assoc($pikemaxped);
+	if (mysqli_num_rows($pikemaxped)==0) {
+		header("Location:  regjister.php?id_lenda=".$id_lenda."&id_grupi=".$id_grupi."error");
+	}else{
+		if(($pike_projekt>$rowpike['pike_projekt']) || ($pike_laborator>$rowpike['pike_laborator']) || ($pike_kologium> $rowpike['pike_kologium']) || ($pike_seminar>$rowpike['pike_seminar']) || ($pike_provim>$rowpike['pike_provim']))
+		{
+			header("Location:  regjister.php?id_lenda=".$id_lenda."&id_grupi=".$id_grupi."&error=gabim");
+			exit();
+		}
+	}
 
 
 	$query="SELECT * FROM nota WHERE id_student='$id_student' AND id_lenda='$id_lenda'";
@@ -39,6 +63,12 @@ if (isset($_POST['submit'])) {
 		if(empty($pike_provim)){
 			$pike_provim=$rowcheck['pike_provim'];
 		}
+		if ($_POST['checkbox']) {
+			$queryinsertmungesa="INSERT INTO `mungesa` VALUES ('$date','$id_student','$id_lenda')";
+			$studentmungesa=mysqli_query($connection,$queryinsertmungesa);
+
+		}
+
 
 		$queryupdate="UPDATE nota SET pike_projekt ='$pike_projekt', pike_laborator ='$pike_laborator', pike_kologium='$pike_kologium', pike_seminar ='$pike_seminar', pike_provim ='$pike_provim' WHERE id_student='$id_student' && id_lenda='$id_lenda'";
 		$pedagogqueryupdate=mysqli_query($connection,$queryupdate);

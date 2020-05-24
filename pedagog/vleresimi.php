@@ -1,6 +1,15 @@
 <?php
 $id_lenda1=$_GET['id_lenda'];
 include  "./includes/vleresimi1.inc.php" ;
+if(isset($_SESSION['rol_id'])){
+ 	if ($_SESSION['rol_id']!=='2') {
+
+ 		header("Location: ../log-in.php");
+ 	}
+ }else{
+ 	
+ 	header("Location: ../log-in.php");
+ }
 ?>
 <!DOCTYPE html>
 <html>

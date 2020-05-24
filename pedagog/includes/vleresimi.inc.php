@@ -20,3 +20,12 @@ if(!$result3){
 	exit();
 }
 }
+if(isset($_SESSION['rol_id'])){
+ 	if ($_SESSION['rol_id']!=='2') {
+
+ 		header("Location: ../../log-in.php");
+ 	}
+ }else{
+ 	
+ 	header("Location: ../../log-in.php");
+ }
