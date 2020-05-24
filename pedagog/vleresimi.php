@@ -15,8 +15,12 @@ if(isset($_SESSION['rol_id'])){
 <html>
 <head>
 	<title>Vleresimi</title>
+	<link rel="stylesheet" href="./css/vleresim.css">
 </head>
 <body>
+	<button class="btn"><i class="fas fa-angle-left"></i></button>
+	
+
 	<h1>Vendos menyren e vleresimit per lenden</h1>
 	<form action="includes/vleresimi.inc.php?id_lenda=<?php echo $_GET['id_lenda']?>" method="post">
 		Pike projekti:<input type="text" name="pike_projekt" ><br>
