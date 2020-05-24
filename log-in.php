@@ -38,6 +38,30 @@
       </div>
       <a href="request_reset.php">Forgot Password?</a>
       <input type="submit" class="btn" value="Login" name="login">
+      <?php 
+        if (!isset($_GET['fields'])) {
+          exit();
+        }
+        else{
+          $logInCheck = $_GET['fields'];
+          if ($logInCheck == "empty") {
+            echo "<p>Ju lutem plotesoni fushat e kerkuara!</p>";
+            exit();
+          }
+          elseif ($logInCheck == "email") {
+            echo "<p>Ju lutem vendosni nje email te vlefshem!</p>";
+            exit();
+          }
+          elseif ($logInCheck == "emailEmpty") {
+            echo "<p>Perdoruesi nuk ekziston !</p>";
+            exit();
+          }elseif ($logInCheck == "passwordError") {
+            echo "<p>Email dhe password nuk perputhen !</p>";
+            exit();
+          }
+        }
+
+        ?>
     </form>
   </div>
 </div>
