@@ -1,2 +1,16 @@
 te krijo perdorues kur zgjedh student i percakton grupin.
 vendos timer te mesazhi pas krijimit/editimt me sukses
+
+shto ndarjen e lendes te tabela jep_mesim_lende
+
+gurpi_student hiqen studentet ne fund te vitit qe nuk kane kaluar
+
+gurpi ne fund te vitit shkollor i ndryshohet atributi vit
+
+per lenden me zgjedhje krijojme nje grup te ri
+
+shto leksion/seminar te orari 
+
+shto tabele ndrysho_Password
+	id kod_per_kerkesat email
+	fshi rresht pas 5m

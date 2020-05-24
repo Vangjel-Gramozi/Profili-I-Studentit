@@ -48,7 +48,7 @@ if (isset($_POST['login'])){
 		$_SESSION['atesia'] = $row['atesia'];
 		$_SESSION['statusi'] = $row['statusi'];
 		if ($_SESSION['rol_id'] == 1) {
-			header("Location: ../student.php");
+			header("Location: ../student/s_homepage/s_homepage_skeleti.php");
 		}
 		elseif ($_SESSION['rol_id'] == 2) {
 			header("Location: ../pedagog/pedagog_lende.php");
@@ -57,7 +57,7 @@ if (isset($_POST['login'])){
 			header("Location: ../sekretare.php");
 		}
 		elseif ($_SESSION['rol_id'] == 4) {
-			header("Location: ../admin/admin.php");
+			header("Location: ../admin/perdorues/admin.php");
 		}
 		else {
 			header("Location: ../log-in.php");

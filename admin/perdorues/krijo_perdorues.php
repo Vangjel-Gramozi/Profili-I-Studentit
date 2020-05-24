@@ -1,5 +1,5 @@
-<?php include 'includes/header.php' ?>
-<?php include 'includes/navbar.php' ?>
+<?php include '../includes/header.php' ?>
+<?php include '../includes/navbar.php' ?>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -29,6 +29,8 @@
 				});
 			});
 		</script>
+		</script>
+	<link rel="stylesheet" type="text/css" href="../includes/krijo.css">
 	</head>
 	<body>
 		<div class="continer row justify-content-center">	
@@ -72,4 +74,4 @@
 			</div>
 		</div>
 
-			<?php include 'includes/footer.php' ?>
+			<?php include '../includes/footer.php' ?>

@@ -1,12 +1,21 @@
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  	<script src="js/libs/jquery.min.js" type="text/javascript"></script>
+    <!-- <script type="text/javascript" src="header-script.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
-    $(document).ready(function(){
-      $(".profile .icon_wrap").click(function(){
-        $(this).parent().toggleClass("active");
-      });
-      $(".close").click(function(){
-        $(".popup").hide();
-      });
-    });
+		$(document).ready(function(){
+			$(".profile .icon_wrap").click(function(){
+			  $(this).parent().toggleClass("active");
+			});
+			$(".close").click(function(){
+			  $(".popup").hide();
+			});
+		});
   </script>
 
 
@@ -53,14 +62,13 @@ a{
 
 .navbar .profile .profile_dd{
   position: absolute;
-  z-index: 100;
   top: 48px;
-  right: -10px;
+  right: -15px;
   user-select: none;
   background: #fff;
   border: 1px solid #c7d8e2;
   width: 350px;
-  height: 108px;
+  height: auto;
   display: none;
   border-radius: 3px;
   box-shadow: 10px 10px 35px rgba(0,0,0,0.125),
@@ -81,7 +89,7 @@ a{
  
 .navbar .profile .profile_dd{
   width: 225px;
-  z-index: 100;
+  z-index: 90;
 }
 
 .navbar .profile .profile_dd ul li {
@@ -113,7 +121,6 @@ a{
 
 .navbar .profile.active .profile_dd{
   display: block;
-  z-index: 100;
 }
 
 .navbar {
@@ -245,7 +252,7 @@ a{
   <div class="navbar">
     <div class="navbar_left">
       <div class="logo">
-        <a href="./admin.php">Profili i Studentit</a>
+        <a href="../s_homepage/s_homepage_skeleti.php">Profili i Studentit</a>
       </div>
     </div>
     <div class="navbar_right">
@@ -258,10 +265,10 @@ a{
 
             <div class="navbar-links">
               <ul>
-                <li class="asd"><a href="../perdorues/admin.php">Perdorues</a></li>
-                <li class="asd"><a href="../lende/menaxho_lende.php">Lende</a></li>
-                <li class="asd"><a href="../grupe/menaxho_grupe.php">Grup</a></li>
-                <li class="asd"><a href="../dege/menaxho_dege.php">Dege</a></li>
+                <li class="asd"><a href="../s_profili/s_profili_skeleti.php">Profili</a></li>
+                <li class="asd"><a href="../s_lendet/s_lendet_skeleti_1.php">Lendet</a></li>
+                <li class="asd"><a href="../s_dokument/s_dokument_skeleti.php">Dokument</a></li>
+                <li class="asd"><a href="#">Orari</a></li>
               </ul>
             </div>
       <div class="profile">
