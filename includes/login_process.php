@@ -12,12 +12,14 @@ if (isset($_POST['login'])){
 	$password = mysqli_real_escape_string($connection, $password);
 
 	if (empty($email) || empty($password)) {
-		echo "Plotesoni vendet bosh !";
+		header("Location: ../log-in.php?fields=empty");
+		//echo "Plotesoni vendet bosh !";
 		exit();
 	}
 
 	elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		echo "Vendosni nje email te sakte";
+		header("Location: ../log-in.php?fields=email");
+		//echo "Vendosni nje email te sakte";
 		exit();
 	} else {
 
@@ -40,9 +42,15 @@ if (isset($_POST['login'])){
 	}*/
 
 	$row = mysqli_fetch_assoc($select_user_query);
-	if ($email !== $row['email'] || !password_verify($password,$row['password'])) { 
-		echo "Ju nuk jeni rregjistruar sakte.";
-	} 
+	if (!isset($row['email'])) { 
+		header("Location: ../log-in.php?fields=emailEmpty");
+		exit();
+		//echo "Ju nuk jeni rregjistruar sakte.";
+	}
+	if (!password_verify($password,$row['password'])) {
+	 	header("Location: ../log-in.php?fields=passwordError");
+	 	exit();
+	 } 
 	
 	elseif ($email == $row['email'] && password_verify($password,$row['password'])) {
 		$_SESSION['id'] = $row['id'];

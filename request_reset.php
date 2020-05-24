@@ -31,16 +31,16 @@ if (isset($_POST['submit'])) {
 				exit();
 			}else{
 				//dergojme email verifikimi ne emailin e vendosur per ndryshim passwordi
-			$code = uniqid(true);
-			$query = mysqli_query($connection, "INSERT INTO ndrysho_password(code, email) VALUES('$code','$emailTo')");
-			if (!$query) {
-				exit("Error");
-			}
+				$code = uniqid(true);
+				$query = mysqli_query($connection, "INSERT INTO ndrysho_password(code, email) VALUES('$code','$emailTo')");
+				if (!$query) {
+					exit("Error");
+				}
 
 	// Instantiation and passing `true` enables exceptions
-			$mail = new PHPMailer(true);
+				$mail = new PHPMailer(true);
 
-			try {
+				try {
     //Server settings
     $mail->isSMTP();                                            // Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
 	echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
 exit();
-		}
+}
 
 }
 }
@@ -105,35 +105,35 @@ exit();
 <body>
 	<form method="POST">
 		<div class="form-group">
-		<label for="exampleInputEmail">Adresa Email</label>
-		<input class="form-control" type="text" name="email" placeholder="Email" autocomplete="off">
-		<br>
-		<input class="btn" type="submit" name="submit" value="Reset email">
-		<br>
-		<div class="njoftim">
-			<?php 
-			if (!isset($_GET['signup'])) {
-			exit();
-		}
-		else{
-			$signupCheck = $_GET['signup'];
-			if ($signupCheck == "empty") {
-				echo "<p>Ju lutem plotesoni fushen e kerkuar!</p>";
-				exit();
-			}
-			elseif ($signupCheck == "email") {
-				echo "<p>Ju lutem vendosni nje email te vlefshem!</p>";
-				exit();
-			}
-			elseif ($signupCheck == "nonexistent") {
-				echo "<p>Emaili i vendosur nuk eshte i rregjistruar tek Profili i Studentit!</p>";
-				exit();
-			}
-		}
+			<label for="exampleInputEmail">Adresa Email</label>
+			<input class="form-control" type="text" name="email" placeholder="Email" autocomplete="off">
+			<br>
+			<input class="btn" type="submit" name="submit" value="Reset email">
+			<br>
+			<div class="njoftim">
+				<?php 
+				if (!isset($_GET['signup'])) {
+					exit();
+				}
+				else{
+					$signupCheck = $_GET['signup'];
+					if ($signupCheck == "empty") {
+						echo "<p>Ju lutem plotesoni fushen e kerkuar!</p>";
+						exit();
+					}
+					elseif ($signupCheck == "email") {
+						echo "<p>Ju lutem vendosni nje email te vlefshem!</p>";
+						exit();
+					}
+					elseif ($signupCheck == "nonexistent") {
+						echo "<p>Emaili i vendosur nuk eshte i rregjistruar tek Profili i Studentit!</p>";
+						exit();
+					}
+				}
 
-		 ?>
-		</div>
-		
+				?>
+			</div>
+			
 		</div>
 	</form>
 	<?php
@@ -153,6 +153,6 @@ exit();
 			exit();
 		}
 		*/
-	 ?>
-</body>
-</html>
+		?>
+	</body>
+	</html>
