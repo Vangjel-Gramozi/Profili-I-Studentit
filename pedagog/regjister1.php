@@ -1,3 +1,7 @@
+<?php
+$id_grupi=$_GET['id_grupi'];
+?>
+
 	<style type="text/css">
 		.hidden {
 			display: none;

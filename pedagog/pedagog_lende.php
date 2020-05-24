@@ -25,5 +25,6 @@
 </body>
 <?php 
 include "footer.php" ;
+echo print_r($_SESSION);
 ?>
 </html>

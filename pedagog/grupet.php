@@ -10,8 +10,9 @@
 	if($resultcheck4>0){
 		while ($rows4=mysqli_fetch_assoc($result4)) {
 			$id_grupii=$rows4['id_grupi'];
+			$_SESSION[$rows4['emri']]=$rows4['id_grupi'];
 			?>
-				<a href="regjister1.php?id_lenda=<?php echo $_GET['id_lenda']?>&id_grupi=<?php echo $id_grupii ?>"> <?php echo $rows4['emri'].'  '.$rows4['viti'].'   '.$rows4['emer_grupi'].'   ';?> </a> <br><br>
+				<a href="regjister.php?id_lenda=<?php echo $_GET['id_lenda']?>&id_grupi=<?php echo $id_grupii ?>"> <?php echo $rows4['emri'].'  '.$rows4['viti'].'   '.$rows4['emer_grupi'].'   ';?> </a> <br><br>
 		<?php }
 	}
 	?>
