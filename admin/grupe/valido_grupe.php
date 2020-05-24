@@ -1,5 +1,5 @@
 <?php 
-require '../includes/connect_db.php';
+require '../../includes/connect_db.php';
 $errorEmpty;
 $errorChar;
 if (isset($_POST['submit'])) {

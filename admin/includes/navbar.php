@@ -10,16 +10,16 @@
         <a class="nav-link" href="admin.php">Home<span class="sr-only">(current)</span></a>
       </li> -->
       <li class="nav-item">
-        <a class="nav-link" href="admin.php">Menaxho Perdorues</a>
+        <a class="nav-link" href="../perdorues/admin.php">Menaxho Perdorues</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="menaxho_lende.php">Menaxho Lende</a>
+        <a class="nav-link" href="../lende/menaxho_lende.php">Menaxho Lende</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="menaxho_grupe.php">Menaxho Grup</a>
+        <a class="nav-link" href="../grupe/menaxho_grupe.php">Menaxho Grup</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../includes/logout.php">Log out</a>
+        <a class="nav-link" href="../../includes/logout.php">Log out</a>
       </li>
     </ul>
 <!--     <form class="form-inline my-2 my-lg-0">

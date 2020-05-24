@@ -37,6 +37,13 @@ $(document).ready(function() {
 // pjesa e search
 $("#search").submit(function(event){
 	event.preventDefault();
+	search();
+		// alert(search_field);
+	});
+});
+
+
+function search(){
 	var search_field = $("#search_field").val();
 	var search_submit = $("#search_submit").val();
 	var search_results = $("#search_results").text();
@@ -56,7 +63,7 @@ $("#search").submit(function(event){
 		//                        });
 
 		$.ajax({
-			url : "search.php",
+			url : "../includes/search.php",
 			method:"POST",
 			data: {
 				search_table : "perdorues",
@@ -82,7 +89,6 @@ $("#search").submit(function(event){
 									// $("#search").click(function(){
 										$("#kthehu_mbrapa").removeClass('hidden');
 									// });
-
 									$('#kthehu_mbrapa').click(function() {
 										location.reload();
 									});
@@ -90,9 +96,7 @@ $("#search").submit(function(event){
 								}
 							}
 						});
-		// alert(search_field);
-	});
-});
+}
 
 
 function krijoForme (data){

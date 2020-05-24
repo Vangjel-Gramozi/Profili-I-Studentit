@@ -1,5 +1,5 @@
 <?php 
-include '../includes/connect_db.php';
+include '../../includes/connect_db.php';
 if (!isset($_POST['rol_id'])) {
 	header("Location : admin.php");
 	exit();

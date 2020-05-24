@@ -1,5 +1,5 @@
-<?php include 'includes/header.php' ?>
-<?php include 'includes/navbar.php' ?>
+<?php include '../includes/header.php' ?>
+<?php include '../includes/navbar.php' ?>
 
 <script type="text/javascript">
 		function showKuotat(){
@@ -10,7 +10,7 @@
 			document.getElementById('kuotat').value = "";
 		}
 	$(document).ready(function() {
-				$("#dega").load("load_deget.php");
+				$("#dega").load("../includes/load_deget.php");
 				$("form").submit(function(event){
 					event.preventDefault();
 					var emer = $("#emer").val();
@@ -81,4 +81,4 @@
 			</div>
 		</div>
 
-			<?php include 'includes/footer.php' ?>
+			<?php include '../includes/footer.php' ?>

@@ -1,5 +1,5 @@
 <?php 
-include '../includes/connect_db.php';
+include '../../includes/connect_db.php';
 if (isset($_POST['startCount']) && isset($_POST['count'])) {
 	$startCount = $_POST['startCount'];
 	$count = $_POST['count'];

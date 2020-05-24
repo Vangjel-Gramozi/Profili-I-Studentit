@@ -1,5 +1,5 @@
 <?php 
-include '../includes/connect_db.php';
+include '../../includes/connect_db.php';
 
 $query = "SELECT * FROM dega";
 $result = mysqli_query($connection,$query);

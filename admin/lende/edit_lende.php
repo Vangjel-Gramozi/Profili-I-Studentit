@@ -1,5 +1,5 @@
 <?php 
-require '../includes/connect_db.php';
+require '../../includes/connect_db.php';
 // echo print_r($_POST);
 
 if (isset($_POST['submit'])){

@@ -57,7 +57,7 @@ $("#search").submit(function(event){
 		//                        });
 
 		$.ajax({
-			url : "search.php",
+			url : "../includes/search.php",
 			method:"POST",
 			data: {
 				search_table : "lenda",
@@ -169,7 +169,7 @@ function krijoForme (data){
 
 							// var delete_id = '#delete_id'+ d.id_lenda;
 							var form_delete = '#form_id_delete'+ d.id_lenda;	// selector per formen_delete
-							$(lende_dega).load("trego_dege.php", {
+							$(lende_dega).load("../includes/trego_dege.php", {
 								dega : d.id_dega
 							});
 							// $(form + '  select').load("load_deget.php");

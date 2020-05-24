@@ -1,5 +1,5 @@
 <?php 
-include '../includes/connect_db.php';
+include '../../includes/connect_db.php';
 if (!isset($_POST['dega'])) {
 	header("Location : admin.php");
 	exit();

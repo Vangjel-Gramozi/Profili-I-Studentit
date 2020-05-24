@@ -1,5 +1,5 @@
 <?php 
-require '../includes/connect_db.php';
+require '../../includes/connect_db.php';
 	if (isset($_POST['submit'])){
 		$id = $_POST['id'];
 		$query = "DELETE FROM lenda WHERE id_lenda = '$id'";

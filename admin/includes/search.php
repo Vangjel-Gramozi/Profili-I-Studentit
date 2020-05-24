@@ -1,5 +1,5 @@
 <?php 
-require '../includes/connect_db.php';
+require '../../includes/connect_db.php';
 
 if (isset($_POST['search_submit'])){
 
