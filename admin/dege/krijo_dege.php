@@ -19,6 +19,7 @@
 				});
 			});
 		</script>
+	<link rel="stylesheet" type="text/css" href="../includes/krijo.css">
 	</head>
 	<body>
 		<div class="continer row justify-content-center">	
@@ -33,7 +34,7 @@
 						<label for="kuotat">Kuotat</label>
 						<input type="number" name="kuotat" class="form-control" id="kuotat" min="10" step="1" >
 					</div>
-					<input type="submit" name="submit" class="btn btn-primary" value="Krijo dege" id="submit">
+					<input type="submit" name="submit" class="btn" value="Krijo dege" id="submit">
 				</form>
 				<p id="message"></p>
 			</div>

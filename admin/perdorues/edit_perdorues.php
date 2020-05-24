@@ -20,7 +20,7 @@ if (isset($_POST['submit'])){
 	} else {
 		if (!preg_match("/^[a-zA-Z]+$/", $emri) || !preg_match("/^[a-zA-Z]+$/", $mbiemri) || !preg_match("/^[a-zA-Z]+$/", $atesia)) {
 			$errorChar = true;
-			echo "Nuk lejohet perdorimi i numrave dhe shkronjave me hapesire";
+			echo "Incorrect input";
 		} else {
 			// kontrollo per email ekzistues
 			$errorEmpty = false;
@@ -85,10 +85,10 @@ if (isset($_POST['submit'])){
 					$flag = true;
 
 				} else {
-					echo "Email jo i vlefshem";
+					echo "Email jo i vlefshem<br>";
 				}
 			}else {
-				echo "Email i zene";
+				echo "Email i zene<br>";
 			}
 			
 			if ($flag) {
@@ -98,7 +98,7 @@ if (isset($_POST['submit'])){
 					WHERE id = '$id'";
 				$result = mysqli_query($connection,$query);
 				if ($result) {
-					echo "Te dhenat u perditesuan";
+					echo "Te dhenat u perditesuan<br>";
 				} else {
 					die("Query failed") . mysqli_error($connection);
 				}

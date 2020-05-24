@@ -96,17 +96,18 @@ function krijoForme (data){
 
 							$("#grupet").append(
 							                         "<div class = 'row rrjesht' id='grup"+d.id_grupi+"'>" +
-							                         "<div class = 'col kolone'>" + "<span class='hidden' id='edit"+d.id_grupi+"'>edit</span>" + 
-							                         "<span class='hidden' id='delete"+d.id_grupi+"'>"+
-							                         "<form id='form_id_delete"+ d.id_grupi +"' method = 'POST' action = 'delete_grupe.php'>" +
-							                         "<input type='submit' name='submit' value='delete'>" +
-							                         "</form>"+
-							                         "</span>" + "</div>" + 
 
 							                         "<div class = 'col kolone'id='grup_id"+d.id_grupi+"'>" + d.id_grupi + "</div>" + 
 							                         "<div class = 'col kolone'id='grup_emer"+d.id_grupi+"'>" + d.emer_grupi + "</div>" + 
 							                         "<div class = 'col kolone'id='grup_dega"+d.id_grupi+"'>" + d.id_dega + "</div>" + 
 							                         "<div class = 'col kolone'id='grup_viti"+d.id_grupi+"'>" + d.viti + "</div>" + 	
+
+							                         "<div class = 'col kolone'>" + "<span class='ewq' id='edit"+d.id_grupi+"'><i class='btn fas fa-pen '></i></span>" + 
+							                         "<span class='ewq' id='delete"+d.id_grupi+"'>"+
+							                         "<form id='form_id_delete"+ d.id_grupi +"' method = 'POST' action = 'delete_grupe.php'>" +
+							                         "<input class='fas fa-trash btn' type='submit' name='submit' value='&#xf1f8'>" +
+							                         "</form>"+
+							                         "</span>" + "</div>" + 
 							                         // "<div class = 'col kolone viti' id='grup_viti"+d.id_grupi+"'>" + d.viti + "</div>" +
 		                     		// "<input  type='text' value = '" + d.emer_grupi + "'>" +
 		                     		"</div>" + 
@@ -123,10 +124,10 @@ function krijoForme (data){
 		                     "<label for='viti'>Viti i grupit</label>" +
 		                     "<input type='number' class='form-control' min='1' max='3' step='1' name = 'viti' value=" + d.viti + ">" +
 		                     "</div>" +			                    	
-		                   "<input type='submit' name='submit' id='input_id"+ d.id_grupi +"' class='edit_perdorues btn btn-primary' value='ruaj'>" +
+		                   "<input type='submit' name='submit' id='input_id"+ d.id_grupi +"' class='edit_perdorues btn fas fa-save' value='&#xf0c7'>" +
 		                   "</div>" +
 	                   "</form>" +
-	                   "<div class = 'message'></div>" +
+	                   "<div class = 'message col kolone'></div>" +
 	                   "</div>"
 	                     );	//end append
 							
@@ -146,11 +147,11 @@ function krijoForme (data){
 							});
 							// $(form + '  select').load("load_deget.php");
 
-							$(grup).on('mouseenter', function () {
-								$(this).find("span").removeClass('hidden');;
-							}).on('mouseleave', function () {
-								$(this).find("span").addClass('hidden');
-							});
+							// $(grup).on('mouseenter', function () {
+							// 	$(this).find("span").removeClass('hidden');;
+							// }).on('mouseleave', function () {
+							// 	$(this).find("span").addClass('hidden');
+							// });
 
 							$(edit).click(function(){
 								$(form).parent().toggleClass("hidden");

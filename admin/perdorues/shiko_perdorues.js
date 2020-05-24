@@ -124,60 +124,62 @@ function krijoForme (data){
 		}
 							// console.log(d);
 
-							$("#perdoruesit").append(
-							                         "<div class = 'row rrjesht' id='perdoruesi"+d.id+"'>" +
-							                         "<div class = 'col kolone'>" + "<span class='hidden' id='edit"+d.id+"'>edit</span>" + 
-							                         "<span class='hidden' id='delete"+d.id+"'>"+
-							                         "<form id='form_id_delete"+ d.id +"' method = 'POST' action = 'delete_perdorues.php'>" +
-							                         "<input type='submit' name='submit' value='delete'>" +
-							                         "</form>"+
-							                         "</span>" + "</div>" + 
-							                         "<div class = 'col kolone'id='perdoruesi_id"+d.id+"'>" + d.id + "</div>" + 
-							                         "<div class = 'col kolone'id='perdoruesi_emer"+d.id+"'>" + d.emer + "</div>" + 
-							                         "<div class = 'col kolone'id='perdoruesi_atesia"+d.id+"'>" + d.atesia + "</div>" + 
-							                         "<div class = 'col kolone'id='perdoruesi_mbiemer"+d.id+"'>" + d.mbiemer + "</div>" + 
-							                         "<div class = 'col kolone'id='perdoruesi_gjini"+d.id+"'>" + d.gjini + "</div>" + 
-							                         "<div class = 'col kolone'id='perdoruesi_datelindje"+d.id+"'>" + d.datelindje + "</div>" + 
-							                         "<div class = 'col kolone'id='perdoruesi_rol_id"+d.id+"'>" + d.rol_id + "</div>" + 	
-							                         "<div class = 'col kolone'id='perdoruesi_statusi"+d.id+"'>" + st + "</div>" + 
-							                         "<div class = 'col kolone email' id='perdoruesi_email"+d.id+"'>" + d.email + "</div>" +
-		                     		// "<input  type='text' value = '" + d.emer + "'>" +
-		                     		"</div>" + 
-		                 //inputet per tu ber edit
-		                 // hidden ne fillim
-		                 "<div class = 'row rrjesht hidden' >" +
-		                 "<form id='form_id"+ d.id +"' method = 'POST' action = 'edit_perdorues.php'>" +
-		                 "<div class='row'>" +
-		                 "<div class='col'>" +
-		                 "<label for='emri'>Emer</label>" +
-		                 "<input type='text' class='form-control' name = 'emri' value= " + d.emer + ">" +
-		                 "</div>" + 
-		                 "<div class='col'>" +
-		                 "<label for='atesia'>Atesia</label>" +
-		                 "<input type='text' class='form-control' name = 'atesia' value= " + d.atesia + ">" +
-		                 "</div>" + 
-		                 "<div class='col'>" +
-		                 "<label for='mbiemri'>Mbiemer</label>" +
-		                 "<input type='text' class='form-control' name = 'mbiemri' value=" + d.mbiemer + ">" +
-		                 "</div>" + 
-			                     // "<div class='col'>" + 	
-			                     //   		gjinia +
-			                     // "</div>" + 
-			                     "<div class='col'>" +
-			                     "<label for='datelindja'>Datelindja</label>" +
-			                     "<input type='date' name='datelindja' class='form-control' value=" +d.datelindje +">" +
-			                     "</div>" + 
-			                     "<div class='col'>" +
-			                     "<label for='email'>Email</label>" +
-			                     "<input type='text' class='form-control' name = 'email' value=" + d.email + ">" +
-			                     "</div>" + 
-			                   // "<input type='button' name='delete' id='delete_id"+ d.id +"' value='delete' class='hidden'>" +
-			                   "<input type='submit' name='submit' id='input_id"+ d.id +"' class='edit_perdorues btn btn-primary' value='ruaj'>" +
-			                   "</div>" +
-			                   "</form>" +
-			                   "<div class = 'message'></div>" +
-			                   "</div>"
-	                     );	//end append
+													$("#perdoruesit").append(
+													                         "<div class = 'row rrjesht' id='perdoruesi"+d.id+"'>" +
+													                        
+													                         "<div class = 'col kolone'id='perdoruesi_id"+d.id+"'>" + d.id + "</div>" + 
+													                         "<div class = 'col kolone'id='perdoruesi_emer"+d.id+"'>" + d.emer + "</div>" + 
+													                         "<div class = 'col kolone'id='perdoruesi_atesia"+d.id+"'>" + d.atesia + "</div>" + 
+													                         "<div class = 'col kolone'id='perdoruesi_mbiemer"+d.id+"'>" + d.mbiemer + "</div>" + 
+													                         "<div class = 'col kolone'id='perdoruesi_gjini"+d.id+"'>" + d.gjini + "</div>" + 
+													                         "<div class = 'col kolone'id='perdoruesi_datelindje"+d.id+"'>" + d.datelindje + "</div>" + 
+													                         "<div class = 'col kolone'id='perdoruesi_rol_id"+d.id+"'>" + d.rol_id + "</div>" + 	
+													                         // "<div class = 'col kolone'id='perdoruesi_statusi"+d.id+"'>" + st + "</div>" + 
+													                         "<div class = 'col-3 kolone email' id='perdoruesi_email"+d.id+"'>" + d.email + "</div>" +
+													                         
+													                         "<div class = 'col kolone '>" + "<span class='eqw' id='edit"+d.id+"'><i class='btn fas fa-pen '></i></span>" + 
+													                         "<span class='' id='delete"+d.id+"'>"+
+													                         "<form id='form_id_delete"+ d.id +"' method = 'POST' action = 'delete_perdorues.php'>" +
+													                         "<input class='fas fa-trash btn' type='submit' name='submit' value='&#xf1f8'>" +
+													                         "</form>"+
+													                         "</span>" + "</div>" + 
+								                     		// "<input  type='text' value = '" + d.emer + "'>" +
+								                     		"</div>" + 
+								                 //inputet per tu ber edit
+								                 // hidden ne fillim
+								                 "<div class = 'row rrjesht hidden' >" +
+								                 "<form id='form_id"+ d.id +"' method = 'POST' action = 'edit_perdorues.php'>" +
+								                 "<div class='row'>" +
+								                 "<div class='col'>" +
+								                 "<label for='emri'>Emer</label>" +
+								                 "<input type='text' class='form-control' name = 'emri' value= " + d.emer + ">" +
+								                 "</div>" + 
+								                 "<div class='col'>" +
+								                 "<label for='atesia'>Atesia</label>" +
+								                 "<input type='text' class='form-control' name = 'atesia' value= " + d.atesia + ">" +
+								                 "</div>" + 
+								                 "<div class='col'>" +
+								                 "<label for='mbiemri'>Mbiemer</label>" +
+								                 "<input type='text' class='form-control' name = 'mbiemri' value=" + d.mbiemer + ">" +
+								                 "</div>" + 
+									                     // "<div class='col'>" + 	
+									                     //   		gjinia +
+									                     // "</div>" + 
+									                     "<div class='col'>" +
+									                     "<label for='datelindja'>Datelindja</label>" +
+									                     "<input type='date' name='datelindja' class='form-control' value=" +d.datelindje +">" +
+									                     "</div>" + 
+									                     "<div class='col'>" +
+									                     "<label for='email'>Email</label>" +
+									                     "<input type='text' class='form-control' name = 'email' value=" + d.email + ">" +
+									                     "</div>" + 
+									                   // "<input type='button' name='delete' id='delete_id"+ d.id +"' value='delete' class='hidden'>" +
+									                   "<input type='submit' name='submit' id='input_id"+ d.id +"' class='edit_perdorues btn fas fa-save' value='&#xf0c7'>" +
+									                   "</div>" +
+									                   "</form>" +
+									                   "<div class = 'message col kolone'></div>" +
+									                   "</div>"
+							                     ); //end append
 							var form = '#form_id'+ d.id;	// selector per formen
 							var edit = '#edit'+ d.id;		// selector per edit
 							var delete_span = '#delete'+ d.id;		// selector per delete
@@ -194,11 +196,11 @@ function krijoForme (data){
 							$(perdoruesi_rol_id).load("trego_rol.php", {
 								rol_id : d.rol_id
 							});							
-							$(perdoruesi).on('mouseenter', function () {
-								$(this).find("span").removeClass('hidden');;
-							}).on('mouseleave', function () {
-								$(this).find("span").addClass('hidden');
-							});
+							// $(perdoruesi).on('mouseenter', function () {
+							// 	$(this).find("span").removeClass('hidden');;
+							// }).on('mouseleave', function () {
+							// 	$(this).find("span").addClass('hidden');
+							// });
 
 							$(edit).click(function(){
 								$(form).parent().toggleClass("hidden");
@@ -229,7 +231,7 @@ function krijoForme (data){
 								});
 							$(form).submit(function(event){
 								event.preventDefault();
-								if(!confirm('Perdoruesit do t\'i ndryshojne te dhenat sipas formes.I sigurt qe doni te vazhdoni ?')){
+								if(!confirm('Perdoruesit do t\'i ndryshojne te dhenat sipas formes.I sigurt qe doni te vazhdoni?')){
 									return false;
 								} else {
 									var id = d.id;

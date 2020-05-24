@@ -110,12 +110,6 @@ function krijoForme (data){
 
 							$("#lendet").append(
 							                         "<div class = 'row rrjesht' id='lende"+d.id_lenda+"'>" +
-							                         "<div class = 'col kolone'>" + "<span class='hidden' id='edit"+d.id_lenda+"'>edit</span>" + 
-							                         "<span class='hidden' id='delete"+d.id_lenda+"'>"+
-							                         "<form id='form_id_delete"+ d.id_lenda +"' method = 'POST' action = 'delete_lende.php'>" +
-							                         "<input type='submit' name='submit' value='delete'>" +
-							                         "</form>"+
-							                         "</span>" + "</div>" + 
 
 							                         "<div class = 'col kolone'id='lende_id"+d.id_lenda+"'>" + d.id_lenda + "</div>" + 
 							                         "<div class = 'col kolone'id='lende_emer"+d.id_lenda+"'>" + d.emer + "</div>" + 
@@ -124,6 +118,13 @@ function krijoForme (data){
 							                         "<div class = 'col kolone'id='lende_ore_totale"+d.id_lenda+"'>" + d.ore_totale + "</div>" + 
 							                         "<div class = 'col kolone'id='lende_viti_i_lendes"+d.id_lenda+"'>" + d.viti_i_lendes + "</div>" + 	
 							                         "<div class = 'col kolone'id='lende_me_zgjedhje"+d.id_lenda+"'>" + zgj + "</div>" + 
+
+							                         "<div class = 'col kolone'>" + "<span class='eqw' id='edit"+d.id_lenda+"'><i class='btn fas fa-pen '></i></span>" + 
+							                         "<span class='eqw' id='delete"+d.id_lenda+"'>"+
+							                         "<form id='form_id_delete"+ d.id_lenda +"' method = 'POST' action = 'delete_lende.php'>" +
+							                         "<input class='fas fa-trash btn' type='submit' name='submit' value='&#xf1f8'>" +
+							                         "</form>"+
+							                         "</span>" + "</div>" + 
 							                         // "<div class = 'col kolone viti_i_lendes' id='lende_viti_i_lendes"+d.id_lenda+"'>" + d.viti_i_lendes + "</div>" +
 		                     		// "<input  type='text' value = '" + d.emer + "'>" +
 		                     		"</div>" + 
@@ -148,10 +149,10 @@ function krijoForme (data){
 		                     "<label for='viti_i_lendes'>Viti i Lendes</label>" +
 		                     "<input type='number' class='form-control' min='1' max='3' step='1' name = 'viti_i_lendes' value=" + d.viti_i_lendes + ">" +
 		                     "</div>" +			                    	
-		                   "<input type='submit' name='submit' id='input_id"+ d.id_lenda +"' class='edit_perdorues btn btn-primary' value='ruaj'>" +
+		                   "<input type='submit' name='submit' id='input_id"+ d.id_lenda +"' class='edit_perdorues btn fas fa-save' value='&#xf0c7'>" +
 		                   "</div>" +
 	                   "</form>" +
-	                   "<div class = 'message'></div>" +
+	                   "<div class = 'message col kolone'></div>" +
 	                   "</div>"
 	                     );	//end append
 							
@@ -174,11 +175,11 @@ function krijoForme (data){
 							});
 							// $(form + '  select').load("load_deget.php");
 
-							$(lende).on('mouseenter', function () {
-								$(this).find("span").removeClass('hidden');;
-							}).on('mouseleave', function () {
-								$(this).find("span").addClass('hidden');
-							});
+							// $(lende).on('mouseenter', function () {
+							// 	$(this).find("span").removeClass('hidden');;
+							// }).on('mouseleave', function () {
+							// 	$(this).find("span").addClass('hidden');
+							// });
 
 							$(edit).click(function(){
 								$(form).parent().toggleClass("hidden");

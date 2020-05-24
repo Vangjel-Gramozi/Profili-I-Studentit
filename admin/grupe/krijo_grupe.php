@@ -22,6 +22,8 @@
 				});
 			});
 		</script>
+	<link rel="stylesheet" type="text/css" href="../includes/krijo.css">
+		
 	</head>
 	<body>
 		<div class="continer row justify-content-center">	

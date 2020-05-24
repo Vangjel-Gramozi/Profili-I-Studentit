@@ -90,16 +90,17 @@ function krijoForme (data){
 
 							$("#deget").append(
 							                         "<div class = 'row rrjesht' id='dega"+d.id_dega+"'>" +
-							                         "<div class = 'col kolone'>" + "<span class='hidden' id='edit"+d.id_dega+"'>edit</span>" + 
-							                         "<span class='hidden' id='delete"+d.id_dega+"'>"+
-							                         "<form id='form_id_delete"+ d.id_dega +"' method = 'POST' action = 'delete_dege.php'>" +
-							                         "<input type='submit' name='submit' value='delete'>" +
-							                         "</form>"+
-							                         "</span>" + "</div>" + 
 
 							                         "<div class = 'col kolone'id='dega_id"+d.id_dega+"'>" + d.id_dega + "</div>" + 
 							                         "<div class = 'col kolone'id='dega_emri"+d.id_dega+"'>" + d.emri + "</div>" + 
 							                         "<div class = 'col kolone'id='dega_kuotat"+d.id_dega+"'>" + d.kuotat + "</div>" + 	
+							                    
+							                         "<div class = 'col kolone'>" + "<span class='eqw' id='edit"+d.id_dega+"'><i class='btn fas fa-pen '></i></span>" + 
+							                         "<span class='' id='delete"+d.id_dega+"'>"+
+							                         "<form id='form_id_delete"+ d.id_dega +"' method = 'POST' action = 'delete_dege.php'>" +
+							                         "<input class='fas fa-trash btn' type='submit' name='submit' value='&#xf1f8'>" +
+							                         "</form>"+
+							                         "</span>" + "</div>" + 
 							                         // "<div class = 'col kolone viti' id='dega_kuotat"+d.id_dega+"'>" + d.viti + "</div>" +
 		                     		// "<input  type='text' value = '" + d.emri_degai + "'>" +
 		                     		"</div>" + 
@@ -116,7 +117,7 @@ function krijoForme (data){
 		                     "<label for='kuotat'>Kuotat</label>" +
 		                     "<input type='number' class='form-control' min='10' step='1' name = 'kuotat' value=" + d.kuotat + ">" +
 		                     "</div>" +			                    	
-		                   "<input type='submit' name='submit' id='input_id"+ d.id_dega +"' class='edit_perdorues btn btn-primary' value='ruaj'>" +
+		                   "<input type='submit' name='submit' id='input_id"+ d.id_dega +"' class='edit_perdorues btn fas fa-save' value='&#xf0c7'>" +
 		                   "</div>" +
 	                   "</form>" +
 	                   "<div class = 'message'></div>" +
@@ -135,11 +136,11 @@ function krijoForme (data){
 							var form_delete = '#form_id_delete'+ d.id_dega;	// selector per formen_delete
 							// $(form + '  select').load("load_deget.php");
 
-							$(dega).on('mouseenter', function () {
-								$(this).find("span").removeClass('hidden');;
-							}).on('mouseleave', function () {
-								$(this).find("span").addClass('hidden');
-							});
+							// $(dega).on('mouseenter', function () {
+							// 	$(this).find("span").removeClass('hidden');;
+							// }).on('mouseleave', function () {
+							// 	$(this).find("span").addClass('hidden');
+							// });
 
 							$(edit).click(function(){
 								$(form).parent().toggleClass("hidden");
