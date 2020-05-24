@@ -36,7 +36,7 @@ if (isset($_POST['search_submit'])){
 			echo $empty;
 			return;
 		}
-	} else {
+	} 
 
 		
 		$query = "SELECT * FROM $table WHERE $search_column LIKE '%$search%'";
@@ -55,7 +55,7 @@ if (isset($_POST['search_submit'])){
 			}';
 			echo $empty;
 		}
-	}
+	
 
 } else {
 	header("Location: admin.php");
