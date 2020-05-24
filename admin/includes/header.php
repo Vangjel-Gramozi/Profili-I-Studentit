@@ -1,4 +1,4 @@
-<?php include "../includes/connect_db.php"; ?>
+<?php include "../../includes/connect_db.php"; ?>
 <?php 
 session_start();
 if ($_SESSION['rol_id'] !== '4') {

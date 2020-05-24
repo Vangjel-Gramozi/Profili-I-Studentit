@@ -57,7 +57,7 @@ if (isset($_POST['login'])){
 			header("Location: ../sekretare.php");
 		}
 		elseif ($_SESSION['rol_id'] == 4) {
-			header("Location: ../admin/admin.php");
+			header("Location: ../admin/perdorues/admin.php");
 		}
 		else {
 			header("Location: ../log-in.php");
