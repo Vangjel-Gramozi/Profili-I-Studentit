@@ -245,7 +245,7 @@ a{
   <div class="navbar">
     <div class="navbar_left">
       <div class="logo">
-        <a href="./admin.php">Profili i Studentit</a>
+        <a href="../perdorues/admin.php">Profili i Studentit</a>
       </div>
     </div>
     <div class="navbar_right">

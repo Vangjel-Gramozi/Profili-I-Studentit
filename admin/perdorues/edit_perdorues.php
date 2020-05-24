@@ -14,13 +14,13 @@ if (isset($_POST['submit'])){
 	$flag = false;
 
 	if (empty($emri) || empty($mbiemri) || empty($atesia) || empty($datelindja) || empty($email)) {
-		echo "Nuk duhen inpute bosh";
+		echo "Nuk duhen inpute bosh<br>";
 		// echo $_POST['gjinia'];
 		$errorEmpty = true;
 	} else {
 		if (!preg_match("/^[a-zA-Z]+$/", $emri) || !preg_match("/^[a-zA-Z]+$/", $mbiemri) || !preg_match("/^[a-zA-Z]+$/", $atesia)) {
 			$errorChar = true;
-			echo "Incorrect input";
+			echo "Incorrect input<br>";
 		} else {
 			// kontrollo per email ekzistues
 			$errorEmpty = false;
@@ -51,28 +51,28 @@ if (isset($_POST['submit'])){
 							echo "emaili i ri: " . $email;
 							$flag = true;
 						} else {
-							echo "Email-i nuk eshte email studenti. Vendosni '@fshnstudent.info'";
+							echo "Email-i nuk eshte email studenti. Vendosni '@fshnstudent.info'<br>";
 						}
 					} else if ($row['rol_id'] == 2) {
 						if(strpos($email, '@fshnpedagog.info') !== false){
 							echo "emaili i ri: " . $email;
 							$flag = true;
 						} else {
-							echo "Email-i nuk eshte email pedagogu. Vendosni '@fshpedagog.info'";
+							echo "Email-i nuk eshte email pedagogu. Vendosni '@fshpedagog.info'<br>";
 						}
 					} else if ($row['rol_id'] == 3) {
 						if(strpos($email, '@fshnsekretare.info') !== false){
 							echo "emaili i ri: " . $email;
 							$flag = true;
 						} else {
-							echo "Email-i nuk eshte email sekretare. Vendosni '@fshsekretare.info'";
+							echo "Email-i nuk eshte email sekretare. Vendosni '@fshsekretare.info'<br>";
 						}
 					}  else if ($row['rol_id'] == 4) {
 						if(strpos($email, '@fshnadmin.info') !== false){
 							echo "emaili i ri: " . $email;
 							$flag = true;
 						} else {
-							echo "Email-i nuk eshte email admini. Vendosni '@fshadmin.info'";
+							echo "Email-i nuk eshte email admini. Vendosni '@fshadmin.info' <br>";
 						}
 					}
 				} else {

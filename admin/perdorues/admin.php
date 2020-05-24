@@ -10,6 +10,7 @@
 <!-- 	<script type="text/javascript" src="search_perdorues.js"></script> -->
 	<div class="container">
 		<div class="row wor"><h1 class="center">Perdoruesit</h1></div>
+		<p id="p_message" class="row wor"></p>
 		<div class="row wor">
 			<div class="col "><a href="krijo_perdorues.php" class="btn" id="krijo_perdorues">Krijo Perdorues</a></div>	
 			<form action = "../includes/search.php" method="POST" id="search">

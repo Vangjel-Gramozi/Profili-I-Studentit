@@ -215,16 +215,21 @@ function krijoForme (data){
 									var submit = $(form_delete + ' input[name="submit"]').val();
 									console.log(submit);
 									// $(form).next('.message').load("delete_perdorues.php", {
-										$(perdoruesi).load("delete_perdorues.php", {
+										$('#p_message').load("delete_perdorues.php", {
 											id: id,
 											submit: submit
 										}, function(data,status){
 											// console.log(data);
 											// console.log(status);
-											if (status == 'success' && data == 'Perdoruesi u fshi') {
+											if (status == 'success') {
+												if (data == 'Perdoruesi u fshi') {
 													setTimeout(function() {
 														$(perdoruesi).remove();
 													}, 2000); 
+												} 
+												setTimeout(function() {
+													$('#p_message').text('');
+												}, 2000); 
 											}
 										});
 									}
