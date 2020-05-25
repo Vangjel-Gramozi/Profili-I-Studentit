@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2020 at 07:54 AM
+-- Generation Time: May 25, 2020 at 12:38 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -62,10 +62,8 @@ CREATE TABLE `dokument` (
 
 INSERT INTO `dokument` (`id_kerkese`, `id_student`, `status`, `lloji`, `nr_kopjeve`) VALUES
 (1, 3, '1', 'Vertetim', 1),
-(2, 3, '1', 'Liste notash', 2),
-(3, 17, '2', 'Vertetim', 1),
-(4, 17, '1', 'Liste notash', 2),
-(5, 17, '3', 'Liste notash', 1);
+(2, 3, '2', 'Liste notash', 2),
+(3, 3, '3', 'Vertetim', 3);
 
 -- --------------------------------------------------------
 
@@ -108,8 +106,25 @@ CREATE TABLE `grupi_student` (
 --
 
 INSERT INTO `grupi_student` (`id_grup`, `id_student`) VALUES
+(6, 26),
+(6, 27),
+(7, 17),
+(7, 18),
+(7, 19),
+(7, 38),
 (8, 3),
-(8, 17);
+(8, 20),
+(8, 21),
+(8, 22),
+(8, 23),
+(8, 30),
+(8, 41),
+(8, 44),
+(10, 29),
+(10, 37),
+(12, 24),
+(12, 25),
+(12, 40);
 
 -- --------------------------------------------------------
 
@@ -147,7 +162,12 @@ CREATE TABLE `jep_mesim_grup` (
 --
 
 INSERT INTO `jep_mesim_grup` (`id_pedagog`, `id_grup`, `id_lende`) VALUES
-(14, 8, 12);
+(14, 12, 9),
+(14, 7, 12),
+(14, 8, 12),
+(14, 6, 13),
+(14, 9, 13),
+(14, 10, 13);
 
 -- --------------------------------------------------------
 
@@ -170,7 +190,7 @@ CREATE TABLE `jep_mesim_lende` (
 --
 
 INSERT INTO `jep_mesim_lende` (`id_pedagog`, `id_lende`, `pike_projekt`, `pike_laborator`, `pike_kologium`, `pike_seminar`, `pike_provim`) VALUES
-(14, 12, 0, 0, 0, 0, 100),
+(14, 12, 0, 30, 0, 0, 70),
 (14, 13, 0, 0, 0, 0, 100),
 (16, 9, 35, 15, 0, 0, 50);
 
@@ -202,7 +222,7 @@ INSERT INTO `lenda` (`id_lenda`, `emer`, `kredite`, `id_dega`, `ore_totale`, `vi
 (10, 'fizika 1', 7, 9, 50, '1', 0),
 (11, 'fizika 2', 11, 9, 75, '2', 0),
 (12, 'algjeber', 7, 8, 58, '1', 0),
-(13, 'uml', 7, 7, 69, '2', 50);
+(13, 'uml', 7, 7, 69, '2', 140);
 
 -- --------------------------------------------------------
 
@@ -228,13 +248,6 @@ CREATE TABLE `ndrysho_password` (
   `email` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `ndrysho_password`
---
-
-INSERT INTO `ndrysho_password` (`id`, `code`, `email`) VALUES
-(1, '15ecb4c7e63631', 'xholjan.malia@fshnstudent.info');
-
 -- --------------------------------------------------------
 
 --
@@ -256,7 +269,25 @@ CREATE TABLE `nota` (
 --
 
 INSERT INTO `nota` (`id_student`, `id_lenda`, `pike_projekt`, `pike_laborator`, `pike_kologium`, `pike_seminar`, `pike_provim`) VALUES
-(17, 13, 0, 0, 0, 0, 100);
+(3, 12, 0, 0, 30, 0, 0),
+(17, 12, 10, 0, 0, 0, 20),
+(18, 12, 10, 0, 0, 0, 30),
+(19, 12, 10, 0, 0, 0, 70),
+(20, 12, 0, 0, 0, 0, 0),
+(21, 12, 0, 0, 0, 0, 0),
+(22, 12, 0, 0, 0, 0, 0),
+(23, 12, 0, 0, 0, 0, 0),
+(24, 13, 0, 0, 0, 0, 0),
+(25, 13, 0, 0, 0, 0, 0),
+(26, 13, 0, 0, 0, 0, 0),
+(27, 13, 0, 0, 0, 0, 0),
+(29, 13, 0, 0, 0, 0, 0),
+(30, 12, 0, 0, 0, 0, 0),
+(37, 13, 0, 0, 0, 0, 0),
+(38, 12, 10, 10, 0, 0, 70),
+(40, 13, 0, 0, 0, 0, 0),
+(41, 12, 0, 0, 0, 0, 0),
+(44, 12, 0, 0, 30, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -287,8 +318,28 @@ INSERT INTO `perdorues` (`id`, `emer`, `mbiemer`, `email`, `password`, `gjini`, 
 (6, 'arlinda', 'profi', 'arlinda.profi@fshnpedagog.info', '$2y$10$hRSmGcvkeMQgH0aPfP1bS.nmOLELKf4Kggjx8a7jbh7ndH.83t1Xu', 'f', '2018-10-29', 2, 'arlinda', NULL),
 (14, 'margerita', 'qerimi', 'margerita.qerimi@fshnpedagog.info', '$2y$10$MGaDOHJFmbY4t03o71Bh5u6KVP0O25jKzrIshJixzcMNtaDeOyMh6', 'f', '1999-02-16', 2, 'mq', NULL),
 (15, 'olsi', 'mustafaj', 'olsi.mustafaj@fshnsekretare.info', '$2y$10$wNV9dgQjTYdNWdyOmAMpCe6PZpzMK2m88doI1O8UDmZNYbxZApBba', 'm', '1999-07-03', 3, 'om', NULL),
-(16, 'ana', 'dhemi', 'ana.dhemi@fshnpedagog.info', '$2y$10$qToxxVm.I2UBBq6emm7Ae.eNAdDTv1lOlBEcYdm4yPLEjgn.d/A..', 'f', '2018-07-12', 2, 'adh', NULL),
-(17, 'stiven', 'kerthi', 'stiven.kerthi@fshnstudent.info', '$2y$10$McgdkWQdC30i4sIVRR/sV.Na9wtlYumn0npC54chhx54aQ3U79D2.', 'm', '1999-04-26', 1, 'ardian', 'i_rregullt');
+(16, 'ana', 'dhembi', 'ana.dhemi@fshnpedagog.info', '$2y$10$qToxxVm.I2UBBq6emm7Ae.eNAdDTv1lOlBEcYdm4yPLEjgn.d/A..', 'f', '2018-07-12', 2, 'adh', NULL),
+(17, 'lola', 'qerimi', 'lola.qerimi@fshnstudent.info', '$2y$10$lmIlJOe.Q0mVOBhIWkdkEeYYzul6gsxD9Al1d6Y8WhkyMaNtB1/hm', 'f', '2000-05-09', 1, 'shkelqim', 'i_rregullt'),
+(18, 'lori', 'gega', 'lori.gega@fshnstudent.info', '$2y$10$MdlOptkbQyongokqioM14.PMnNkBbDN28t4TKWOSflMuQk9KWEfP6', 'm', '1999-05-06', 1, 'tani', 'i_rregullt'),
+(19, 'meisi', 'sulaj', 'meisi.sulaj@fshnstudent.info', '$2y$10$X/FiehX8rl8JEjtzs6kqcOiaxtGQ/rZXChFdG.VK06sSXxXPtYGYC', 'f', '2001-05-13', 1, 'miri', 'i_rregullt'),
+(20, 'doris', 'allamani', 'doris.allamani@fshnstudent.info', '$2y$10$07MHLj3b/vuZBgewTxxbleoJ03hlGcXjzLR4GkzXPlQ7frqeJM6ou', 'm', '2003-05-25', 1, 'andi', 'i_rregullt'),
+(21, 'orkida', 'frangu', 'orkida.frangu@fshnstudent.info', '$2y$10$/DOfHOVXEhJcDoAXFYbkE.VQngdh7K1I/HL6xfFQ/M.q.OfJDcSmm', 'm', '1999-05-07', 1, 'mani', 'i_rregullt'),
+(22, 'jevi', 'doka', 'jevi.doka@fshnstudent.info', '$2y$10$LNIMbwUWj5w/cvCuNlaYF.iCP/rnb/a64YYTLRknX/aSC4xX5jTB.', 'm', '2008-05-20', 1, 'jd', 'i_rregullt'),
+(23, 'sara', 'haxhiaj', 'sara.haxhiaj@fshnstudent.info', '$2y$10$QCCFqXePycOfRKd4vzSPUOxFqyeOaPdlc1CfQFcu0SvDFhnbRuDsK', 'm', '1998-05-14', 1, 'sh', 'i_rregullt'),
+(24, 'valbona', 'doda', 'valbona.doda@fshnstudent.info', '$2y$10$Xmx8Al0epvyenLI6RGTOR.LZZR6vagJz7nmCOX2ABW4tGSPfgtEh.', 'f', '1994-05-22', 1, 'vd', 'i_rregullt'),
+(25, 'xhedi', 'hana', 'xhedi.hana@fshnstudent.info', '$2y$10$uUJNCJccbd8EAvVbNRf3Ge9YrGbVHhSiYvdT8Pp8Lvx8CvxJfMMOG', 'm', '1998-05-21', 1, 'xhh', 'i_rregullt'),
+(26, 'endri', 'duka', 'endri.duka@fshnstudent.info', '$2y$10$Fe1rqQQe/d7B/3FsynDOrOOjtmQk58xXjwB2IEsl1EZ2p9Bw/tQ0W', 'm', '1999-12-31', 1, 'ed', 'i_rregullt'),
+(27, 'hana', 'andrea', 'hana.andrea@fshnstudent.info', '$2y$10$ygOIWO6kugyH9iLYrD/uH.eBpyggbNwqsyRTN7MZ3NUiEy3m69Hx2', 'm', '2000-05-22', 1, 'ha', 'i_rregullt'),
+(28, 'laura', 'ceka', 'laura.ceka@fshnstudent.info', '$2y$10$byva/z7GqnNECun6U8NppO6YladV55RsEETIfjCDOQiqBKPf5DcUS', 'm', '2003-05-11', 1, 'lc', 'i_rregullt'),
+(29, 'zera', 'kuka', 'zera.kuka@fshnstudent.info', '$2y$10$s0vkA5nELJ5IAkAFpgt7muJzfv4Z1EV0TRhY997lRxBhNFofOgaAW', 'f', '2005-05-02', 1, 'zk', 'i_rregullt'),
+(30, 'klark', 'kada', 'klark.kada@fshnstudent.info', '$2y$10$jDWZgNzFBsTaPTYsA/0aMOkroGfS.PwjhX0KoLqZdjOxpFR8DBwwm', 'm', '2002-05-02', 1, 'kk', 'i_rregullt'),
+(37, 'klark', 'kada', 'klark.kada2@fshnstudent.info', '$2y$10$yNW9UFVgU9f.r10VjGcaBOUx9IgfAVwsves9yyLH95E46T6QZBNTq', 'm', '2002-05-02', 1, 'kk', 'i_rregullt'),
+(38, 'klark', 'kada', 'klark.kada3@fshnstudent.info', '$2y$10$/XCAFO56B/0dNc5/5CZ9XeGDgB0cqFLE.51bWKlVpNltUdwQfU3.6', 'm', '2002-05-02', 1, 'kk', 'i_rregullt'),
+(40, 'klark', 'kada', 'klark.kada5@fshnstudent.info', '$2y$10$9tnmFj2tzH4vyg.lcC3v6O7JrgOELaBQm8T4o.pZj2m6c8MWC3Jem', 'm', '2002-05-02', 1, 'kk', 'i_rregullt'),
+(41, 'sindi', 'mana', 'sindi.mana@fshnstudent.info', '$2y$10$jIoVEEqgP4JmTvOT3LAl5O0wSAGq6Ge16mMa9oViEOPzS/aCSEO1.', 'f', '1995-05-15', 1, 'sm', 'i_rregullt'),
+(42, 'klark', 'kada', 'klark.kada11@fshnstudent.info', '$2y$10$Zk1gVa1OM/CAO6A.sHbKe.naYpnjifFnvLgq7oCsopWBJ/7rocp.e', 'm', '2020-05-06', 1, 'kk', 'i_rregullt'),
+(43, 'klark', 'kada', 'klark.kada12@fshnstudent.info', '$2y$10$TDULZ1OjHORTiUUxIPS7R.BbbH1HUg1ooaNB0Ve0xe7E9WDteor4q', 'm', '2004-05-05', 1, 'kk', 'i_rregullt'),
+(44, 'stiven', 'kerthi', 'stiven.kerthi@fshnstudent.info', '$2y$10$yRpJF65hRQrlnPXe/MeKFePekhqL8czIesTjp1ZpVoNMPfeA5NfPO', 'm', '1999-04-26', 1, 'ardian', 'i_rregullt');
 
 -- --------------------------------------------------------
 
@@ -419,7 +470,7 @@ ALTER TABLE `dega`
 -- AUTO_INCREMENT for table `dokument`
 --
 ALTER TABLE `dokument`
-  MODIFY `id_kerkese` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kerkese` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `grupi`
@@ -443,13 +494,13 @@ ALTER TABLE `lenda`
 -- AUTO_INCREMENT for table `ndrysho_password`
 --
 ALTER TABLE `ndrysho_password`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `perdorues`
 --
 ALTER TABLE `perdorues`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Constraints for dumped tables
