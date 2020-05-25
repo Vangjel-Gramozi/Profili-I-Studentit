@@ -17,11 +17,14 @@
 		$tipi = $_POST['tipi'];
 		$sasia = $_POST['sasia'];
 
-		$query = "INSERT INTO dokument (id_student, lloji, nr_kopjove) VALUES ('$id','$tipi','$sasia')";
+		$query = "INSERT INTO dokument (id_student, lloji, nr_kopjeve) VALUES ('$id','$tipi','$sasia')";
 
 		$user_query = mysqli_query($connection, $query);
 		if (!$user_query) {
 			exit("Error");
+		} else {
+			header ("Location: s_dokument_skeleti.php");
+			exit();
 		}
 	}
 

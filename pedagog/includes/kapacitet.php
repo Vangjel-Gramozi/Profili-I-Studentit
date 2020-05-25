@@ -16,7 +16,7 @@ if(isset($_POST['vendos_kapacitet'])){
 $kapacitet=$_POST['kapacitet'];
 $id_lenda=$_GET['id_lenda'];
 
-$query3="UPDATE lenda SET me_zgjedhje='$kapacitet'  WHERE id_lende='$id_lenda'";
+$query3="UPDATE lenda SET me_zgjedhje='$kapacitet'  WHERE id_lenda='$id_lenda'";
 
 $result3=mysqli_query($connection,$query3);
 if(!$result3){

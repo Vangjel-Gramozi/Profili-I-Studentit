@@ -95,8 +95,7 @@
 <hr class="new">
 		<div class="row">
 			<div class="col loc">
-				<label>Fatura e pageses:</label>
-				<button>Download</button>
+
 			</div>
 		</div>
 	</div>
