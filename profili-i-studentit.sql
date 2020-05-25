@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2020 at 06:38 AM
+-- Generation Time: May 25, 2020 at 07:54 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -62,7 +62,10 @@ CREATE TABLE `dokument` (
 
 INSERT INTO `dokument` (`id_kerkese`, `id_student`, `status`, `lloji`, `nr_kopjeve`) VALUES
 (1, 3, '1', 'Vertetim', 1),
-(2, 3, '1', 'Liste notash', 2);
+(2, 3, '1', 'Liste notash', 2),
+(3, 17, '2', 'Vertetim', 1),
+(4, 17, '1', 'Liste notash', 2),
+(5, 17, '3', 'Liste notash', 1);
 
 -- --------------------------------------------------------
 
@@ -105,7 +108,8 @@ CREATE TABLE `grupi_student` (
 --
 
 INSERT INTO `grupi_student` (`id_grup`, `id_student`) VALUES
-(8, 3);
+(8, 3),
+(8, 17);
 
 -- --------------------------------------------------------
 
@@ -224,6 +228,13 @@ CREATE TABLE `ndrysho_password` (
   `email` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `ndrysho_password`
+--
+
+INSERT INTO `ndrysho_password` (`id`, `code`, `email`) VALUES
+(1, '15ecb4c7e63631', 'xholjan.malia@fshnstudent.info');
+
 -- --------------------------------------------------------
 
 --
@@ -239,6 +250,13 @@ CREATE TABLE `nota` (
   `pike_seminar` int(11) DEFAULT NULL,
   `pike_provim` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `nota`
+--
+
+INSERT INTO `nota` (`id_student`, `id_lenda`, `pike_projekt`, `pike_laborator`, `pike_kologium`, `pike_seminar`, `pike_provim`) VALUES
+(17, 13, 0, 0, 0, 0, 100);
 
 -- --------------------------------------------------------
 
@@ -265,12 +283,12 @@ CREATE TABLE `perdorues` (
 
 INSERT INTO `perdorues` (`id`, `emer`, `mbiemer`, `email`, `password`, `gjini`, `datelindje`, `rol_id`, `atesia`, `statusi`) VALUES
 (1, 'vangjel', 'gramozi', 'v@fshnadmin.info', '$2y$10$0spq1Ay89qb6HBH6P.XCC.EtO5y6NgfZc2A5i463xrbnMBbL.k1Na', 'm', '1999-03-22', 4, 'kostandin', NULL),
-(2, 'stiven', 'kerthi', 'stiven.kerthi@fshnadmin.info', '$2y$10$jb.m/IdefmZDUcl7SlpRfuMUvhVlYmBnXhw9oX8MnGDcZ/8Uw9q/S', 'm', '1999-04-26', 4, 'ardian', NULL),
 (3, 'xholjan', 'malia', 'xholjan.malia@fshnstudent.info', '$2y$10$YCsW2EBYqkLqCCn6YbNhlOnFhLyIIkOLSsG9.m1.sI3NIy0abNhNy', 'm', '1998-03-26', 1, 'behar', 'i_rregullt'),
 (6, 'arlinda', 'profi', 'arlinda.profi@fshnpedagog.info', '$2y$10$hRSmGcvkeMQgH0aPfP1bS.nmOLELKf4Kggjx8a7jbh7ndH.83t1Xu', 'f', '2018-10-29', 2, 'arlinda', NULL),
 (14, 'margerita', 'qerimi', 'margerita.qerimi@fshnpedagog.info', '$2y$10$MGaDOHJFmbY4t03o71Bh5u6KVP0O25jKzrIshJixzcMNtaDeOyMh6', 'f', '1999-02-16', 2, 'mq', NULL),
 (15, 'olsi', 'mustafaj', 'olsi.mustafaj@fshnsekretare.info', '$2y$10$wNV9dgQjTYdNWdyOmAMpCe6PZpzMK2m88doI1O8UDmZNYbxZApBba', 'm', '1999-07-03', 3, 'om', NULL),
-(16, 'ana', 'dhemi', 'ana.dhemi@fshnpedagog.info', '$2y$10$qToxxVm.I2UBBq6emm7Ae.eNAdDTv1lOlBEcYdm4yPLEjgn.d/A..', 'f', '2018-07-12', 2, 'adh', NULL);
+(16, 'ana', 'dhemi', 'ana.dhemi@fshnpedagog.info', '$2y$10$qToxxVm.I2UBBq6emm7Ae.eNAdDTv1lOlBEcYdm4yPLEjgn.d/A..', 'f', '2018-07-12', 2, 'adh', NULL),
+(17, 'stiven', 'kerthi', 'stiven.kerthi@fshnstudent.info', '$2y$10$McgdkWQdC30i4sIVRR/sV.Na9wtlYumn0npC54chhx54aQ3U79D2.', 'm', '1999-04-26', 1, 'ardian', 'i_rregullt');
 
 -- --------------------------------------------------------
 
@@ -401,7 +419,7 @@ ALTER TABLE `dega`
 -- AUTO_INCREMENT for table `dokument`
 --
 ALTER TABLE `dokument`
-  MODIFY `id_kerkese` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kerkese` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `grupi`
@@ -425,13 +443,13 @@ ALTER TABLE `lenda`
 -- AUTO_INCREMENT for table `ndrysho_password`
 --
 ALTER TABLE `ndrysho_password`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `perdorues`
 --
 ALTER TABLE `perdorues`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables

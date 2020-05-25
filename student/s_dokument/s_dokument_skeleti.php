@@ -87,7 +87,17 @@
 			<?php echo "$nr_kopjeve"; ?>
 		</div>
 		<div class="col">
-			<?php echo "$status"; ?>
+			<?php 
+			if ($status == 1) {
+				echo "Ne Pritje"; 
+			} else if ($status == 2){
+				echo "U krye";
+			} else {
+				echo "U anullua";
+			}
+			
+
+			 ?>
 		</div>
 	</div>
 				<?php  }  ?>
