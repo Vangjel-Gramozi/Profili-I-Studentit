@@ -35,8 +35,8 @@
 					</div>
 				</div>	
 				<div class="row wor">	
-					<button id="trego_grupe" class="btn">Trego me shume grupe </button>
-					<button id="kthehu_mbrapa" class="btn hidden">Kthehu ne faqen kryesore </button>
+					<button id="trego_grupe" class="btn">Trego me shume grupe</button>
+					<button id="kthehu_mbrapa" class="btn hidden">Kthehu tek te gjitha grupet</button>
 				</div>
 			</div>
 

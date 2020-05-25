@@ -1,11 +1,13 @@
 <?php 
 include '../../includes/connect_db.php';
 if (!isset($_POST['dega'])) {
-	header("Location : admin.php");
+	header("Location : ../perdorues/admin.php");
 	exit();
 } else {
 	$id = $_POST['dega'];
-	$query = "SELECT d.emri FROM dega d INNER JOIN lenda l ON d.id_dega=l.id_dega WHERE l.id_dega = '$id'";
+	$table = $_POST['table'];
+	// print_r($_POST);
+	$query = "SELECT d.emri FROM dega d INNER JOIN $table t ON d.id_dega=t.id_dega WHERE t.id_dega = '$id'";
 	$result = mysqli_query($connection,$query);
 
 	if(!$result) {

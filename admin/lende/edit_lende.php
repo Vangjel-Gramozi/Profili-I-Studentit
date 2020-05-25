@@ -34,22 +34,12 @@ if (isset($_POST['submit'])){
 			$ore_totale = mysqli_real_escape_string($connection, $ore_totale);
 			$viti_i_lendes = mysqli_real_escape_string($connection, $viti_i_lendes);
 
-			$query = "SELECT emer, id_dega FROM lenda WHERE emer = '$emer' AND id_dega = '$id_dega'";
-			$result = mysqli_query($connection,$query);
+	
+			$query1 = "SELECT emer, id_dega, viti_i_lendes FROM lenda WHERE emer = '$emer' AND id_dega = '$id_dega' AND viti_i_lendes = '$viti_i_lendes'";
+			$result1 = mysqli_query($connection,$query1);
 
-			$query2 = "SELECT id_lenda, emer FROM lenda WHERE id_lenda = '$id' AND emer = '$emer'";
-			$result2 = mysqli_query($connection,$query2);
-
-			// $query3 = "SELECT emer, id_dega FROM lenda WHERE id_lenda = '$id' AND id_dega = '$id_dega'";
-			// $result3 = mysqli_query($connection,$query3);
-
-			// echo mysqli_num_rows($result);
-			// echo mysqli_num_rows($result2);
-			// echo mysqli_num_rows($result3);
-			// $row = mysqli_fetch_assoc($result3);
-			// echo ($row['rol_id']);
 			// nuk ekziston lenda ose eshte lende e nje dege tjeter
-			if (mysqli_num_rows($result) == 0 || mysqli_num_rows($result2) == 1) {
+			if (mysqli_num_rows($result1) == 0) {
 				$flag = true;
 			} 	
 				// eshte lende qe po editojme te dhenat
@@ -72,7 +62,7 @@ if (isset($_POST['submit'])){
 		}
 	}
 } else {
-	header("Location: admin.php");
+	header("Location : ../perdorues/admin.php");
 	exit();
 }
 

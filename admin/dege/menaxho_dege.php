@@ -11,6 +11,7 @@
 
 	<div class="container">
 		<div class="row wor"><h1 class="center">Deget</h1></div>
+		<p id="p_message" class="row wor"></p>
 		<div class="row wor">
 			<div class="col"><a href="krijo_dege.php" class="btn" id="krijo_dege">Krijo dege</a></div>
 			<form action = "search.php" method="POST" id="search">
@@ -34,8 +35,8 @@
 			</div>
 		</div>	
 		<div class="row wor">
-			<button id="trego_dege" class="btn">Trego me shume dege </button>
-			<button id="kthehu_mbrapa" class="btn hidden">Kthehu ne faqen kryesore </button>
+			<button id="trego_dege" class="btn">Trego me shume dege</button>
+			<button id="kthehu_mbrapa" class="btn hidden">Kthehu tek te gjitha deget</button>
 		</div>
 	</div>
 

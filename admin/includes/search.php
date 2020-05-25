@@ -58,6 +58,6 @@ if (isset($_POST['search_submit'])){
 	
 
 } else {
-	header("Location: admin.php");
+	header("Location : ../perdorues/admin.php");
 	exit();
 }

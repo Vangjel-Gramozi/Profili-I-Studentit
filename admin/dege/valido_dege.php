@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
 		}
 
 } else {
-	header("Location: admin.php");
+	header("Location : ../perdorues/admin.php");
 	exit();
 }
 ?>

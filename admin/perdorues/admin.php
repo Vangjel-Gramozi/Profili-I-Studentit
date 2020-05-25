@@ -10,6 +10,7 @@
 <!-- 	<script type="text/javascript" src="search_perdorues.js"></script> -->
 	<div class="container">
 		<div class="row wor"><h1 class="center">Perdoruesit</h1></div>
+		<p id="p_message" class="row wor"></p>
 		<div class="row wor">
 			<div class="col "><a href="krijo_perdorues.php" class="btn" id="krijo_perdorues">Krijo Perdorues</a></div>	
 			<form action = "../includes/search.php" method="POST" id="search">
@@ -44,7 +45,7 @@
 		</div>	
 			<div class="row wor">
 				<div class="col"><button id="trego_perdorues" class="btn">Trego me shume perdorues</button></div>
-				<div class="col qwe"><button id="kthehu_mbrapa" class="btn hidden">Kthehu ne faqen kryesore</button></div>
+				<div class="col qwe"><button id="kthehu_mbrapa" class="btn hidden">Kthehu tek te gjitha grupet</button></div>
 		</div>
 	</div>
 

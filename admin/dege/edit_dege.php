@@ -48,12 +48,12 @@ if (isset($_POST['submit'])){
 					die("Query failed") . mysqli_error($connection);
 				}
 			}	else {
-				echo "Ekziston nje dege me kete emri";
+				echo "Ekziston nje dege me kete emer";
 			}
 		}
 	}
 } else {
-	header("Location: admin.php");
+	header("Location : ../perdorues/admin.php");
 	exit();
 }
 

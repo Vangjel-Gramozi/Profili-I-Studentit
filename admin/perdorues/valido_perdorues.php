@@ -22,7 +22,6 @@ if (isset($_POST['submit'])) {
 			
 			$errorEmpty = false;
 			$errorChar = false;
-			echo "<span>SUCCESS</span>";
 			// global $connection;
 			$emri = mysqli_real_escape_string($connection, strtolower($emri));
 			$mbiemri = mysqli_real_escape_string($connection, strtolower($mbiemri));
@@ -61,7 +60,7 @@ if (isset($_POST['submit'])) {
 			if(!$result) {
 				die("Query failed") . mysqli_error($connection);
 			} else {
-				echo " Record Created";
+				echo "Perdoruesi u krijua";
 				// echo errorEmpty;
 			}
 		}

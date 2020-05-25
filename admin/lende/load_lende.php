@@ -22,6 +22,6 @@ if (isset($_POST['startCount']) && isset($_POST['count'])) {
 		echo $empty;
 	}
 } else {
-	header("Location : admin.php");
+	header("Location : ../perdorues/admin.php");
 	exit();
 }

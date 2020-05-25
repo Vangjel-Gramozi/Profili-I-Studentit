@@ -43,7 +43,7 @@
 						<select name="dega" id="dega">
 						</select>
 					</div>
-					<input type="submit" name="submit" class="btn btn-primary" value="Krijo grup" id="submit">
+					<input type="submit" name="submit" class="btn" value="Krijo grup" id="submit">
 				</form>
 				<p id="message"></p>
 			</div>

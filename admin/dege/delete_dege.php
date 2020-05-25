@@ -6,11 +6,11 @@ require '../../includes/connect_db.php';
 		$result = mysqli_query($connection,$query);
 
 		if(!$result) {
-			die("Query failed") . mysqli_error($connection);
+			die("Ekzistojne grupe dhe lende per kete dege") . mysqli_error($connection);
 		} else {
 			echo "Dega u fshi";
 		}
 	} else {
-		header("Location: admin.php");
+		header("Location : ../perdorues/admin.php");
 		exit();
 	}

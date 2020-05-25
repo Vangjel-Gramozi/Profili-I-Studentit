@@ -11,6 +11,6 @@ require '../../includes/connect_db.php';
 			echo "Grupi u fshi";
 		}
 	} else {
-		header("Location: admin.php");
+		header("Location : ../perdorues/admin.php");
 		exit();
 	}
