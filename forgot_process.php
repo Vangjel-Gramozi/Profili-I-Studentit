@@ -84,7 +84,7 @@
  	<br>
  	<label for="exampleInputPassword">Perserisni passwordin: </label>
  	<br>
- 	<input class="form-control" type="repeatPassword" name="repeatPassword" placeholder="Repeat Password">
+ 	<input class="form-control" type="password" name="repeatPassword" placeholder="Repeat Password">
  	<br>
  	<input class="btn" type="submit" name="submit" value="Update password">
  	<div class="njoftim">

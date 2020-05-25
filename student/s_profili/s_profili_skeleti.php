@@ -45,8 +45,8 @@
        			?>
 				</div>
 				<div class="btn_diva">
-					<input type="file" name="image">
-					<button type="submit" name="upload">Ndrysho Foto</button> <br>
+					<input class="qwer" type="file" name="image">
+					<button class="qwer" type="submit" name="upload">Ndrysho Foto</button> <br>
 					<a href="s_profili_ndrysho_pass.php">Nrdrysho Passwordin</a>
 				</div>
 			</div>

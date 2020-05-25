@@ -22,15 +22,13 @@
 				<div class="col small_diva">
 					<button class="butona" onclick="window.location.href='../s_lendet/s_lendet_skeleti_1.php'">Lendet</button>
 				</div>
-			</div>
-			<div class="row medium_diva">
 				<div class="col small_diva">
 					<button class="butona" onclick="window.location.href='../s_dokument/s_dokument_skeleti.php'">Dokument</button>
 				</div>
+			</div>
 <!-- 				<div class="col small_diva">
 					<button class="butona">Orari</button>
 				</div> -->
-			</div>
 		</div>
 	</body>
 
