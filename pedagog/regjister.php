@@ -46,6 +46,7 @@ td{
  	border-radius: 5px;
  	text-align: center;
 }h4{
+	margin-top: 50px;
 	width: 100%;
 	text-align: center;
 	color: black;
@@ -74,8 +75,9 @@ td{
 	include "header.php" ;
 	?>
 	
+	<h4>Lista e studenteve</h4>
 		<table class="containe">
-			 <tr colspan="9"><h4>Grupi</h4></tr>
+			 <tr colspan="9"></tr>
 				<tr>
 					<td>Id studenti</td>
 					<td>Emer</td>
