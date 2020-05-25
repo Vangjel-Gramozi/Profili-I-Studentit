@@ -104,6 +104,7 @@ function closeNav() {
 						$pike_seminar = $row['pike_seminar'];
 						$pike_provim = $row['pike_provim'];
 						$viti_i_lendes = $row['viti_i_lendes'];
+						$totale = ($pike_projekt + $pike_laborator + $pike_seminar + $pike_provim + $pike_provim)/10;
 						
 						if($viti_i_lendes==2){
 						?>
@@ -137,7 +138,7 @@ function closeNav() {
 			<?php echo "$pike_seminar"; ?>
 		</div>
 		<div class="col">
-			Piket T
+			<?php echo "$totale"; ?>
 		</div>
 	</div>
 					<!-- 	echo print_r($row); -->
