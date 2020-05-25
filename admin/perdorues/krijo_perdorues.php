@@ -67,7 +67,7 @@
 						</select>
 					</div>
 
-					<input type="submit" name="submit" class="btn btn-primary" value="Krijo Perdorues" id="submit">
+					<input type="submit" name="submit" class="btn" value="Krijo Perdorues" id="submit">
 
 				</form>
 				<p id="message"></p>

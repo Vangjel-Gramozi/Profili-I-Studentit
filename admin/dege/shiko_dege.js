@@ -163,7 +163,7 @@ function krijoForme (data){
 									var submit = $(form_delete + ' input[name="submit"]').val();
 
 									// $(form).next('.message').load("delete_perdorues.php", {
-										$(dega).load("delete_dege.php", {
+										$('#p_message').load("delete_dege.php", {
 											id: id,
 											submit: submit
 										}, function(data, status){
@@ -172,6 +172,9 @@ function krijoForme (data){
 													$(dega).remove();
 												}, 2000); 
 											}
+											setTimeout(function() {
+												$('#p_message').text('');
+											}, 2000); 
 										});
 									}
 								});

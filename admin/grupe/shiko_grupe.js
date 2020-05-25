@@ -143,7 +143,8 @@ function krijoForme (data){
 							// var delete_id = '#delete_id'+ d.id_grupi;
 							var form_delete = '#form_id_delete'+ d.id_grupi;	// selector per formen_delete
 							$(grup_dega).load("../includes/trego_dege.php", {
-								dega : d.id_dega
+								dega : d.id_dega,
+								table : "grupi"
 							});
 							// $(form + '  select').load("load_deget.php");
 

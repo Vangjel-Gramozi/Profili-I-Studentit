@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var startCount = 0;
-	var userCount = 2;
+	var userCount = 3;
 	$("#trego_perdorues").click(function(){
 		$.ajax({
 			url:"load_perdorues.php",

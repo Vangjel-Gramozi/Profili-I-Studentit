@@ -33,7 +33,10 @@
 					});
 					setTimeout(function() {
 					    $("#message").text('');
-					}, 3500); 
+					}, 3500);
+					 setTimeout(function() {
+					     location.reload();
+					 }, 4000);
 				});
 			});
 		</script>
@@ -77,7 +80,7 @@
 						<select name="dega" id="dega">
 						</select>
 					</div>
-					<input type="submit" name="submit" class="btn btn-primary" value="Krijo lende" id="submit">
+					<input type="submit" name="submit" class="btn" value="Krijo lende" id="submit">
 				</form>
 				<p id="message"></p>
 			</div>

@@ -45,7 +45,7 @@
 		</div>	
 			<div class="row wor">
 				<div class="col"><button id="trego_perdorues" class="btn">Trego me shume perdorues</button></div>
-				<div class="col qwe"><button id="kthehu_mbrapa" class="btn hidden">Kthehu ne faqen kryesore</button></div>
+				<div class="col qwe"><button id="kthehu_mbrapa" class="btn hidden">Kthehu tek te gjitha grupet</button></div>
 		</div>
 	</div>
 

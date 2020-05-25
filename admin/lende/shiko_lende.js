@@ -170,8 +170,10 @@ function krijoForme (data){
 
 							// var delete_id = '#delete_id'+ d.id_lenda;
 							var form_delete = '#form_id_delete'+ d.id_lenda;	// selector per formen_delete
+							$table = "lenda";
 							$(lende_dega).load("../includes/trego_dege.php", {
-								dega : d.id_dega
+								dega : d.id_dega,
+								table : $table
 							});
 							// $(form + '  select').load("load_deget.php");
 

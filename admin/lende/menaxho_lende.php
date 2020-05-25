@@ -42,8 +42,8 @@
 			</div>
 		</div>	
 		<div  class="row wor">
-			<button id="trego_lende" class="btn">Trego me shume lende </button>
-			<button id="kthehu_mbrapa" class="btn hidden">Kthehu ne faqen kryesore </button>
+			<button id="trego_lende" class="btn">Trego me shume lende</button>
+			<button id="kthehu_mbrapa" class="btn hidden">Kthehu tek te gjitha lendet</button>
 		</div>
 	</div>
 

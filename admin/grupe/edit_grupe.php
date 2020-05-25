@@ -27,14 +27,22 @@ if (isset($_POST['submit'])){
 			$emer = mysqli_real_escape_string($connection, strtolower($emer));
 			$viti = mysqli_real_escape_string($connection, $viti);
 
-			$query = "SELECT emer_grupi, id_dega FROM grupi WHERE emer_grupi = '$emer' AND id_dega = '$id_dega'";
-			$result = mysqli_query($connection,$query);
+			$query1 = "SELECT emer_grupi, id_dega FROM grupi WHERE emer_grupi = '$emer' AND id_dega = '$id_dega'";
+			$result1 = mysqli_query($connection,$query1);
+			if (!$result1) {
+				echo "result1 error";
+			} 
+			
 
-			$query2 = "SELECT id_grupi, emer_grupi FROM grupi WHERE id_grupi = '$id' AND emer_grupi = '$emer'";
+			$query2 = "SELECT emer_grupi, id_dega, viti  FROM grupi WHERE emer_grupi = '$emer' AND id_dega = '$id_dega' AND viti = '$viti'";
 			$result2 = mysqli_query($connection,$query2);
 
+			if (!$result2) {
+				echo "result1 error";
+			} 
+
 			// nuk ekziston grupi ose eshte lende e nje dege tjeter
-			if (mysqli_num_rows($result) == 0 || mysqli_num_rows($result2) == 1) {
+			if (mysqli_num_rows($result1) == 0 || mysqli_num_rows($result2) == 0) {
 				$flag = true;
 			} 	
 				// eshte grupi qe po editojme te dhenat
@@ -57,7 +65,7 @@ if (isset($_POST['submit'])){
 		}
 	}
 } else {
-	header("Location: admin.php");
+	header("Location : ../perdorues/admin.php");
 	exit();
 }
 
