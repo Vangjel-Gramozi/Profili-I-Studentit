@@ -16,15 +16,101 @@ $resultcheck2=mysqli_num_rows($result2);
 	<title>Pedagoge Lende|Profili i Studentit</title>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	<link rel="stylesheet" href="./css/pedagog_lende.css">
+
+	<style type="text/css">
+	.container{
+	padding-top: 100px;
+	background: #1a1a1a;
+	opacity: 0.9;
+	margin-top: 100px;
+}
+
+h5 {
+	width: 100%;
+	text-align: center;
+}
+.row.{
+	align-content: center;
+}
+
+.qwe {
+	text-transform: uppercase;
+	background: #f12020;
+ 	opacity: 0.9;
+ 	padding: 10px;
+ 	color: white;
+ 	margin-top: 20px;
+ 	margin-bottom: 20px;
+ 	margin-right: 35%;
+ 	margin-left: 35%;
+ 	border-radius: 5px;
+ 	width: 100%;
+ 	text-align: center;
+}
+
+.qwe:hover {
+	color: #1a1a1a;
+	text-decoration: none;
+}
+
+.ewq {
+	border: none;
+	text-transform: uppercase;
+	background: #f12020;
+ 	opacity: 0.9;
+ 	padding: 10px;
+ 	color: white;
+ 	margin-top: 20px;
+ 	margin-bottom: 20px;
+ 	border-radius: 5px;
+ 	text-align: center;
+}
+
+.ewq:hover {
+	color: #1a1a1a;
+	text-decoration: none;
+}
+
+
+.container{
+	padding-bottom: 100px;
+}
+
+.qwer {
+ 	margin-top: 20px;
+ 	margin-bottom: 20px;
+ 	margin-left: 150px;
+
+}
+
+.form-control{
+	width: 10px;
+}
+
+
+/*.rewq {
+	margin-left: 25%;
+	width: 0%;
+}*/
+
+/*.form-control {
+	width: 100%;
+}
+*/
+</style>
+
 </head>
 <body>
+
+		<?php
+	include "header.php" ;
+	?>
 	<input type="checkbox" id="check">
 	<label for="check">
 		<i class="fas fa-bars" id="btn"></i>
 		<i class="fas fa-times" id="cancel"></i>
 	</label>
 <div class="sidebar">
-	<header>Profili-i-studentit</header>
 			<ul >
 				<li></li>
 				<?php
@@ -37,36 +123,34 @@ $resultcheck2=mysqli_num_rows($result2);
 	?>			
 			</ul>
 	</div>
-	<form action="includes/log_out.inc.php" method="POST">
-		<div class="button1">
-		<button>Log Out</button>
-	</div>
-<?php
-if($resultcheck2>0){
-		while ($rows1=mysqli_fetch_assoc($result2)) {
-			if($rows1['me_zgjedhje']>='1'){
+<div class="container">
+	
+			<?php
+			if($resultcheck2>0){
+					while ($rows1=mysqli_fetch_assoc($result2)) {
+						if($rows1['me_zgjedhje']>='1'){
+							?>
+							<div class="lende">
+								<form action="includes/kapacitet.php?id_lenda=<?php echo $_GET['id_lenda']?>" method="post">
+								<div class="row">	<h5>Kapacitet per lende me zgjedhje:</h5></div><div class="row rewq"><div class="col"></div> <div class="col qwer"><input class="form-control " type="text" name="kapacitet" placeholder="Nr"> </div>
+								<div class="col"><button class="ewq" type="submit" name="vendos_kapacitet">Submit</button></div> <div class="col"></div></div>	
+								</form>
+								<div class="row"><h5>Kapacitet aktual : <?php echo $rows1['me_zgjedhje']?></h5></div>
+								
+							</div>
+							<?php
+						}
+					}
+				}
 				?>
-				<div class="lende">
-					<form action="includes/kapacitet.php?id_lenda=<?php echo $_GET['id_lenda']?>" method="post">
-						Kapacitet per lende me zgjedhje:<input type="text" name="kapacitet"> 
-						<button type="submit" name="vendos_kapacitet">Submit</button>
-					</form>
-					<?php echo $rows1['me_zgjedhje']?>
-					
+
+				<div class="lende row">
+					<a class="qwe" href="vleresimi.php?id_lenda=<?php echo $_GET['id_lenda']?>">Menyra e vleresimit per lenden</a><br>
 				</div>
-				<?php
-			}
-		}
-	}
-	?>
-	
-	<div class="lende">
-		<a href="vleresimi.php?id_lenda=<?php echo $_GET['id_lenda']?>">menyra e vleresimit per lenden</a><br>
-	</div>
-	<div class="lende">
-		<a href="grupet.php?id_lenda=<?php echo $_GET['id_lenda']?>">grupet mesimore</a><br>
-	</div>
-	
+				<div class="lende row">
+					<a class="qwe" href="grupet.php?id_lenda=<?php echo $_GET['id_lenda']?>">Grupet mesimore</a><br>
+				</div>
+</div>
 		
 </body>
 <?php 

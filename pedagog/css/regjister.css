@@ -1,11 +1,4 @@
-body{
-		font:15px/1.5 Arial, Helvetica, sens-serif;
-		padding:0;
-		margin:0;
-		overflow-x: hidden;
-		background-color: #FAEBD7;
-		
-}
+
 
 
 .popup{
@@ -24,9 +17,9 @@ body{
 	width: 30px;
 }
 .popup_content{
-	height: 450px;
+	height: 500px;
 	width: 500px;
-	background:#fff;
+	background:#1a1a1a;
 	padding: 20px;
 	border-radius: 5px;
 	position: relative;
