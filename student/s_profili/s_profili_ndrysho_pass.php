@@ -64,15 +64,15 @@
 		else{
 			$passwordCheck = $_GET['password'];
 			if ($passwordCheck == "notSame") {
-				echo "<p>Ju lutem vendosni pass te njete!</p>";
+				echo "<p>Te dhenat jane vendosur gabim!!!</p>";
 				exit();
 			}
 			elseif ($passwordCheck == "notSameIri") {
-				echo "<p>Ju lutem vendosni nje email te vlefshem!</p>";
+				echo "<p>Te dhenat jane vendosur gabim!!!</p>";
 				exit();
 			}
 			elseif ($passwordCheck == "notSameVjeter") {
-				echo "<p>Emaili i vendosur nuk eshte i rregjistruar tek Profili i Studentit!</p>";
+				echo "<p>Te dhenat jane vendosur gabim!!!</p>";
 				exit();
 			}
 		}
