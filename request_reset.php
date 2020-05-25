@@ -103,6 +103,7 @@ exit();
 	}
 </style>
 <body>
+	<?php include "includes/navBarLogIn.php"; ?>
 	<form method="POST">
 		<div class="form-group">
 			<label for="exampleInputEmail">Adresa Email</label>

@@ -75,6 +75,7 @@
 	}
 </style>
 <body>
+	<?php include "includes/navBarLogIn.php"; ?>
 <form method="POST">
 	<div class="form-group">
 	<label for="exampleInputPassword">Passwordi i ri: </label>
