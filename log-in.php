@@ -9,19 +9,22 @@
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
 <body>
-  <?php include "includes/navBarLogIn.php"; ?>
+	<!-- <img class="wave" src="img/wave.png"> -->
 	<div class="container">
+		<div class="img">
+			<img src="Img/fshnlogo.png">
+		</div>
 		<div class="login-content">
 			<form action="includes/login_process.php" method="post">
-				
+				<img src="Img/profil2.jpg">
 				<h2 class="title">Welcome</h2>
        <div class="input-div one">
         <div class="i">
           <i class="fas fa-user"></i>
         </div>
         <div class="div">
-          <h5></h5>
-          <input type="text" class="input" id="user" name="email" placeholder="Email">
+          <h5>Email</h5>
+          <input type="text" class="input" id="user" name="email" >
         </div>
       </div>
       <div class="input-div pass">
@@ -29,8 +32,8 @@
           <i class="fas fa-lock"></i>
         </div>
         <div class="div">
-          
-          <input type="password" class="input" id="password" name="password" placeholder="Password" >
+          <h5>Password</h5>
+          <input type="password" class="input" id="password" name="password" >
         </div>
       </div>
       <a href="request_reset.php">Forgot Password?</a>
@@ -57,6 +60,7 @@
             exit();
           }
         }
+
         ?>
     </form>
   </div>
