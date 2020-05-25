@@ -11,8 +11,16 @@ if (isset($_POST['login'])){
 	$email = mysqli_real_escape_string($connection, $email);	
 	$password = mysqli_real_escape_string($connection, $password);
 
-	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		echo("Email jo i sakte");
+	if (empty($email) || empty($password)) {
+		header("Location: ../log-in.php?fields=empty");
+		//echo "Plotesoni vendet bosh !";
+		exit();
+	}
+
+	elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		header("Location: ../log-in.php?fields=email");
+		//echo "Vendosni nje email te sakte";
+		exit();
 	} else {
 
 		$query = "SELECT * FROM perdorues WHERE email = '$email'";
@@ -34,9 +42,16 @@ if (isset($_POST['login'])){
 	}*/
 
 	$row = mysqli_fetch_assoc($select_user_query);
-	if ($email !== $row['email'] || !password_verify($password,$row['password'])) { 
-		echo "Ju nuk jeni rregjistruar sakte.";
-	} 
+	if (!isset($row['email'])) { 
+		header("Location: ../log-in.php?fields=emailEmpty");
+		exit();
+		//echo "Ju nuk jeni rregjistruar sakte.";
+	}
+	if (!password_verify($password,$row['password'])) {
+	 	header("Location: ../log-in.php?fields=passwordError");
+	 	exit();
+	 } 
+	
 	elseif ($email == $row['email'] && password_verify($password,$row['password'])) {
 		$_SESSION['id'] = $row['id'];
 		$_SESSION['emer'] = $row['emer'];
@@ -63,7 +78,6 @@ if (isset($_POST['login'])){
 			header("Location: ../log-in.php");
 		}
 	}
-
 }
 }else{
 	header("Location: ../log-in.php");

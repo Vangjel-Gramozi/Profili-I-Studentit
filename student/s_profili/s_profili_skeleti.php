@@ -33,13 +33,26 @@
 <body>
 	<div class="container">
 		<div class="row big_diva">
+			<form method="POST" action="imgUpload.php" enctype="multipart/form-data">
 			<div class="col medium_diva nje">
-				<div class="foto_diva"><img src="vetlla.jpg"></div>
+				<div class="foto_diva"> 
+				<?php 
+					$sql = "SELECT * from image";
+					$result = mysqli_query($connection, $sql);
+
+					$row = mysqli_fetch_array($result);
+      				echo "<img src='../../Img/".$row['image']."' >";
+       			?>
+				</div>
 				<div class="btn_diva">
-					<a href="#">Nrdrysho Foton</a> <br>
+					<input type="file" name="image">
+					<button type="submit" name="upload">Ndrysho Foto</button> <br>
 					<a href="s_profili_ndrysho_pass.php">Nrdrysho Passwordin</a>
 				</div>
 			</div>
+
+
+			</form>
 			<div class="col medium_diva dy">
 				<div class="small_diva">
 					<h4>Informacion Personal:</h4>
