@@ -12,7 +12,7 @@ if(isset($_SESSION['rol_id'])){
  	
  	header("Location: ../log-in.php");
  }
-$query7="SELECT p.id, p.emer , p.mbiemer,n.pike_projekt,n.pike_laborator, n.pike_kologium, n.pike_seminar, n.pike_provim FROM perdorues p INNER JOIN grupi_student gs ON p.id= gs.id_student INNER JOIN nota n ON n.id_student=p.id WHERE gs.id_grup='$id_grupi'";
+$query7="SELECT p.id, p.emer , p.mbiemer,n.pike_projekt,n.pike_laborator, n.pike_kologium, n.pike_seminar, n.pike_provim FROM perdorues p INNER JOIN grupi_student gs ON p.id= gs.id_student INNER JOIN nota n ON n.id_student=p.id WHERE gs.id_grup='$id_grupi' AND n.id_lenda='$id_lenda'";
 $result7=mysqli_query($connection,$query7);
 $resultcheck7=mysqli_num_rows($result7);
 ?>
