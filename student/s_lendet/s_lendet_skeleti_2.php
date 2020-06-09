@@ -70,23 +70,23 @@ function closeNav() {
 		<div class="col">
 			Ore Totale
 		</div>
-		<div class="col">
-			Pike P
+	<div class="col">
+			Provim
 		</div>
 		<div class="col">
-			Pike K
+			Kolegium
 		</div>
 		<div class="col">
-			Pike p
+			Projekt
 		</div>
 		<div class="col">
-			Pike L
+			Laborator
 		</div>
 		<div class="col">
-			Pike S
+			Seminar
 		</div>
 		<div class="col">
-			Pike T
+			Pike Ttotale
 		</div>
 	</div>
 	<?php $nr = 0; $id = $_SESSION['id'];
@@ -104,7 +104,7 @@ function closeNav() {
 						$pike_seminar = $row['pike_seminar'];
 						$pike_provim = $row['pike_provim'];
 						$viti_i_lendes = $row['viti_i_lendes'];
-						$totale = ($pike_projekt + $pike_laborator + $pike_seminar + $pike_provim + $pike_provim)/10;
+						$totale = ($pike_projekt + $pike_laborator + $pike_seminar + $pike_provim + $pike_kologium);
 						
 						if($viti_i_lendes==2){
 						?>

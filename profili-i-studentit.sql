@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2020 at 12:38 PM
+-- Generation Time: Jun 09, 2020 at 02:55 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -62,8 +62,7 @@ CREATE TABLE `dokument` (
 
 INSERT INTO `dokument` (`id_kerkese`, `id_student`, `status`, `lloji`, `nr_kopjeve`) VALUES
 (1, 3, '1', 'Vertetim', 1),
-(2, 3, '2', 'Liste notash', 2),
-(3, 3, '3', 'Vertetim', 3);
+(2, 3, '1', 'Liste notash', 2);
 
 -- --------------------------------------------------------
 
@@ -119,7 +118,6 @@ INSERT INTO `grupi_student` (`id_grup`, `id_student`) VALUES
 (8, 23),
 (8, 30),
 (8, 41),
-(8, 44),
 (10, 29),
 (10, 37),
 (12, 24),
@@ -162,12 +160,23 @@ CREATE TABLE `jep_mesim_grup` (
 --
 
 INSERT INTO `jep_mesim_grup` (`id_pedagog`, `id_grup`, `id_lende`) VALUES
-(14, 12, 9),
-(14, 7, 12),
-(14, 8, 12),
 (14, 6, 13),
+(14, 7, 12),
+(14, 8, 9),
+(14, 8, 13),
 (14, 9, 13),
-(14, 10, 13);
+(14, 10, 13),
+(14, 12, 9),
+(44, 8, 14),
+(44, 8, 15),
+(44, 8, 16),
+(45, 8, 17),
+(45, 8, 18),
+(45, 8, 19),
+(46, 8, 20),
+(46, 8, 21),
+(46, 8, 23),
+(46, 8, 24);
 
 -- --------------------------------------------------------
 
@@ -190,9 +199,21 @@ CREATE TABLE `jep_mesim_lende` (
 --
 
 INSERT INTO `jep_mesim_lende` (`id_pedagog`, `id_lende`, `pike_projekt`, `pike_laborator`, `pike_kologium`, `pike_seminar`, `pike_provim`) VALUES
-(14, 12, 0, 30, 0, 0, 70),
+(14, 8, 10, NULL, 10, NULL, 80),
+(14, 9, 10, 10, NULL, NULL, 80),
+(14, 12, 0, 0, 0, 0, 100),
 (14, 13, 0, 0, 0, 0, 100),
-(16, 9, 35, 15, 0, 0, 50);
+(16, 9, 35, 15, 0, 0, 50),
+(44, 14, 10, 10, NULL, NULL, 80),
+(44, 15, 20, NULL, NULL, NULL, 80),
+(44, 16, 30, NULL, NULL, NULL, 70),
+(45, 17, NULL, NULL, NULL, NULL, 100),
+(45, 18, 30, NULL, NULL, NULL, 70),
+(45, 19, 10, NULL, 10, NULL, 80),
+(46, 20, NULL, NULL, NULL, NULL, 100),
+(46, 21, 10, NULL, 20, NULL, 70),
+(46, 23, NULL, NULL, NULL, NULL, 100),
+(46, 24, NULL, NULL, NULL, NULL, 100);
 
 -- --------------------------------------------------------
 
@@ -222,7 +243,17 @@ INSERT INTO `lenda` (`id_lenda`, `emer`, `kredite`, `id_dega`, `ore_totale`, `vi
 (10, 'fizika 1', 7, 9, 50, '1', 0),
 (11, 'fizika 2', 11, 9, 75, '2', 0),
 (12, 'algjeber', 7, 8, 58, '1', 0),
-(13, 'uml', 7, 7, 69, '2', 140);
+(13, 'uml', 7, 7, 69, '2', 140),
+(14, 'java', 10, 7, 50, '2', 0),
+(15, 'inxhinieri softi', 4, 7, 16, '3', 0),
+(16, 'databaze', 10, 7, 40, '3', 0),
+(17, 'sisteme operimi', 12, 7, 45, '3', 0),
+(18, 'teori gjuhesh', 4, 7, 10, '3', 0),
+(19, 'rrjeta', 9, 7, 40, '3', 0),
+(20, 'sisteme logjike', 5, 7, 30, '1', 0),
+(21, 'bazat e informatikes', 12, 7, 20, '1', 0),
+(23, 'fizike', 10, 7, 44, '1', 0),
+(24, 'algjeber', 7, 7, 20, '1', 0);
 
 -- --------------------------------------------------------
 
@@ -235,6 +266,14 @@ CREATE TABLE `mungesa` (
   `id_student` int(11) NOT NULL,
   `id_lende` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mungesa`
+--
+
+INSERT INTO `mungesa` (`data`, `id_student`, `id_lende`) VALUES
+('2020-06-09 14:41:16', 3, 13),
+('2020-06-09 14:41:25', 3, 13);
 
 -- --------------------------------------------------------
 
@@ -269,25 +308,108 @@ CREATE TABLE `nota` (
 --
 
 INSERT INTO `nota` (`id_student`, `id_lenda`, `pike_projekt`, `pike_laborator`, `pike_kologium`, `pike_seminar`, `pike_provim`) VALUES
-(3, 12, 0, 0, 30, 0, 0),
+(2, 17, 0, 0, 0, 58, 0),
+(3, 9, 10, 10, 0, 0, 80),
+(3, 13, 0, 0, 0, 0, 100),
+(3, 14, 10, 10, 0, 0, 80),
+(3, 15, 10, 0, 0, 0, 80),
+(3, 16, 30, 0, 0, 0, 70),
+(3, 17, 0, 0, 10, 0, 80),
+(3, 18, 0, 0, 0, 0, 100),
+(3, 19, 10, 0, 0, 0, 75),
+(3, 20, 0, 0, 0, 0, 80),
+(3, 21, 0, 0, 0, 0, 100),
+(3, 23, 0, 0, 0, 0, 90),
+(3, 24, 0, 0, 0, 0, 60),
 (17, 12, 10, 0, 0, 0, 20),
 (18, 12, 10, 0, 0, 0, 30),
 (19, 12, 10, 0, 0, 0, 70),
+(20, 9, 5, 5, 0, 0, 60),
 (20, 12, 0, 0, 0, 0, 0),
-(21, 12, 0, 0, 0, 0, 0),
+(20, 13, 0, 0, 0, 0, 75),
+(20, 14, 5, 5, 0, 0, 60),
+(20, 15, 15, 0, 0, 0, 80),
+(20, 16, 20, 0, 0, 0, 60),
+(20, 17, 0, 0, 0, 0, 50),
+(20, 18, 10, 0, 0, 0, 90),
+(20, 19, 0, 0, 0, 0, 60),
+(20, 20, 0, 0, 0, 0, 0),
+(20, 21, 0, 0, 0, 0, 0),
+(20, 23, 0, 0, 0, 0, 0),
+(20, 24, 0, 0, 0, 0, 0),
+(21, 9, 10, 10, 0, 0, 80),
+(21, 12, 10, 0, 0, 0, 90),
+(21, 13, 0, 0, 0, 0, 70),
+(21, 14, 5, 7, 0, 0, 45),
+(21, 15, 10, 0, 0, 0, 70),
+(21, 16, 20, 0, 0, 0, 70),
+(21, 17, 20, 0, 0, 0, 0),
+(21, 18, 0, 0, 0, 0, 7),
+(21, 19, 0, 0, 0, 10, 70),
+(21, 20, 0, 0, 0, 0, 0),
+(21, 21, 0, 0, 0, 0, 0),
+(21, 23, 0, 0, 0, 0, 0),
+(21, 24, 0, 0, 0, 0, 0),
+(22, 9, 5, 7, 0, 0, 75),
 (22, 12, 0, 0, 0, 0, 0),
+(22, 13, 0, 0, 0, 0, 80),
+(22, 14, 1, 0, 0, 0, 67),
+(22, 15, 20, 0, 0, 0, 80),
+(22, 16, 30, 0, 0, 0, 70),
+(22, 17, 0, 0, 10, 0, 90),
+(22, 18, 10, 0, 0, 0, 70),
+(22, 19, 0, 0, 0, 0, 75),
+(22, 20, 0, 0, 0, 0, 0),
+(22, 21, 0, 0, 0, 0, 0),
+(22, 23, 0, 0, 0, 0, 0),
+(22, 24, 0, 0, 0, 0, 0),
+(23, 9, 5, 5, 0, 0, 60),
 (23, 12, 0, 0, 0, 0, 0),
+(23, 13, 0, 0, 0, 0, 90),
+(23, 14, 6, 8, 0, 0, 49),
+(23, 15, 10, 0, 0, 0, 75),
+(23, 16, 10, 0, 0, 0, 50),
+(23, 17, 0, 10, 0, 0, 75),
+(23, 18, 10, 0, 0, 0, 0),
+(23, 19, 0, 0, 0, 0, 60),
+(23, 20, 0, 0, 0, 0, 0),
+(23, 21, 0, 0, 0, 0, 0),
+(23, 23, 0, 0, 0, 0, 0),
+(23, 24, 0, 0, 0, 0, 0),
 (24, 13, 0, 0, 0, 0, 0),
 (25, 13, 0, 0, 0, 0, 0),
 (26, 13, 0, 0, 0, 0, 0),
 (27, 13, 0, 0, 0, 0, 0),
 (29, 13, 0, 0, 0, 0, 0),
-(30, 12, 0, 0, 0, 0, 0),
+(30, 9, 10, 5, 0, 0, 45),
+(30, 12, 10, 0, 0, 10, 80),
+(30, 13, 0, 0, 0, 0, 60),
+(30, 14, 7, 9, 0, 0, 80),
+(30, 15, 20, 0, 0, 0, 60),
+(30, 16, 20, 0, 0, 0, 70),
+(30, 17, 10, 0, 0, 0, 70),
+(30, 18, 0, 0, 0, 0, 60),
+(30, 19, 0, 0, 0, 0, 60),
+(30, 20, 0, 0, 0, 0, 0),
+(30, 21, 0, 0, 0, 0, 0),
+(30, 23, 0, 0, 0, 0, 0),
+(30, 24, 0, 0, 0, 0, 0),
 (37, 13, 0, 0, 0, 0, 0),
 (38, 12, 10, 10, 0, 0, 70),
 (40, 13, 0, 0, 0, 0, 0),
+(41, 9, 5, 7, 0, 0, 80),
 (41, 12, 0, 0, 0, 0, 0),
-(44, 12, 0, 0, 30, 0, 0);
+(41, 13, 0, 0, 0, 0, 100),
+(41, 14, 10, 10, 0, 0, 69),
+(41, 15, 20, 0, 0, 0, 75),
+(41, 16, 20, 0, 0, 0, 60),
+(41, 17, 0, 0, 10, 0, 0),
+(41, 18, 0, 0, 0, 0, 30),
+(41, 19, 0, 0, 0, 0, 50),
+(41, 20, 0, 0, 0, 0, 0),
+(41, 21, 0, 0, 0, 0, 0),
+(41, 23, 0, 0, 0, 0, 0),
+(41, 24, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -314,6 +436,7 @@ CREATE TABLE `perdorues` (
 
 INSERT INTO `perdorues` (`id`, `emer`, `mbiemer`, `email`, `password`, `gjini`, `datelindje`, `rol_id`, `atesia`, `statusi`) VALUES
 (1, 'vangjel', 'gramozi', 'v@fshnadmin.info', '$2y$10$0spq1Ay89qb6HBH6P.XCC.EtO5y6NgfZc2A5i463xrbnMBbL.k1Na', 'm', '1999-03-22', 4, 'kostandin', NULL),
+(2, 'stiven', 'kerthi', 'stiven.kerthi@fshnadmin.info', '$2y$10$jb.m/IdefmZDUcl7SlpRfuMUvhVlYmBnXhw9oX8MnGDcZ/8Uw9q/S', 'm', '1999-04-26', 4, 'ardian', NULL),
 (3, 'xholjan', 'malia', 'xholjan.malia@fshnstudent.info', '$2y$10$YCsW2EBYqkLqCCn6YbNhlOnFhLyIIkOLSsG9.m1.sI3NIy0abNhNy', 'm', '1998-03-26', 1, 'behar', 'i_rregullt'),
 (6, 'arlinda', 'profi', 'arlinda.profi@fshnpedagog.info', '$2y$10$hRSmGcvkeMQgH0aPfP1bS.nmOLELKf4Kggjx8a7jbh7ndH.83t1Xu', 'f', '2018-10-29', 2, 'arlinda', NULL),
 (14, 'margerita', 'qerimi', 'margerita.qerimi@fshnpedagog.info', '$2y$10$MGaDOHJFmbY4t03o71Bh5u6KVP0O25jKzrIshJixzcMNtaDeOyMh6', 'f', '1999-02-16', 2, 'mq', NULL),
@@ -339,7 +462,9 @@ INSERT INTO `perdorues` (`id`, `emer`, `mbiemer`, `email`, `password`, `gjini`, 
 (41, 'sindi', 'mana', 'sindi.mana@fshnstudent.info', '$2y$10$jIoVEEqgP4JmTvOT3LAl5O0wSAGq6Ge16mMa9oViEOPzS/aCSEO1.', 'f', '1995-05-15', 1, 'sm', 'i_rregullt'),
 (42, 'klark', 'kada', 'klark.kada11@fshnstudent.info', '$2y$10$Zk1gVa1OM/CAO6A.sHbKe.naYpnjifFnvLgq7oCsopWBJ/7rocp.e', 'm', '2020-05-06', 1, 'kk', 'i_rregullt'),
 (43, 'klark', 'kada', 'klark.kada12@fshnstudent.info', '$2y$10$TDULZ1OjHORTiUUxIPS7R.BbbH1HUg1ooaNB0Ve0xe7E9WDteor4q', 'm', '2004-05-05', 1, 'kk', 'i_rregullt'),
-(44, 'stiven', 'kerthi', 'stiven.kerthi@fshnstudent.info', '$2y$10$yRpJF65hRQrlnPXe/MeKFePekhqL8czIesTjp1ZpVoNMPfeA5NfPO', 'm', '1999-04-26', 1, 'ardian', 'i_rregullt');
+(44, 'ema', 'koci', 'ema.koci@fshnpedagog.info', '$2y$10$JQeHbdYCCro9ciBl8rQtSeTn4dlfhibmOADh/bOxxc6gydB2OqCQG', 'f', '1999-06-10', 2, 'edmond', NULL),
+(45, 'jona', 'lila', 'jona.lila@fshnpedagog.info', '$2y$10$u9/osUcc4T34Hy6JtF8I0e8Rt4DMnNt7HDYZ64faUvjWRIz7j3WR6', 'f', '1999-01-09', 2, 'lefter', NULL),
+(46, 'fiona', 'kana', 'fiona.kana@fshnpedagog.info', '$2y$10$patJWUvbflmT/EiMmff.BOkEA8ZABnni9L7AyCvi9xXTTKbrzojE.', 'f', '1996-12-28', 2, 'mondi', NULL);
 
 -- --------------------------------------------------------
 
@@ -404,7 +529,7 @@ ALTER TABLE `image`
 -- Indexes for table `jep_mesim_grup`
 --
 ALTER TABLE `jep_mesim_grup`
-  ADD PRIMARY KEY (`id_pedagog`,`id_grup`),
+  ADD PRIMARY KEY (`id_pedagog`,`id_grup`,`id_lende`) USING BTREE,
   ADD KEY `id_grup` (`id_grup`),
   ADD KEY `id_lende` (`id_lende`);
 
@@ -470,7 +595,7 @@ ALTER TABLE `dega`
 -- AUTO_INCREMENT for table `dokument`
 --
 ALTER TABLE `dokument`
-  MODIFY `id_kerkese` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kerkese` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `grupi`
@@ -488,19 +613,19 @@ ALTER TABLE `image`
 -- AUTO_INCREMENT for table `lenda`
 --
 ALTER TABLE `lenda`
-  MODIFY `id_lenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_lenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `ndrysho_password`
 --
 ALTER TABLE `ndrysho_password`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `perdorues`
 --
 ALTER TABLE `perdorues`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- Constraints for dumped tables
